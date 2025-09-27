@@ -1,0 +1,134 @@
+/* ===== 主题色（把你给的 SCSS 变量改为 CSS 变量） ===== */
+:root{
+  --c1: #e4efff;
+  --c2: #fff9ea;
+  --c3: #cde0ff;
+  --c4: #fff9ea;
+  --c5: #e4efff;
+  --c6: #fff9ea;
+  --c7: #cde0ff;
+  --c8: #fff9ea;
+  --c9: #cde0ff;
+  --c10: #fff9ea;
+}
+
+/* ===== Lenis 兼容层（来自你给的 SCSS 片段的等价写法） ===== */
+html.lenis{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto; }
+.lenis.lenis-smooth [data-lenis-prevent]{ overscroll-behavior:contain; }
+.lenis.lenis-scrolling iframe{ pointer-events:none; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+/* ===== 分屏基础 ===== */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background:#ffffff;
+}
+
+/* 每一屏：100vh；保留你给的上下 120px 视觉留白值即可 */
+.section{
+  min-height:100vh;
+  padding:var(--top-gap) 0;     /* 用变量控制上下留白 */
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* 为了接近你示例的层叠背景感，按顺序给每屏背景色（可自定义或全部黑） */
+.section.one   { background: var(--c1); z-index:1; }
+.section.two   { background: var(--c2); z-index:2; }
+.section.three { background: var(--c3); z-index:3; }
+.section.four  { background: var(--c4); z-index:4; }
+.section.five  { background: var(--c5); z-index:5; }
+.section.six   { background: var(--c6); z-index:6; }
+.section.seven { background: var(--c7); z-index:7; }
+
+/* 分屏内只放图：占满容器但不裁切（按作品图尺寸自适应） */
+.section .grid-container{ width:100%; }
+.section .grid-x{ width:100%; }
+.section .cell{
+  width:100%;
+  /* 高度 = 视口高 - 上下留白，保证容器能把图居中 */
+  height: calc(100vh - (var(--top-gap) * 2));
+  display:grid;
+  place-items:center;
+}
+
+/* 图框 */
+.section figure{
+  margin:0;
+  width:min(1100px, 90vw);
+  height: var(--frame-h);        /* 不满屏的可控高度 */
+  border-radius:0px;
+  overflow:hidden;
+  background:#ffffff;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  display:grid;
+  place-items:center;
+
+  transform: translateY(calc(-1 * var(--lift))); /* ← 再往上一点 */
+}
+
+/* ===== 图片：保持比例，顶部对齐（向上移动） ===== */
+.section img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;           /* 保持完整显示 */
+  object-position: center center; /* 居中（不再 top center） */
+  display:block;
+}
+
+/* 如果需要更多页，JS 会创建 .section.eight/.nine …，统一深色背景 */
+.section.auto { background:#ffffff; }
+
+/* 小屏优化 */
+@media (max-width: 640px){
+  .section figure{ border-radius:12px; }
+}
+
+/* ===== Mini TOC（顶部左侧胶囊） ===== */
+.mini-toc{
+  position: fixed;
+  top: 16px; 
+  left: 50%;
+  transform: translateX(-50%);  /* ⬅ 居中对齐 */
+  z-index: 9;
+  display: flex; gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* 也可以用竖向：给 .mini-toc 加 .left 即可
+.mini-toc.left{ flex-direction:column; top: 50%; transform: translateY(-50%); }
+*/
+
+.mini-toc .toc-btn{
+  appearance: none; border: 0; cursor: pointer;
+  padding: 8px 14px; border-radius: 999px;
+  font: 700 14px/1.1 "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #1f2937; background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+/* 有趣一点的 hover/active 效果 */
+.mini-toc .toc-btn:hover{
+  transform: translateY(-2px) rotate(-1deg) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  filter: brightness(1.05);
+}
+.mini-toc .toc-btn:active{
+  transform: translateY(0) rotate(0) scale(.98);
+}
+
+/* 低动效偏好时，减少动画 */
+@media (prefers-reduced-motion: reduce){
+  .mini-toc .toc-btn{ transition: none; }
+}

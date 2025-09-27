@@ -1,0 +1,231 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Yatra+One&display=swap');
+
+/* Define color variables */
+:root {
+    --primary-color: #005EA2;
+    --secondary-color: #D43321;
+    --tertiary-color: #FFB016;
+    --heading-color: #131313;
+    --subtitle-color: #B7B7B7;
+    --background-color: #FFFFFF;
+    --useful-color: #FF7C1D;
+}
+
+/* Global font and body styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--heading-color);
+}
+
+/* Heading styles from h1 to h5 */
+h1, h2, h3, h4, h5 {
+    font-family: 'Yatra One', cursive;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 18px;
+}
+
+h3 {
+    font-size: 1.75em;
+    margin-bottom: 16px;
+}
+
+h4 {
+    font-size: 1.5em;
+    margin-bottom: 14px;
+}
+
+h5 {
+    font-size: 1.25em;
+    margin-bottom: 12px;
+}
+
+
+/* 菜单 */
+.floating-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+.floating-menu .item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.floating-menu i {
+    font-size: 20px;
+    color: #222;
+}
+
+.floating-menu .item img {
+    width: 36px;       /* 图标更大 */
+    height: 36px;
+    display: block;    /* 避免 baseline 偏移 */
+    margin: 0 auto;    /* 保证水平居中 */
+    transform: translateY(7px); /* 向下挪一点 */
+}
+
+
+/* Loading screen styles */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0074d9; /* 背景色，可改成你的主色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* 保证在最上层 */
+}
+
+#loading-screen img {
+  width: 150px;  /* 调整加载图大小 */
+  height: auto;
+}
+
+
+
+/* ===== 鼠标 Custom Cursor Trail ===== */
+:root{
+  --cursor-size: 26px;
+  --cursor-fill: rgba(113, 141, 194, 0.1);   /* 主橙 #FF7C1D 的半透填充 */
+  --cursor-stroke: rgba(25, 81, 158, 0.45); /* 主橙描边 */
+}
+
+.cursor-trail{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;      /* 不遮挡点击 */
+  z-index: 99999;            /* 盖在最上 */
+}
+
+.cursor-dot{
+  position: fixed;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: var(--cursor-fill);
+  border: 1.5px solid var(--cursor-stroke);
+  box-sizing: border-box;
+  will-change: transform, left, top;
+  transition: transform .22s ease, opacity .25s ease;
+}
+
+/* 渐进延迟，形成拖尾 */
+.cursor-dot.d1{ transition-duration: .06s; }
+.cursor-dot.d2{ transition-duration: .10s; }
+.cursor-dot.d3{ transition-duration: .14s; }
+.cursor-dot.d4{ transition-duration: .18s; }
+.cursor-dot.d5{ transition-duration: .22s; }
+
+/* 可选：当悬停可点击元素时把第一个点放大，形成“磁吸”提示 */
+a:hover ~ .cursor-trail .cursor-dot.d1,
+button:hover ~ .cursor-trail .cursor-dot.d1{ transform: translate(-50%,-50%) scale(1.15); }
+
+/* 进入/离开视窗的显隐 */
+.cursor-trail.hidden .cursor-dot{ opacity: 0; }
+
+/* 适配：用户偏好减少动效、触屏设备禁用 */
+@media (prefers-reduced-motion: reduce){
+  .cursor-trail{ display:none !important; }
+}
+@media (pointer: coarse){
+  .cursor-trail{ display:none !important; }
+}
+
+/* 隐藏系统鼠标，只保留自定义 cursor trail */
+html, body{ cursor: none; }
+
+/* 常见可点击元素通常会把 cursor 改成 pointer，这里强制也隐藏 */
+:where(a, button, [role="button"], label, summary){ cursor: none !important; }
+
+/* 表单编辑时仍显示文本插入光标（不影响你自定义的圆圈跟随） */
+:where(input, textarea, select){ cursor: text !important; }
+
+
+/* === Fancy Button（修正版：去外层阴影，正反面重叠） === */
+.fancy-button{
+  position: relative;
+  display: inline-block;      /* 外层不再加阴影/背景 */
+  perspective: 1000px;
+  cursor: pointer;
+  margin-top: 1.5rem;         /* ↑ 按钮与上方增加距离（你要的效果） */
+}
+
+.fancy-button .fancy-flipper{
+  position: relative;
+  display: grid;              /* 用 grid 让两面重叠在同一层 */
+  transform-style: preserve-3d;
+  transition: transform .35s ease;
+}
+
+.fancy-button .fancy-front,
+.fancy-button .fancy-back{
+  grid-area: 1 / 1;           /* 两面重叠 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  padding: .8rem 1.1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* 可配置颜色（默认蓝） */
+.fancy-button{
+  --front-color: #005EA2;     /* 正面底色 */
+  --back-color:  #005EA2;     /* 反面文字/边框色 */
+  --back-bg:     transparent; /* 反面背景色 */
+}
+
+/* 正面：把阴影放在正面，不放在外层，避免“白卡片” */
+.fancy-button .fancy-front{
+  background: var(--front-color);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+
+/* 反面：保持重叠且可自定义背景 */
+.fancy-button .fancy-back{
+  background: var(--back-bg);
+  border: 2px solid var(--back-color);
+  color: var(--back-color);
+  transform: rotateX(180deg);
+}
+
+/* 交互 */
+.fancy-button:hover .fancy-flipper{ transform: rotateX(180deg); }
+.fancy-button:active .fancy-flipper{ transform: rotateX(180deg) scale(.95); }
+
+/* 图标大小与右侧间距 */
+.fancy-button .fit-cta__icon{
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+  display: block;
+}

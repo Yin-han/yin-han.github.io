@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About me — Yinhan Liu</title>
+
+  <!-- Foundation 栅格 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+  <!-- 字体（可换） -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+  <!-- 你的主题与本页样式 -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/me.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <img src="images/loading.gif" alt="Loading..." />
+  </div>
+
+
+  <!-- Section 1：封面 -->
+  <section class="grid-container full section one">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-middle">
+        <!-- 左侧：About me -->
+        <div class="cell small-12 medium-6">
+          <h1 class="about-title">About me</h1>
+        </div>
+
+        <!-- 右侧：新文案（正文字体） -->
+        <div class="cell small-12 medium-6">
+          <div class="intro-text">
+            <h2>Every story needs a beginning—<br/>This is mine.</h2>
+            <p class="subline">Not perfect. Not finished. Always evolving.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section 2：My Glow Up -->
+  <section class="grid-container full section two">
+    <div class="grid-container glowup">
+      <div class="grid-x grid-padding-x">
+        <!-- 顶部标题 -->
+        <div class="cell small-12">
+          <h1 class="glowup-title">My Glow Up</h1>
+        </div>
+
+      
+        <!-- 块 A：头像 + 三行字（独立部分） -->
+        <div class="cell small-12">
+          <div class="glowup-introRow">
+            <!-- 头像动画 -->
+            <div class="glowup-avatar kz-photo">
+            <!-- 线条动画：放在最上层 -->
+            <svg class="kz-photo-line" viewBox="0 0 227 224" preserveAspectRatio="xMidYMid meet">
+              <circle class="line circle" cx="114" cy="112" r="107"/>
+              <path class="line torso" d="M208.359,164.118 ...（保持你原来的路径）"/>
+              <path class="line hair"  d="M181.811,151.482 ..."/>
+              <path class="line face"  d="M149.146,86.429 ..."/>
+            </svg>
+
+            <!-- 你的照片 -->
+            <img src="images/my_photo2.png" alt="Yinhan Liu">
+          </div>
+
+
+            <div class="glowup-intro">
+              <h2>Hi,</h2>
+              <h2>I’m Yinhan Liu !</h2>
+              <p>“Gradually becoming the person I want to be.”</p>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- 块 B：时间线 + 卡片（互不影响） -->
+        <div class="cell small-12 glowup-track">
+          <!-- 左：时间线 -->
+          <div class="track-left">
+            <div class="glowup-timeline">
+              <div class="timeline-rail">
+                <span class="line-base"></span>
+                <span class="line-draw"></span>
+              </div>
+              <ul class="timeline-dots">
+                <li data-target="#edu"><span class="dot"></span></li>
+                <li data-target="#course"><span class="dot"></span></li>
+                <li data-target="#certs"><span class="dot"></span></li>
+                <li data-target="#skills"><span class="dot"></span></li>
+                <li data-target="#campus"><span class="dot"></span></li>
+              </ul>
+              <div class="timeline-caption">My story is still unfolding...</div>
+            </div>
+          </div>
+
+          <!-- 右：卡片 -->
+          <div class="track-right">
+            <article id="edu" class="glowup-card orange timeline-content js--fadeInRight">
+              <h2>EDUCATION</h2>
+              <div class="edu-row">
+                <span class="edu-date">Jul 2024 – Jun 2026</span>
+                <span class="edu-txt">The University of Queensland (QS:40+) | <strong>Master of Interaction Design</strong></span>
+              </div>
+              <div class="edu-row">
+                <span class="edu-date">Sep 2018 – Jul 2022</span>
+                <span class="edu-txt">Tiangong University (China) | <strong>Bachelor of Fashion Design and Engineering</strong></span>
+              </div>
+            </article>
+
+            <article id="course" class="glowup-card border timeline-content js--fadeInRight">
+              <h2>RELEVANT COURSEWORK</h2>
+              <p><em>Postgraduate - Interaction Design</em></p>
+              <p>Design Thinking, Information Visualization, HCI, Digital Health Software Projects, Digital Prototyping &amp; XR, Web Design</p>
+              <p><em>Undergraduate - Fashion Design &amp; Engineering</em></p>
+              <p>Clothing Foreign Trade Practice, Garment Draping, Clothing Materials, Fashion Design, Clothing E-commerce, Clothing Ergonomics</p>
+            </article>
+
+            <article id="certs" class="glowup-card orange timeline-content js--fadeInRight">
+              <h2>CERTIFICATIONS</h2>
+              <p><strong>CPR Certificate</strong> (Cardiopulmonary Resuscitation)</p>
+              <p><strong>ACE-CPT</strong> (Certified Personal Trainer by the American Council on Exercise)</p>
+              <p>Multiple campus and off-campus <strong>awards in arts competitions</strong></p>
+            </article>
+
+
+            <article id="skills" class="glowup-card border timeline-content js--fadeInRight">
+              <h2>SKILLS</h2>
+              <p><strong>Languages:</strong> CET-4 &amp; CET-6, PTE Academic 68</p>
+              <p><strong>Design:</strong> Figma, Illustrator, Photoshop, Procreate, Flourish, Unity3D</p>
+              <p><strong>Programming:</strong> HTML, CSS, JavaScript, Python</p>
+              <p><strong>Office Software:</strong> Word, Excel, PowerPoint</p>
+              <p><strong>Interests:</strong> Vocal music, piano, guitar, painting, badminton, volunteer</p>
+            </article>
+
+            <article id="campus" class="glowup-card orange timeline-content js--fadeInRight">
+              <h2>CAMPUS EXPERIENCE</h2>
+              <p><strong>Volunteer &amp; Event Support Roles | Youngcare, UniSport, UQ Library</strong></p>
+              <p>Supported large-scale charity raffles, achieving top sales performance with individual session sales exceeding AUD 1,437</p>
+              <p>Assisted UniSport national competitions (e.g., trampolining, cheerleading) with event operations and venue coordination</p>
+              <p>Provided on-site support for major exhibitions, managing logistics and multitasking across roles to enhance responsiveness under pressure</p>
+              <br/>
+              <p><strong>Extracurricular Activities &amp; Awards (Undergraduate)</strong></p>
+              <p>Awarded First Prize as choir lead singer (2019)</p>
+              <p>Named “Campus Voice Star” for multiple performances</p>
+              <p>Won several awards in university badminton tournaments</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Section 3：占位（可写 Awards / Publications 等） -->
+  <section class="grid-container full section three">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="cell">
+          <h1>Passion Corners</h1>
+          <p class="subline">My hobbies add color to my world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section 4：三段文案 + 右侧固定图切换（你的“Artworks/Volunteer/Hobbies”也可放这里） -->
+  <!-- ===== Section: Artwork（无限滚动 + 点击放大） ===== -->
+  <section class="section artwork" id="artwork">
+    <div class="grid-container">
+      <h1>Artwork</h1>
+      <!-- <p class="art-sub">A selection of my drawings & paintings.</p> -->
+
+      <!-- 按钮：展开所有图片 -->
+      <button class="art-toggle" id="art-showall-toggle" aria-label="Show all artworks">
+        <span>Show all artworks</span>
+        <svg aria-hidden="true" viewBox="0 0 512 512" width="100">
+          <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm0 64a32 32 0 1 1 0 64 32 32 0 0 1 0-64zm0 96c17.67 0 32 14.33 32 32v160c0 17.67-14.33 32-32 32s-32-14.33-32-32V240c0-17.67 14.33-32 32-32z"/>
+        </svg>
+      </button>
+
+      <!-- ===== All artworks overlay (for #art-showall-toggle) ===== -->
+      <div class="art-all-overlay" id="artAllOverlay" aria-hidden="true">
+        <button class="art-all__close" aria-label="Close">×</button>
+        <div class="art-all__grid" id="artAllGrid"></div>
+      </div>
+
+
+      <!-- 画廊：两排无限滚动（结构修复版） -->
+      <article class="art-wrapper">
+        <!-- 第 1 排（正向滚动） -->
+        <div class="marquee">
+          <div class="marquee__group">
+            <figure class="item art-card"><img src="images/art1.jpg"  data-full="images/art1.jpg"  alt="Artwork 1"></figure>
+            <figure class="item art-card"><img src="images/art2.jpg"  data-full="images/art2.jpg"  alt="Artwork 2"></figure>
+            <figure class="item art-card"><img src="images/art3.jpg"  data-full="images/art3.jpg"  alt="Artwork 3"></figure>
+            <figure class="item art-card"><img src="images/art4.jpg"  data-full="images/art4.jpg"  alt="Artwork 4"></figure>
+            <figure class="item art-card"><img src="images/art5.jpg"  data-full="images/art5.jpg"  alt="Artwork 5"></figure>
+            <figure class="item art-card"><img src="images/art6.jpg"  data-full="images/art6.jpg"  alt="Artwork 6"></figure>
+            <figure class="item art-card"><img src="images/art7.jpg"  data-full="images/art7.jpg"  alt="Artwork 7"></figure>
+            <figure class="item art-card"><img src="images/art8.jpg"  data-full="images/art8.jpg"  alt="Artwork 8"></figure>
+            <figure class="item art-card"><img src="images/art9.jpg"  data-full="images/art9.jpg"  alt="Artwork 9"></figure>
+            <figure class="item art-card"><img src="images/art10.jpg" data-full="images/art10.jpg" alt="Artwork 10"></figure>
+          </div>
+          <!-- 复制一组用于无缝循环 -->
+          <div class="marquee__group" aria-hidden="true">
+            <figure class="item art-card"><img src="images/art1.jpg"  data-full="images/art1.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art2.jpg"  data-full="images/art2.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art3.jpg"  data-full="images/art3.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art4.jpg"  data-full="images/art4.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art5.jpg"  data-full="images/art5.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art6.jpg"  data-full="images/art6.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art7.jpg"  data-full="images/art7.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art8.jpg"  data-full="images/art8.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art9.jpg"  data-full="images/art9.jpg"  alt=""></figure>
+            <figure class="item art-card"><img src="images/art10.jpg" data-full="images/art10.jpg" alt=""></figure>
+          </div>
+        </div>
+
+        <!-- 第 2 排（反向滚动） -->
+        <div class="marquee marquee--reverse">
+          <div class="marquee__group">
+            <figure class="item art-card"><img src="images/art11.jpg" data-full="images/art11.jpg" alt="Artwork 11"></figure>
+            <figure class="item art-card"><img src="images/art12.jpg" data-full="images/art12.jpg" alt="Artwork 12"></figure>
+            <figure class="item art-card"><img src="images/art13.jpg" data-full="images/art13.jpg" alt="Artwork 13"></figure>
+            <figure class="item art-card"><img src="images/art14.jpg" data-full="images/art14.jpg" alt="Artwork 14"></figure>
+            <figure class="item art-card"><img src="images/art15.jpg" data-full="images/art15.jpg" alt="Artwork 15"></figure>
+            <figure class="item art-card"><img src="images/art16.jpg" data-full="images/art16.jpg" alt="Artwork 16"></figure>
+            <figure class="item art-card"><img src="images/art17.jpg" data-full="images/art17.jpg" alt="Artwork 17"></figure>
+            <figure class="item art-card"><img src="images/art18.jpg" data-full="images/art18.jpg" alt="Artwork 18"></figure>
+            <figure class="item art-card"><img src="images/art19.jpg" data-full="images/art19.jpg" alt="Artwork 19"></figure>
+            <figure class="item art-card"><img src="images/art20.jpg" data-full="images/art20.jpg" alt="Artwork 20"></figure>
+          </div>
+          <!-- 复制一组用于无缝循环 -->
+          <div class="marquee__group" aria-hidden="true">
+            <figure class="item art-card"><img src="images/art11.jpg" data-full="images/art11.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art12.jpg" data-full="images/art12.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art13.jpg" data-full="images/art13.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art14.jpg" data-full="images/art14.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art15.jpg" data-full="images/art15.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art16.jpg" data-full="images/art16.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art17.jpg" data-full="images/art17.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art18.jpg" data-full="images/art18.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art19.jpg" data-full="images/art19.jpg" alt=""></figure>
+            <figure class="item art-card"><img src="images/art20.jpg" data-full="images/art20.jpg" alt=""></figure>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Lightbox：点击图片后全屏预览（整页只需一个，放在 body 末尾更稳） -->
+  <div class="art-lightbox" id="artLightbox" aria-hidden="true">
+    <button class="art-lightbox__close" aria-label="Close">×</button>
+    <img alt="" />
+  </div>
+
+
+
+  <!-- Section 5 Happy List -->
+<section class="grid-container full section five" id="happy-list">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+
+      <div class="cell small-12">
+        <!-- Wrapper for scroll panels -->
+        <div class="wrapper">
+          <div class="content">
+
+            <!-- 新增的封面页（首页） -->
+            <div class="panel cover">
+              <div class="cover-inner" style="text-align:left; display:flex; flex-direction:column; align-items:flex-start; justify-content:center;">
+                <!-- 用内联样式把 me.css 里对 #happy-list h1/.happy-sub 的绝对定位覆盖掉 -->
+                <h1 class="cover-title" style="position:static; left:auto; top:auto; margin:0 0 1rem; color:#fff;">
+                  Happy List
+                </h1>
+                <p class="cover-sub subline" style="position:static; left:auto; top:auto; margin:0;">
+                  Little things that power my days ✨
+                </p>
+              </div>
+            </div>
+
+
+            <!-- 原第一屏：Fitness -->
+            <div class="panel blue">
+              <div class="hobby-row">
+                <!-- 左：简单卡片堆叠（无 tilt），点击打开全屏 -->
+                <div class="card-stack" id="gymStack"
+                     data-gallery='["images/健身1.jpg","images/健身2.jpg","images/健身3.jpg","images/健身4.jpg","images/健身5.jpg"]'>
+                  <img class="shot" src="images/健身1.jpg" alt="Gym 1">
+                  <img class="shot" src="images/健身2.jpg" alt="Gym 2">
+                  <img class="shot" src="images/健身3.jpg" alt="Gym 3">
+                  <img class="shot" src="images/健身4.jpg" alt="Gym 4">
+                  <img class="shot" src="images/健身5.jpg" alt="Gym 5">
+                  <button class="stack-open" type="button" aria-label="Open">View</button>
+                </div>
+
+                <!-- 右侧：标题 + 正文 -->
+                <div class="hobby-copy">
+                  <h2 class="hobby-title">Fitness</h2>
+                  <p class="hobby-desc">
+                    Fitness is my daily ritual of joy and energy.
+                    When I’m working out, it feels like I’m recharging.
+                    I also earned my CPR certification and ACE-CPT (one of the world’s top four fitness coach certifications) to grow more professional.
+                    And honestly, I really love the healthy and strong version of me. 💪
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 第二屏：Vocal -->
+            <div class="panel green">
+              <div class="hobby-row">
+                <!-- 左：卡片堆叠 -->
+                <div class="card-stack" id="vocalStack"
+                    data-gallery='["images/vocal1.jpg","images/vocal2.jpg","images/vocal3.jpg","images/vocal4.jpg","images/vocal5.jpg"]'>
+                  <img class="shot" src="images/artwork-01.jpg" alt="Vocal 1">
+                  <img class="shot" src="images/vocal2.jpg" alt="Vocal 2">
+                  <img class="shot" src="images/vocal3.jpg" alt="Vocal 3">
+                  <img class="shot" src="images/vocal4.jpg" alt="Vocal 4">
+                  <img class="shot" src="images/vocal5.jpg" alt="Vocal 5">
+                  <button class="stack-open" type="button" aria-label="Open">View</button>
+                </div>
+
+                <!-- 右侧：标题 + 文案 -->
+                <div class="hobby-copy">
+                  <h2 class="hobby-title">Vocal</h2>
+                  <p class="hobby-desc">
+                    I have studied both Chinese folk singing and bel canto since childhood, specializing as a coloratura soprano. 
+                    Singing has been like wings on my journey, carrying me through growth, friendship, and many enriching life experiences.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 第三屏：Volunteer -->
+            <div class="panel purple">
+              <div class="hobby-row">
+                <!-- 左：卡片堆叠 -->
+                <div class="card-stack" id="volunteerStack"
+                    data-gallery='["images/volunteer1.jpg","images/volunteer2.jpg","images/volunteer3.jpg","images/volunteer4.jpg","images/volunteer5.jpg"]'>
+                  <img class="shot" src="images/artwork-01.jpg" alt="Volunteer 1">
+                  <img class="shot" src="images/volunteer2.jpg" alt="Volunteer 2">
+                  <img class="shot" src="images/volunteer3.jpg" alt="Volunteer 3">
+                  <img class="shot" src="images/volunteer4.jpg" alt="Volunteer 4">
+                  <img class="shot" src="images/volunteer5.jpg" alt="Volunteer 5">
+                  <button class="stack-open" type="button" aria-label="Open">View</button>
+                </div>
+
+                <!-- 右侧：标题 + 文案 -->
+                <div class="hobby-copy">
+                  <h2 class="hobby-title">Volunteer</h2>
+                  <p class="hobby-desc">
+                    For me, volunteering feels like a special adventure. While helping others, I also get to uncover the hidden gems of local culture. Along the way, I’ve met fascinating people, experienced meaningful moments, and collected many colorful stories that make life more exciting.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- 第四屏：Badminton -->
+            <div class="panel teal">
+              <div class="hobby-row">
+                <!-- 左：卡片堆叠 -->
+                <div class="card-stack" id="badmintonStack"
+                    data-gallery='["images/badminton1.jpg","images/badminton2.jpg","images/badminton3.jpg","images/badminton4.jpg","images/badminton5.jpg"]'>
+                  <img class="shot" src="images/artwork-01.jpg" alt="Badminton 1">
+                  <img class="shot" src="images/badminton2.jpg" alt="Badminton 2">
+                  <img class="shot" src="images/badminton3.jpg" alt="Badminton 3">
+                  <img class="shot" src="images/badminton4.jpg" alt="Badminton 4">
+                  <img class="shot" src="images/badminton5.jpg" alt="Badminton 5">
+                  <button class="stack-open" type="button" aria-label="Open">View</button>
+                </div>
+
+                <!-- 右侧：标题 + 文案 -->
+                <div class="hobby-copy">
+                  <h2 class="hobby-title">Badminton</h2>
+                  <p class="hobby-desc">
+                    Badminton is such an enjoyable sport—it challenges both the body and the mind.  
+                    Through its playful battles of skill and strategy, I’ve found joy and made many great friends.  
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+              <!-- 第五屏：Piano -->
+              <div class="panel orange">
+                <div class="hobby-row">
+                  <!-- 左：卡片堆叠 -->
+                  <div class="card-stack" id="pianoStack"
+                      data-gallery='["images/piano1.jpg","images/piano2.jpg","images/piano3.jpg","images/piano4.jpg","images/piano5.jpg"]'>
+                    <img class="shot" src="images/artwork-01.jpg" alt="Piano 1">
+                    <img class="shot" src="images/piano2.jpg" alt="Piano 2">
+                    <img class="shot" src="images/piano3.jpg" alt="Piano 3">
+                    <img class="shot" src="images/piano4.jpg" alt="Piano 4">
+                    <img class="shot" src="images/piano5.jpg" alt="Piano 5">
+                    <button class="stack-open" type="button" aria-label="Open">View</button>
+                  </div>
+
+                  <!-- 右侧：标题 + 文案 -->
+                  <div class="hobby-copy">
+                    <h2 class="hobby-title">Piano</h2>
+                    <p class="hobby-desc">
+                      The piano is like my dearest friend—whether I am sad or joyful, it quietly stays with me and listens to my heart.  
+                      Between the black and white keys, I always find comfort and strength; it has witnessed my growth and carries countless emotions and stories of mine.  
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Section 6 — Contact -->
+  <section class="grid-container full section six" id="contact">
+    <div class="contact-inner">
+      <h1>Contact</h1>
+      <img class="contact-hero-img" src="images/contact.gif" alt="Contact illustration" loading="lazy">
+
+      <p class="contact-lead">
+        If my work sparks your interest, I’d love to hear from you.
+        Collaboration, internship, or just to say hello — all welcome.
+      </p>
+
+      <div class="contact-grid">
+      <!-- Phone -->
+      <a class="c-card" href="tel:+8613619364851" aria-label="Phone">
+        <div class="c-badge">
+          <img class="c-icon" src="images/phone.png" alt="Phone icon">
+          Phone
+        </div>
+        <div class="c-value">+86 13619364851</div>
+      </a>
+
+      <!-- Email -->
+      <a class="c-card" href="mailto:yh0000210@163.com" aria-label="Email">
+        <div class="c-badge">
+          <img class="c-icon" src="images/email.png" alt="Email icon">
+          Email
+        </div>
+        <div class="c-value">yh0000210@163.com</div>
+      </a>
+
+      <!-- QQ -->
+      <div class="c-card" role="group" aria-label="QQ">
+        <div class="c-badge">
+          <img class="c-icon" src="images/qq.png" alt="QQ icon">
+          QQ
+        </div>
+        <div class="c-value">540882267</div>
+      </div>
+
+      <!-- WeChat -->
+      <div class="c-card" role="group" aria-label="WeChat">
+        <div class="c-badge">
+          <img class="c-icon" src="images/wechat.png" alt="WeChat icon">
+          WeChat
+        </div>
+        <div class="c-value">Yinnnnn_210</div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Section 7 -->
+  <section class="grid-container full section seven">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="cell" style="text-align:center;">
+          <h1>Thanks for watching!</h1>
+          <!-- 新增导航按钮 -->
+          <a href="projects.html" class="fun-btn">See My Projects 🚀</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 菜单 -->
+  <div class="floating-menu" style="display:none;">
+    <div id="myMenu"></div>
+  </div>
+
+  <!-- 依赖：jQuery、GSAP、ScrollTrigger、Lenis -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
+
+  <!-- 这两行是关键，必须在 menu.js 之前 -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <script src="js/me.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/loading.js"></script>
+
+  <!-- 鼠标 -->
+<script src="js/cursor.js" defer></script>
+
+
+  
+</body>
+</html>

@@ -1,0 +1,676 @@
+/* Intro screen container */
+#intro-screen {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+/* Color blocks */
+.block {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 1;
+  transform: translate(0, 0);
+}
+
+/* 蓝色左半边 */
+.blue {
+  background: #005EA2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  transform: translateX(-100%);
+  animation: slideBlue 2s ease forwards;
+}
+
+.yellow {
+  background: #FFB016;
+  top: 0;
+  right: 0;
+  transform: translateY(-100%);
+  animation: slideYellow 2s ease forwards 0.5s;
+}
+
+.red {
+  background: #D43321;
+  bottom: 0;
+  right: 0;
+  transform: translateY(100%);
+  animation: slideRed 2s ease forwards 1s;
+}
+
+/* Text in the center */
+.intro-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  /* 往下偏移（正值 = 往下）*/
+  transform: translateY(50px);
+}
+
+/* 主标题 - 阴影掉落动画 + 延迟 */
+.intro-text h1 {
+  font-family: 'Yatra One', cursive;
+  font-size: 8em;
+  color: white;
+  animation: text-shadow-drop-center 0.6s ease both;
+  animation-delay: 3s; /* 等待色块完成后执行 */
+}
+
+/* 副标题 - 阴影掉落动画 + 延迟 + 向右上偏移 */
+.intro-text p {
+  font-family: 'Yatra One', sans-serif;
+  font-size: 2em;
+  color: white;
+  transform: translate(300px, -20px);
+  animation: text-shadow-drop-center 0.6s ease both;
+  animation-delay: 3.3s; /* 稍微晚一点 */
+}
+
+/* Animations */
+@keyframes slideBlue {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideYellow {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRed {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* 阴影掉落关键帧 */
+@-webkit-keyframes text-shadow-drop-center {
+  0% {
+    text-shadow: 0 0 0 transparent;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes text-shadow-drop-center {
+  0% {
+    text-shadow: 0 0 0 transparent;
+    opacity: 0;
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+  }
+}
+
+/* Intro 淡出动画 */
+#intro-screen.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none; /* 防止淡出时还能点到 intro */
+}
+
+/* ============ Base ============ */
+html,
+body {
+  background-color: #005EA2;
+  color: #ffffff;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 标题也改为白色 */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #ffffff;
+}
+
+/* 段落、列表、链接默认白色 */
+p,
+li,
+a {
+  color: #ffffff;
+}
+
+/* 链接悬停时用点缀色 */
+a:hover {
+  color: #FFB016;
+}
+
+
+
+
+
+
+
+
+/* ============ Home Hero（首页） ============ */
+#home.home-hero{
+  /* min-height: 100vh; */
+  /* min-height: calc(100vh - 9rem); 一屏 - footer高度 */
+  padding: clamp(2rem, 6vw, 3.5rem) 1rem 3rem;
+  background: url('../images/home_bg.svg') center/cover no-repeat fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1; /* 自动填满除 footer 外的空间 */
+}
+
+/* ------- 尺寸变量（桌面端与 projects 对齐） ------- */
+#home{
+  --track: 300px;        /* 每个栅格轨道宽 */
+  --card-size: 180px;    /* 正方形卡片边长（与 projects 相同） */
+  --caption-h: 2.6rem;   /* 统一的标题高度 */
+}
+
+/* 标题区 */
+#home .home-hero__head{
+  width: min(1200px, 100%);
+  margin: 0 auto clamp(1.2rem, 3vw, 2rem);
+  color: #fff;
+  text-align: left;
+}
+#home .hero-title{
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.06;
+  margin: 0.25rem 0 1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+#home .hero-tagline{
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  color: #fff;
+  margin: 0 0 2rem;        /* 取消水平居中 */
+  max-width: 900px;        /* 可保留，也可去掉 */
+  font-style: italic;
+}
+
+
+/* ============ 卡片网格 ============ */
+#home .home-band{ padding: 0 0 1rem; }
+
+/* 基础：移动端 1 列，元素居中 */
+#home .band-grid{
+  display: grid;
+  gap: clamp(24px, 5vw, 48px);
+  justify-content: center;   /* 成组居中 */
+  justify-items: center;     /* 单元格内居中 */
+  margin-inline: auto;
+}
+
+/* ≥560px：2 列 */
+@media (min-width: 560px){
+  #home .band-grid{
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    width: min(1000px, 100%);
+  }
+}
+
+/* ≥900px：3 列，轨道固定为 300px（与 projects 单格一致） */
+@media (min-width: 900px){
+  #home .band-grid{
+    grid-template-columns: repeat(3, var(--track));
+    width: auto;  /* 宽度由轨道 + gap 决定 */
+  }
+}
+
+#home .band-card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ------- 正方形卡片（与 projects 实际尺寸一致） ------- */
+#home .band-card__inner{
+  background: var(--secondary-color, #D43321);   /* 红色 */
+  border-radius: 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.15);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+
+  width: var(--card-size);   /* 180px */
+  aspect-ratio: 1 / 1;       /* 正方形 */
+  overflow: hidden;          /* 防止内容撑破比例 */
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-rows: 1fr var(--caption-h);  /* 上：icon  下：标题固定高 */
+  place-items: center;
+  row-gap: .5rem;
+  padding: 1rem;
+}
+#home .band-card:hover .band-card__inner{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.20);
+  filter: brightness(1.05);
+}
+
+/* 图标与标题 */
+#home .band-card__icon{
+  width: clamp(56px, 7vw, 88px); /* 通用基准；下面可按卡片单独覆盖 */
+  height: auto;
+  display: block;
+}
+
+/* 标题统一高度，基线对齐 */
+#home .band-card__title{
+  color: #fff;
+  font-family: 'Yatra One', cursive;
+  font-size: clamp(.9rem, 1.8vw, 1.3rem);
+  letter-spacing: .3px;
+  text-align: center;
+  margin: 0;
+
+  height: var(--caption-h);           /* 统一高度 */
+  display: flex; align-items: center; justify-content: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+
+
+
+
+/* 单独控制三个 icon 大小（可按需调整） */
+#home .icon-about{    width: 72px; }
+#home .icon-projects{ width: 80px; }
+/* ↓ 往下移一些：调这个数值就能控制下移距离 */
+#home .icon-doing{
+  width: 120px;
+  margin-top: 15px;   /* 例如 10px；需要更多就加大 */
+}
+
+@media (max-width: 740px){
+  /* 小屏下卡片可稍小：用比例尺度而不是固定 180px */
+  #home{ --card-size: clamp(150px, 40vw, 180px); --caption-h: 2.2rem; }
+  #home .icon-about{    width: 60px; }
+  #home .icon-projects{ width: 66px; }
+  /* ↓ 小屏也保持同样的下移（可单独设置不同值） */
+  #home .icon-doing{
+    width: 56px;
+    margin-top: 8px;  /* 小屏略小一点的位移 */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ Contact Bar ============ */
+.contact-bar {
+  padding-top: clamp(2rem, 6vw, 3.25rem);
+}
+
+.contact-grid {
+  width: min(1100px, 100%);
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.contact-item .label {
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.contact-item a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.2rem 0.1rem; /* 更易点触 */
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============ Breakpoints ============ */
+/* ≥ 1200px：更宽松的排版 */
+@media (min-width: 1200px) {
+  .home-hero {
+    padding-top: 3rem;
+    
+    padding-bottom: .5rem !important; 
+    
+  }
+  .hero-title {
+    letter-spacing: 0.2px;
+  }
+
+  
+}
+
+/* ≤ 960px：收紧左右留白，联系方式 2 列 */
+@media (max-width: 960px) {
+  .home-hero {
+    padding: 5rem 2rem 3rem;
+    padding-bottom: .5rem !important; 
+
+  }
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ≤ 720px：导航变为纵向居中，行距更友好 */
+@media (max-width: 720px) {
+  .hero-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-link {
+    padding-left: 2rem;
+  }
+  .contact-grid {
+    gap: 0.75rem 1rem;
+  }
+}
+
+/* ≤ 480px：小屏优化，单列联系方式，放大可点区域 */
+@media (max-width: 480px) {
+  .home-hero {
+    padding: 4rem 1rem 1.5rem;
+    padding-bottom: .5rem !important
+  }
+  .hero-title {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+  }
+  .hero-tagline {
+    margin-bottom: 2rem;
+  }
+  .hero-link {
+    font-size: 1.05rem;
+    padding-left: 1.8rem;
+    padding-block: 0.5rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============ 可访问性：减少动效偏好 ============ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* 默认隐藏主页内容（Intro 显示期间） */
+body:not(.show-main) .top-image,
+body:not(.show-main) .home-hero,
+body:not(.show-main) .floating-menu {
+  display: none;
+}
+
+.footer {
+  z-index: 1;
+  --footer-background: #ffffff;
+  display: grid;
+  position: relative;
+  grid-area: footer;
+  min-height: 8rem;
+  flex-shrink: 0; /* 固定在底部 */
+}
+
+/* 气泡动画背景 */
+.footer .bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: var(--footer-background);
+  filter: url('#blob');
+}
+
+.footer .bubble {
+  position: absolute;
+  left: clamp(
+    calc(var(--size, 4rem) / 2),
+    var(--position, 50%),
+    calc(100% - (var(--size, 4rem) / 2))
+  );
+  transform: translate(-50%, 100%);
+  background: var(--footer-background);
+  border-radius: 100%;
+  animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+             bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+}
+
+@keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+
+@keyframes bubble-move {
+  0% { bottom: -1rem; }
+  100% { bottom: var(--distance, 1rem); }
+}
+
+/* 内容主体 */
+.footer .content {
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 4rem;
+  padding: 2rem 2rem 0.5rem 2rem;  /* 上=2rem, 右=2rem, 下=0.5rem, 左=2rem */
+  background: var(--footer-background);
+}
+
+.footer .content a,
+.footer .content p,
+.footer .content b {
+  color: #005EA2;
+  text-decoration: none;
+}
+
+.footer .content p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.footer .content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer .content > div > div {
+  margin: 0.5rem 0;
+}
+
+.footer .content > div > div > * {
+  margin-right: 0.5rem;
+}
+
+.footer .image {
+  align-self: center;
+  width: 4rem;
+  height: 0.5rem;
+  margin: 0.5rem 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ==== Footer 内容布局：左CONTACT + 右联系方式 ==== */
+.footer .content > div:first-child {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--contact-left-gap, 6rem); /* ← 用变量控制整体右移 */
+  align-items: start;
+}
+
+/* CONTACT 标题 */
+.footer .content > div:first-child > div:first-child b {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: block;
+  margin: 0;
+}
+
+/* 右侧联系方式 */
+.footer .content > div:first-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* 联系方式表格：两行三列 */
+.contact-table {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  row-gap: 0.6rem;
+  column-gap: var(--contact-col-gap, 2rem);   /* ← 用变量控制两列距离 */
+}
+
+.contact-table .ct-row {
+  display: contents;
+}
+
+.contact-table .ct-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #005EA2;
+  text-decoration: none;
+}
+
+.contact-table .ct-cell span {
+  font-weight: 600;
+}
+
+.contact-table .ct-cell:hover {
+  text-decoration: underline;
+}
+
+.contact-table .empty {
+  pointer-events: none;
+}
+
+/* icon 样式 + hover 动效 */
+.ct-cell .ct-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.ct-cell:hover .ct-icon {
+  transform: scale(1.2) rotate(10deg);
+  filter: brightness(1.2);
+}
+
+/* 小屏优化 */
+@media (max-width: 720px) {
+  .footer .content > div:first-child {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+
+  .footer .content > div:first-child > div:first-child b {
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-table {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 版权信息部分 */
+.footer-bottom {
+  text-align: center;
+  padding: 0.5rem 0 0rem;  /* 上下留白缩小，下方距离更小 */
+  background: #ffffff;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #005EA2;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* 让页面成为纵向 Flex 布局，footer 才能贴底 */
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 主内容区域填满除 footer 外的空间（你的首屏就是 #home.home-hero） */
+#home.home-hero {
+  flex: 1 0 auto;
+  /* 下面这行按需要留一点呼吸，想更紧就再调小 */
+  padding-bottom: .5rem !important;
+}
+
+/* footer 始终贴底 */
+.footer {
+  margin-top: auto;
+  
+}

@@ -1,0 +1,386 @@
+/* nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #09559C;
+    padding: 20px;
+    height: 30px; 
+}
+
+/* responsive design nav */
+@media (max-width: 600px) {
+    nav ul {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu-icon:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* nav */
+nav ul {
+    list-style-type: none;
+    margin: 0; /* Center the navigation item */
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    white-space: nowrap; /* Disable line feed */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; 
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* logo */
+.logo-section {
+    display: flex;
+    align-items: center;
+    position: relative; 
+    margin-left: -50px; 
+}
+
+.logo {
+    height: 50px; 
+    margin-right: 10px;
+}
+
+.brand-name {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold; 
+}
+
+/* menu icon */
+.menu-icon {
+    position: relative;
+}
+
+.menu-icon img {
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Drop-down menu style */
+.dropdown-menu {
+    display: none; /* Default hiding */
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+    width: 150px; 
+}
+
+.menu-icon:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+    color: #515151; 
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 300; 
+    font-size: 1rem; 
+    line-height: 2; 
+}
+
+.dropdown-menu li a:hover {
+    text-decoration: underline;
+}
+
+/* button */
+button {
+    background-color: #FF7C1D;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff6a00;
+}
+
+/* learn more */
+.learn-more {
+    font-size: 1rem;
+    color: #5888e2;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.learn-more:hover {
+    text-decoration: underline;
+}
+
+/* Privacy Popup */
+.privacy-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Make sure the popup is at the front */
+    padding: 20px;
+    width: 100%;
+}
+
+/* Popup Content */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: relative;
+    text-align: center;
+    z-index: 10000; /* Make sure the popup content is above the gray mask */
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Popup Title */
+.popup-content h3 {
+    font-size: 1.5rem;
+    color: #09559C; 
+    margin-bottom: 10px;
+}
+
+/* Popup Text */
+.popup-content p {
+    font-size: 1rem;
+    color: #515151;
+    margin-bottom: 20px;
+}
+
+/* Acknowledge Button */
+.acknowledge-btn {
+    background-color: #09559C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.acknowledge-btn:hover {
+    background-color: #0B74D6; /* Change color while hovering */
+}
+
+/* Hidden class for when the popup is closed */
+.privacy-popup.hidden {
+    display: none;
+}
+
+/* Page darkening mask layer */
+.privacy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Set a translucent gray mask */
+    z-index: 9998; /* Make sure it's under the popup, on everything else */
+}
+
+/* Hide the mask layer */
+.privacy-overlay.hidden {
+    display: none;
+}
+
+
+
+
+
+/* 12Pro: 390 * 844 */
+@media (max-width: 600px) {
+    
+    /* Hide the word "Get Fit" next to the logo */
+    .brand-name {
+        display: none;
+    }
+
+    /* Set a fixed size for the logo */
+    .logo {
+        height: 40px; 
+        
+    }
+
+    /* logo position */
+    .logo-section {
+        height: 30px;
+        margin-right: 380px;
+        margin-left: 0; 
+    }
+
+    /* menu icon */
+    .menu-icon {
+        position: absolute;
+        top: 15px; 
+        right: 10px; 
+        display: block;
+    }
+
+    #menu-desktop {
+        display: none; /* Hide the desktop navigation bar */
+    }
+
+    #menu-mobile {
+        display: flex; /* Displays the mobile navigation bar */
+        flex-direction: column;
+        align-items: center;
+        background-color: #09559C; 
+    }
+
+    /* menu */
+    #menu-mobile ul {
+        
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #menu-mobile ul li {
+        margin: 1px 0; /* Increase the spacing between navigation items */
+    }
+    
+    #menu-mobile ul li a {
+        color: rgb(116, 116, 116);
+        text-decoration: none;
+        font-size: 1.2rem; 
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 50px; 
+        right: 10px; 
+        background-color: #ffffff; 
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
+
+    /* When the menu is displayed, use the.show class to switch the display state of the menu */
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    /* Menu text */
+    .dropdown-menu li a {
+        color: #afafaf;  
+        text-decoration: none;
+        font-size: 0.9rem; 
+    } 
+
+    .dropdown-menu li {
+        padding: 10px 0px
+    }
+
+    .menu-icon:hover .dropdown-menu {
+        display: block; /* A drop-down menu is displayed when hovering */
+    }
+
+    /* pages link */
+    /* Sets the appearance of menu items */
+    summary {
+        list-style: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ffffff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-top: -25px; /* Move the menu button up */
+    }
+
+    /* Set the triangle of the collapsed menu */
+    summary::before {
+        content: '\25B6'; /* Unicode triangle */
+        display: inline-block;
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    /* The triangle goes down when the menu expands */
+    details[open] summary::before {
+        transform: rotate(90deg);
+        z-index: 9999; /* Make sure the menu is at the top level when expanded */
+    }
+
+    /* Keep the text position of the summary element */
+    details summary {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Menu content style */
+    .menu-content {
+        background-color: #ffffff; 
+        padding: 15px;
+        border-radius: 15px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        margin-top: 10px;
+        
+    }
+
+    .menu-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* fitness */
+    nav {
+        display: none
+    }
+
+}
+
+/* Make sure the navigation bar is at the top of the page */
+#menu-mobile, #menu-desktop {
+    position: relative;
+    z-index: 10;
+}

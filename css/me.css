@@ -1,0 +1,1147 @@
+/* ================= 主题变量（保留颜色，精简未用字体变量） ================= */
+:root{
+  --c1:#FF7C1D;   /* 主橙 */
+  --c2:#ffebdd;   /* 浅色 */
+  --c3:#D43321;   /* 红 */
+  --c4:#FFB016;   /* 次橙 */
+  --c5:#D43321;   /* 蓝 */
+  --c6:#FF7C1D;   /* 浅色 */
+  --c7:#ffebdd;   /* 深橙 */
+}
+
+*{ box-sizing: border-box; }
+body{
+  margin:0;
+  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--c1);
+  color:#515151;
+}
+
+/* 全局标题（用 clamp 精简多段媒体查询） */
+h1{
+  margin:0;
+  font-family: 'Yatra One', cursive;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 64px);
+  line-height: 1.2;
+}
+
+/* ================= 通用分区 ================= */
+.section{
+  min-height:100vh;
+  padding:120px 0;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  overflow:hidden;
+}
+.section .grid-container{ width:100%; }
+
+/* 仅保留背景色：标题颜色在下面统一处理 */
+.section.one{   background:var(--c1); z-index:1; }
+.section.two{   background:var(--c2); z-index:2; }
+.section.three{ background:var(--c3); z-index:3; }
+.section.four{  position:relative; background:var(--c4); z-index:4; }
+.section.five{  background:var(--c5); z-index:5; }
+.section.six{   background:var(--c6); z-index:6; }
+.section.seven{ background:var(--c7); z-index:7; }
+
+/* 统一所有 section 标题为“像 About me”的风格，但默认橙色（便于后续逐个改） */
+.section h1{
+  font-family: 'Yatra One', cursive;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.25;
+  color: var(--c1); /* 默认橙色标题 */
+}
+
+/* 副标题样式 */
+.subline {
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.4rem); /* 与 About me 副标题一致 */
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: .95;
+  color: #f1f1f1; /* 默认浅灰，必要时可覆盖 */
+}
+
+
+
+
+
+/* ================= 第四段固定图（保留） ================= */
+.section.four .grid-x{ position:relative; }
+.section.four .cell{
+  height:calc(100vh - 240px);
+  display:flex; align-items:center;
+}
+.section.four .imgs{
+  width:50%;
+  height:calc(100vh - 240px);
+  position:absolute; top:0; right:0; overflow:hidden;
+}
+.section.four .imgs img{
+  width:100%; height:100%; object-fit:cover; object-position:center;
+}
+
+/* ================= Resume（保留） ================= */
+.resume{ display:flex; gap:2rem; align-items:flex-start; margin-top:1rem; }
+.resume .avatar{ flex:0 0 220px; }
+.resume .avatar img{ max-width:100%; border-radius:12px; display:block; }
+.resume .cols h2{ margin:1rem 0 .5rem; color:var(--c6); }
+.resume .cols p{ margin:.25rem 0; }
+
+
+/* 第一页 */
+/* ========= 封面 Section One（首页） ========= */
+.section.one{
+  display:flex;
+  align-items:center;
+  min-height:100vh;
+  padding:0 5%;
+}
+
+/* 大屏把右列拉宽（覆盖 6/6 列） */
+@media (min-width:1024px){
+  .section.one .grid-x > .cell:first-child{ flex:0 0 35%; max-width:35%; }
+  .section.one .grid-x > .cell:last-child { flex:0 0 65%; max-width:65%; }
+}
+
+/* 左侧：About me 标题（颜色与大小单独可控） */
+.section.one h1.about-title{
+  color:#fff;                                   /* 首页标题白色 */
+  font-size: clamp(2.5rem, 6vw, 4.6rem);        /* 在这里调大小就生效 */
+}
+
+/* 右侧文案容器 */
+.section.one .intro-text{
+  max-width:none;               /* 占满右列 */
+  transform: translateX(3vw);  /* 微向左 */
+  padding-right:4vw;            /* 右侧留白 */
+  word-break: normal;           /* 整词换行 */
+  overflow-wrap: normal;
+  white-space: normal;
+}
+
+/* 右侧文案（正文） */
+.section.one .intro-text h2,
+.section.one .intro-text p{
+  font-family:'Open Sans', sans-serif;
+  color:#fff;
+}
+.section.one .intro-text h2{
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.section.one .intro-text p{
+  font-size: clamp(1rem, 1.6vw, 1.4rem); /* 修正 clamp 顺序 */
+  font-weight: 500;
+  opacity: .95;
+}
+
+/* —— 动效配合：按“词”包裹 + 逐字动画（保留） —— */
+.section.one .intro-text .word{
+  display:inline-block;
+  white-space:nowrap;  /* 词内不换行，进入即整词 */
+}
+.section.one .intro-text .char{
+  display:inline;      /* 默认 inline，动画时 JS 临时设 inline-block */
+  will-change: transform, opacity;
+  color:#fff;
+}
+
+/* 小屏适配 */
+@media (max-width:767px){
+  .section.one{
+    flex-direction:column;
+  }
+  .section.one h1.about-title{
+    text-align:center;
+  }
+  .section.one .intro-text{
+    transform:none;
+    max-width:100%;
+    margin:0 auto;
+    padding-right:0;
+    text-align:center;
+  }
+  .section.one .intro-text h2{
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+  }
+  .section.one .intro-text p{
+    font-size: 1.05rem;
+  }
+}
+
+
+
+
+/* ====== Section 2: My Glow Up ====== */
+.glowup{ padding: 6vh 0; }
+
+.glowup-title{
+  font-family:'Yatra One', cursive;
+  font-weight:700;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color:#FF7C1D;
+  margin:0 0 1.2rem 0;
+}
+
+/* === 块 A：头像 + 三行字（独立部分） === */
+.glowup-introRow{
+  display:flex;
+  
+  align-items:center;        /* 垂直居中头像和文字 */
+  justify-content:center;    /* 水平居中 */
+  gap:8rem;
+  margin-top:3rem;           /* 向下移动（调节数值可控制距离） */
+}
+
+/* 替换头像为动画描边 */
+/* 尺寸可改：--size 控制整体直径 */
+.glowup-avatar {
+  --size: 320px;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;     /* 防止容器被外部规则拉伸 */
+}
+
+/* 照片：始终保持圆形且不变形 */
+.glowup-avatar img{
+  position: absolute;
+  inset: 8px;              /* 留出给白色内圈的间距 */
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border-radius: 50%;
+  object-fit: cover;       /* 关键：裁切而不是拉伸 */
+  object-position: center bottom;   /* ⬅️ 这里！向下对齐 */
+  border: 3px solid #fff;
+  z-index: 2;              /* 照片在下面 */
+  opacity: 0;
+  animation: photo-ani 4s forwards;
+}
+
+/* SVG 线条：铺满容器，盖在最上层 */
+.kz-photo-line{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;              /* 比图片高，才能看到描边 */
+}
+
+/* 描边动画（主题橙） */
+.line{
+  fill: none;
+  stroke: #FF7C1D;
+  stroke-width: 1.5px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: line-ani 3.2s ease forwards;
+}
+
+/* 外圈更粗，先画出来 */
+.circle{
+  stroke-width: 3px;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: line-ani 2.2s ease forwards;
+}
+
+/* 关键帧 */
+@keyframes line-ani { to { stroke-dashoffset: 0; } }
+@keyframes photo-ani { 0%,50%{opacity:0;} 100%{opacity:1;} }
+
+
+
+.glowup-intro h2{
+  font-family:'Yatra One', cursive;
+  color:#FF7C1D;
+  font-size:clamp(2rem, 3.8vw, 3.2rem);
+  line-height:1.1;
+  margin:.2rem 0 0 0;         /* 顶部更贴近头像 */
+}
+
+/* 橙色卡片里的标题（EDUCATION、CERTIFICATIONS 等）→ 白色 */
+.section.two .glowup-card.orange h2 {
+  color: #fff;
+}
+
+/* 白色边框卡片里的标题（RELEVANT COURSEWORK、SKILLS 等）→ 橙色 */
+.section.two .glowup-card.border h2 {
+  color: #FF7C1D;
+}
+
+
+.glowup-intro p{
+  color:#909090;
+  font-size:clamp(1.05rem, 1.6vw, 1.4rem);
+  margin:.8rem 0 0 0;
+}
+
+/* === 块 B：时间线 + 卡片（互不影响） === */
+.glowup-track{
+  display:flex;               /* 两列：左时间线 / 右卡片 */
+  align-items:flex-start;
+  gap:24px;
+  margin-top:100px;            /* 与上面介绍区拉开距离 */
+}
+
+/* 左列：时间线列固定宽度 */
+.track-left{
+  position:relative;
+  width:60px;
+  flex:0 0 60px;
+}
+
+/* 右列：卡片容器 */
+.track-right{
+  flex:1;
+  position:relative;
+  max-width:800px;           /* 限制卡片区宽度 */
+  margin-left:250px;      /* 往右挪，数值可以调整 */
+}
+
+
+
+/* —— 时间线（相对 track-left 定位） —— */
+.glowup-timeline{
+  position: relative;
+  margin-left:150px;           /* 你原有的右移可保留，数值可调 */
+  /* 线所在的横向坐标（相对 glowup-timeline 左边）；线和点共同使用这根“轴” */
+  --axis-x: 28px;
+  /* 初始高度；JS 会覆盖为 “第一张卡顶 -> 最后一张卡底” 的真实高度 */
+  height: 520px;
+}
+
+/* 把轨道和圆点容器都压在同一定位层，保证同一坐标系 */
+.timeline-rail,
+.timeline-dots{
+  position: absolute;
+  inset: 0;                    /* top/right/bottom/left 全部为 0 */
+  height: 100%;
+  pointer-events: none;
+}
+
+/* 竖线：永远画在同一条轴上 */
+.timeline-rail .line-base,
+.timeline-rail .line-draw{
+  position: absolute;
+  left: var(--axis-x);         /* ← 与点共用同一 X 坐标 */
+  width: 8px;                  /* 你设定的线宽 */
+  border-radius: 8px;
+}
+.timeline-rail .line-base{ top:0; bottom:0; background:#FFA64D; opacity:.6; }
+.timeline-rail .line-draw{ top:0; height:0; background:#FF7C1D; }
+
+/* 圆点：绝对定位，水平居中在线上；垂直位置由 JS 设置到每张卡片中心 */
+.timeline-dots{ list-style:none; margin:0; padding:0; }
+.timeline-dots li{ position:absolute; left:0; } /* 只用 top，由 JS 赋值 */
+
+.timeline-dots .dot{
+  position: absolute;
+  width: 28px;                 /* 20px 点 + 4px*2 边框 = 28 */
+  height: 28px;
+  border-radius: 50%;
+  background:#ffe7d6;
+  border: 4px solid #FF7C1D;
+  box-shadow: 0 0 0 3px #fff;
+  /* 让圆心对齐线的中心：
+     线中心 = var(--axis-x) + 8px/2 = var(--axis-x) + 4
+     点左 = 线中心 - 点半径(14) = var(--axis-x) - 10 */
+  left: calc(var(--axis-x) - 10px);
+  /* 垂直方向由 li 的 top 控制；这里让点以 li 顶部为中心放置 */
+  top: -14px;                  /* 负的点半径，确保 li.top 就是圆心位置 */
+  transition: transform .25s ease, background .25s ease;
+}
+.timeline-dots li.active .dot{ background:#FF7C1D; transform: scale(1.05); }
+
+/* 让说明文字固定在时间线底部，并贴在时间线左侧 */
+.timeline-caption{
+  position: absolute;
+  top: 100%;                 /* 放在时间线容器的正下方 */
+  left: var(--axis-x);       /* 与时间线同一条竖向“轴”对齐 */
+  transform: translate(-90px, 1200px);  /* 向左偏 20px 当作与竖线的间距，并下移 10px */
+  width: 200px;              /* 说明文字区域宽度，可按需要调整 */
+  text-align: right;         /* 右对齐，使右边缘靠近竖线 */
+  color: #ababab;
+  font-size: 1rem;
+  
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+
+
+
+/* —— 卡片样式（与你原设计一致） —— */
+.glowup-card{
+  border-radius:24px;
+  margin-bottom:28px;
+  padding:22px 28px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+.glowup-card h2{
+  font-family:'Yatra One', cursive;
+  font-size:2rem;
+  margin-bottom:.4rem;
+}
+.glowup-card.orange{ background:#FF7C1D; color:#fff; }
+.glowup-card.border{ background:#fff; border:3px solid #FF7C1D; color:#363636; }
+
+/* 教育行 */
+.edu-row{ display:flex; gap:18px; align-items:baseline; }
+.edu-date{ font-weight:300; }
+
+/* —— 小屏适配 —— */
+@media (max-width: 767px){
+  .glowup-introRow{ flex-direction:column; align-items:center; gap:1rem; }
+  .glowup-track{ flex-direction:column; gap:16px; }
+  .track-left{ width:100%; height:0; }  /* 小屏如需保留时间线也可自行调整 */
+}
+
+/* 卡片聚焦 */
+/* 统一控制放大/缩小、变亮/变暗的幅度 */
+.section.two .track-right{
+  --focus-scale: 1.03;     /* 聚焦卡片放大 */
+  --dim-scale:   0.985;    /* 非聚焦卡片缩小 */
+  
+}
+
+/* 过渡动画（给所有卡片） */
+.section.two .glowup-card{
+  transition: transform 220ms ease, filter 220ms ease, opacity 220ms ease, box-shadow 220ms ease;
+  transform-origin: center top;
+}
+
+/* 非聚焦：变暗+轻微缩小 */
+.section.two .glowup-card.dim{
+  opacity: .65;
+  filter: brightness(var(--dim-bright)) saturate(.95);
+  transform: scale(var(--dim-scale));
+}
+
+/* 聚焦：变亮+放大+强调阴影 */
+.section.two .glowup-card.focus{
+  opacity: 1;
+  filter: brightness(var(--focus-bright));
+  transform: scale(var(--focus-scale));
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+  z-index: 1;  /* 盖过相邻卡片阴影 */
+}
+
+/* 只改“Relevant Coursework”卡片里 <em> 的样式：去斜体、加粗、变大一点 */
+.section.two #course p em{
+  font-style: normal;     /* 取消斜体 */
+  font-weight: 700;       /* 加粗 */
+  font-size: 1.1em;      /* 比正文稍大；想再大可调 1.3em～1.4em */
+  line-height: 1.35;
+  display: inline;        /* 保持行内，不影响段落换行 */
+  color: inherit;         /* 颜色不变 */
+}
+
+/* 只加强 #certs 卡片内的加粗权重（白底橙卡更清晰） */
+.section.two #certs strong{
+  font-weight: 800;        /* 700 也可以，看你喜好 */
+}
+
+.section.two #campus p > strong{
+  font-size: 1.1em;
+  /* 可保留粗体，也可按需调权重 */
+}
+
+
+/* 让 Section 2 的文字也支持逐词/逐字动画（与 Section 1 一致） */
+.section.two .glowup-intro .word{
+  display:inline-block;
+  white-space:nowrap;
+}
+.section.two .glowup-intro .char{
+  display:inline;
+  will-change: transform, opacity;
+}
+
+
+
+
+/* Section 3：Passion Corners 颜色 */
+.section.three h1 { 
+  color: #fff;                 /* 标题白色 */
+}
+.section.three p {
+  color: var(--pc-sub-color, #f1f1f1);  /* 副标题用自定义变量，默认#ccc */
+}
+
+
+
+
+/* ===== Artwork（局部化的无限滚动画廊） ===== */
+.section.artwork{
+  position: relative;
+  z-index: 4;        /* 处在 .four(4) 之上、.five(5) 之下，避免被红条盖住 */
+  background:#ffe7d6;
+  padding-top: 80px; /* 让“Artwork”标题从更靠下的位置开始，可按需调 */
+  padding-bottom: 140px; /* 保持底部留白 */
+}
+.section.artwork h1 { color:#D43321; }
+.section.artwork .art-sub { color:#595959; margin:.1rem 0 2rem; }
+
+/* 统一控件变量（只在本区生效） */
+.section.artwork .art-wrapper{
+  --size: clamp(8rem, 2rem + 18vw, 10rem);
+  --gap: clamp(3rem, 3vw + .5rem, 2rem);
+  --duration: 160s;  /* 值越大越慢 */
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+  display:flex;
+  flex-direction:column;
+  gap: var(--gap);
+}
+
+/* 无限滚动容器 */
+.section.artwork .marquee{
+  display:flex;
+  overflow:hidden;
+  user-select:none;
+  gap: var(--gap);
+  mask-image: linear-gradient(
+    var(--mask-direction, to right),
+    hsl(0 0% 0% / 0),
+    hsl(0 0% 0% / 1) 12%,
+    hsl(0 0% 0% / 1) 88%,
+    hsl(0 0% 0% / 0)
+  );
+}
+.section.artwork .marquee__group{
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  gap: var(--gap);
+  min-width:100%;
+  animation: art-scroll-x var(--duration) linear infinite;
+}
+.section.artwork .marquee--reverse .marquee__group{
+  animation-direction: reverse;
+  animation-delay: -3s;
+}
+
+/* 元素卡片：支持不同宽高比的图片 */
+.section.artwork .item{
+  display:grid;
+  place-items:center;
+  width: var(--size);
+  aspect-ratio: 1/1.2;             /* 你也可以换成 1/1 或 3/4 */
+  border-radius: 16px;
+  overflow:hidden;
+  background:#b6b6b6;
+  box-shadow: 0 10px 30px rgba(63, 63, 63, 0.35);
+}
+.section.artwork .item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* 垂直模式（点击按钮切换） */
+/* .section.artwork .marquee--vertical{
+  --mask-direction: to bottom;
+  flex-direction:column;
+}
+.section.artwork .marquee--vertical .marquee__group{
+  animation-name: art-scroll-y;
+} */
+
+
+/* 切换按钮（固定在区块内左上角） */
+.section.artwork .art-toggle{
+  --size: 1.5rem;
+  --ring: #D43321;            /* 波纹颜色，与按钮红一致 */
+  position: relative;
+  display:inline-block;
+  margin: 1rem 0 2rem;        /* 按钮上下距离 */
+  width: var(--size); height: var(--size);
+  border:0; border-radius:50%;
+  background:#d14a3b; color:#ffffff; cursor:pointer;
+
+  /* 为波纹准备 */
+  overflow: visible;          /* 让波纹能扩散出按钮外 */
+  isolation: isolate;         /* 允许伪元素放在按钮下层 */
+}
+
+.section.artwork .art-toggle:focus-visible{ outline:2px solid #fff; }
+/* 按钮里的“Show all artworks”——默认隐藏，悬停/聚焦时显示 */
+.section.artwork .art-toggle span{
+  position: absolute;
+  left: calc(100% + .75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+
+  white-space: nowrap;     /* 一行显示 */
+  width: max-content;
+  line-height: 1.1;
+
+  opacity: 0;              /* 默认隐藏 */
+  visibility: hidden;
+  pointer-events: none;    /* 不挡按钮点击 */
+  transition: opacity .18s ease, visibility .18s ease;
+}
+
+/* 悬停按钮或键盘聚焦按钮时，显示文字 */
+.section.artwork .art-toggle:hover span,
+.section.artwork .art-toggle:focus-visible span{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* 隐藏原来的 info 图标（i） */
+.section.artwork .art-toggle svg{
+  --size: 0rem;
+  position:absolute; left:50%; top:50%;
+  width:var(--size); height:var(--size);
+  transform:translate(-50%, -50%);
+  fill:currentColor;
+}
+
+/* === 向外扩散的水波纹（双层交错） === */
+.section.artwork .art-toggle::before,
+.section.artwork .art-toggle::after{
+  content:"";
+  position:absolute;
+  inset:-4px;                 /* 比按钮稍大，从边缘开始扩散 */
+  border-radius:50%;
+  border:2px solid var(--ring);
+  opacity:0;
+  transform:scale(1);
+  pointer-events:none;
+  z-index:-1;                 /* 在按钮下，不遮挡本体 */
+  animation: art-toggle-ripple 3s ease-out infinite;
+}
+.section.artwork .art-toggle::after{ animation-delay:1.2s; }
+
+@keyframes art-toggle-ripple{
+  0%   { opacity:.45; transform:scale(1); }
+  70%  { opacity:0;   transform:scale(2.4); }
+  100% { opacity:0;   transform:scale(2.5); }
+}
+
+/* 无障碍：减少动效时关闭波纹 */
+@media (prefers-reduced-motion: reduce){
+  .section.artwork .art-toggle::before,
+  .section.artwork .art-toggle::after{ display:none !important; }
+}
+
+
+
+
+
+/* 关键帧（局部命名，避免污染） */
+@keyframes art-scroll-x {
+  from { transform: translateX(var(--scroll-start)); }
+  to   { transform: translateX(var(--scroll-end)); }
+}
+@keyframes art-scroll-y {
+  from { transform: translateY(var(--scroll-start)); }
+  to   { transform: translateY(var(--scroll-end)); }
+}
+
+/* 小屏：卡片略小、间距略小 */
+@media (max-width: 767px){
+  .section.artwork .art-wrapper{ 
+  --size: clamp(8rem, 36vw, 12rem); --gap: 1rem; }
+}
+
+/* 让缩略图看起来可点击 */
+.section.artwork .art-card img {
+  cursor: zoom-in;
+}
+
+/* 打开时禁用页面滚动 */
+.no-scroll { overflow: hidden; }
+
+/* Lightbox 基础样式 */
+.art-lightbox{
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.82);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+  z-index: 9999;
+}
+
+/* 打开态 */
+.art-lightbox.is-open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.art-lightbox img{
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  cursor: zoom-out;           /* 点击图片也可关闭 */
+  object-fit: contain;        /* 完整展示整张图 */
+  background: #111;
+}
+
+/* 关闭按钮 */
+.art-lightbox__close{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  color: #909090;
+  font-size: 28px;
+  line-height: 1;
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+.art-lightbox__close:hover{ background: rgba(255,255,255,.28); }
+
+/* ===== 全部图片网格展开层 ===== */
+.art-all-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;                 /* 高于 lightbox / 菜单 */
+  display: none;                  /* 默认关闭 */
+  background: rgba(255,255,255,.08);
+  /* Safari 也支持 */
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+  backdrop-filter: blur(10px) saturate(1.05);
+  overflow: auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 88px) clamp(16px, 4vw, 32px) clamp(16px, 4vw, 32px);
+
+}
+
+
+.art-all-overlay.is-open{ display: block; }
+
+.art-all__close{
+  position: sticky;               /* 滚动时始终在右上角可见 */
+  top: 12px;
+  float: right;
+  width: 44px; height: 44px;
+  border: 0; border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  color: #6a6a6a; font-size: 28px; line-height: 1;
+  cursor: pointer;
+}
+.art-all__close:hover{ background: rgba(255,255,255,.28); }
+
+.art-all__grid{
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: clamp(10px, 2vw, 16px);
+  margin-top: 8px;
+}
+
+.art-all__grid figure{
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #222;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+.art-all__grid img{
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;           /* 正方形缩略图，干净整齐 */
+  cursor: zoom-in;               /* 仍然可用你现有的 lightbox 打开大图 */
+}
+
+
+
+
+/* ===== Happy List Horizontal Scroll (clip-path style) ===== */
+.wrapper {
+  clip-path: circle(1% at 50% 50%);
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+}
+
+.panel {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2.5rem;
+  font-family: "Signika Negative", sans-serif, Arial;
+  color: #fff;
+}
+
+.panel.blue { background-color: #ad350d; }   /* Gym */
+.panel.green { background-color: #e85d04; }  /* Vocal */
+.panel.purple { background-color: #f48c06; } /* Volunteer */
+.panel.teal { background-color: #faa307; }      /* Badminton */
+.panel.orange { background-color: #f78800; } /* Piano */
+
+
+/* —— 修掉 Happy List 下面多出来的高度 —— */
+#happy-list { padding: 0 !important; }
+
+#happy-list .grid-container,
+#happy-list .grid-x,
+#happy-list .cell {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#happy-list .wrapper,
+#happy-list .content,
+#happy-list .panel {
+  height: 100vh; /* 保持一屏高 */
+}
+
+#happy-list h1,
+#happy-list .happy-sub{
+  position: absolute;
+  left: 5vw;
+  top: 6vh;
+  margin: 0;
+  z-index: 10;
+  pointer-events: none; /* 不挡交互 */
+}
+
+
+
+/* ===== Happy List — 每屏左右布局（无 Tilt） ===== */
+/* Happy List 封面页：对齐其他 section 的标题和副标题 */
+#happy-list .panel.cover {
+  background: var(--c5); /* 保持 section.five 的红色背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left; /* 和 Passion Corners 保持一致 */
+}
+
+#happy-list .panel.cover h1 {
+  color: #fff; /* 白色标题 */
+}
+
+#happy-list .panel.cover p {
+  color: #f1f1f1; /* 浅灰副标题 */
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  margin-top: .5rem;
+}
+
+
+
+/* —— 让 Happy List 全幅铺满，去掉右侧红条 —— */
+#happy-list > .grid-container{
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+#happy-list .wrapper{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+
+/* ===== Happy List — 每屏左右布局（无 Tilt） ===== */
+#happy-list .panel { justify-content: center; }
+
+#happy-list .hobby-row{
+  width: min(1200px, 92vw);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;          /* 左起排布 */
+  gap: clamp(16px, 3vw, 40px);          /* 收紧间距给图片让位 */
+  padding: 0 2vw;
+  margin: 0 auto;
+}
+
+/* 左侧：简单卡片堆叠（无悬浮动效） */
+#happy-list .card-stack{
+  position: relative;
+  flex: 0 0 auto;                       /* 图片宽度不被拉伸 */
+  width: clamp(250px, 44vw, 350px);     /* 照片更小（不影响右侧文字位置） */
+  aspect-ratio: 4 / 5;
+  cursor: pointer;
+}
+#happy-list .card-stack .shot{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  border-radius: 0px;                  /* 稍大圆角 */
+  box-shadow: 0 22px 48px rgba(0,0,0,.32); /* 更强阴影 */
+  transition: transform .25s ease;
+  z-index: 1;
+}
+/* 轻微错位的静态叠放 */
+#happy-list .card-stack .shot:nth-child(1){ transform: translate(0,0);   z-index: 5; }
+#happy-list .card-stack .shot:nth-child(2){ transform: translate(8px,8px); }
+#happy-list .card-stack .shot:nth-child(3){ transform: translate(16px,16px); }
+#happy-list .card-stack .shot:nth-child(4){ transform: translate(24px,24px); }
+#happy-list .card-stack .shot:nth-child(5){ transform: translate(32px,32px); }
+
+/* 打开全屏的按钮（可选） */
+#happy-list .stack-open{
+  position: absolute; right: 12px; bottom: 12px;
+  padding: 8px 12px; border: 0; border-radius: 999px;
+  background: rgba(0,0,0,.55);
+  color: #fff; font-size: .9rem; font-weight: 700;
+  backdrop-filter: blur(2px);
+  cursor: pointer; z-index: 6;
+}
+
+/* 右侧：标题（标题字体）+ 正文（正文字体） */
+#happy-list .hobby-copy{
+  flex: 0 0 auto;                       /* 列宽固定，不被挤压 */
+  max-width: 26ch;                      /* 更窄；只影响文字宽度 */
+  color: #fff;
+  margin-left: auto;                    /* 关键：始终贴右侧，不受左边图片变宽/变窄影响 */
+  transform: translateX(2vw);           /* 👉 整体向右微移（保留你的偏移） */
+}
+#happy-list .hobby-title{
+  font-family: 'Yatra One', cursive;    /* 标题字体 */
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.6rem);  /* 大一点 */
+  line-height: 1.15;
+  margin: 0 0 .75rem 0;
+  color: #fff;                          /* 强制白色标题 */
+}
+#happy-list .hobby-desc{
+  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; /* 正文字体 */
+  font-size: clamp(1rem, 1.4vw, 1.2rem); /* 小一点 */
+  line-height: 1.7;
+  opacity: .96;
+  white-space: pre-line;                /* 按文案换行显示 */
+}
+
+/* 小屏：上下堆叠（保持原位，不右移） */
+@media (max-width: 767px){
+  #happy-list .hobby-row{ flex-direction: column; text-align: center; }
+  #happy-list .hobby-copy{
+    max-width: 92vw;
+    margin-left: 0;
+    transform: none;                    /* 小屏不右移，避免溢出 */
+  }
+  #happy-list .card-stack{ width: min(86vw, 560px); } /* 小屏尽量放大 */
+}
+
+
+
+
+/* ===== Section 6 — Contact（单屏，颜色版） ===== */
+#contact{
+  height: 100vh;         /* 一屏 */
+  padding: 0;            /* 不要额外内边距，避免撑高 */
+  display: grid;
+  place-items: center;   /* 垂直水平居中内容 */
+  background: #FF7C1D;   /* 橙色背景 */
+  color: #fff;
+  overflow: hidden;
+  position: relative;    /* 为右侧装饰图定位做准备 */
+}
+
+/* 内层容器：控制最大宽度与左右留白（为右侧图预留空间） */
+#contact .contact-inner{
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 0 2vw;
+  padding-right: min(34vw, 520px); /* 预留给右侧图片，避免内容压到图上 */
+  text-align: left;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  row-gap: clamp(10px, 2vh, 18px);
+}
+
+/* 保持全站 h1 字号不变，只设颜色与间距 */
+#contact h1{
+  color: #fff;
+  margin: 0 0 .4rem 0;
+}
+
+/* 引导文案 */
+#contact .contact-lead{
+  color: rgba(255,255,255,.92); /* 亮橙底更清晰 */
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.7;
+  max-width: 60ch;
+  margin: 0 0 0.5rem 0;
+}
+
+/* 联系方式卡片：改为竖排单列，避免覆盖右侧图片 */
+#contact .contact-grid{
+  display: grid;
+  grid-template-columns: 1fr;              /* ← 竖着排列 */
+  max-width: 400px;                        /* 左侧区域更聚焦 */
+  gap: clamp(10px, 2vw, 20px);
+  align-content: start;
+}
+
+@media (max-width: 900px){
+  /* 小屏时右侧图会隐藏，恢复默认内边距 */
+  #contact .contact-inner{ padding-right: 2vw; }
+}
+
+@media (max-width: 640px){
+  #contact .contact-grid{ grid-template-columns: 1fr; }
+}
+
+
+/* contact icon */
+/* 联系方式标签（文字 + 图标） */
+#contact .c-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* icon 与文字的间距 */
+}
+
+/* contact icon */
+/* 联系方式图标（支持两种摆放方式：放在 .c-badge 内，或直接放在 .c-card 内） */
+#contact .c-badge .c-icon,
+#contact .c-card > .c-icon {
+  width: 35px;   /* 你当前的大小设置 */
+  height: 35px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease; /* 增加动效过渡 */
+}
+
+/* 悬停时图标轻微放大 + 旋转 + 亮度提升 */
+#contact .c-card:hover .c-icon {
+  transform: scale(1.2) rotate(10deg);
+  filter: brightness(1.2);
+}
+
+
+
+
+
+/* 卡片样式（无外部依赖） */
+#contact .c-card{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 14px;
+  background: rgba(255,255,255,.16);  /* 比原先更亮以增强对比 */
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+  transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+#contact .c-card:hover{
+  background: rgba(255,255,255,.24);  /* 悬停更亮 */
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.2);
+}
+
+/* 左侧小标签 + 右侧值 */
+#contact .c-badge{
+  font-weight: 800;
+  font-family: 'Yatra One', cursive;   /* 与站点标题同风格 */
+  font-size: 1.05rem;
+  /* 仅变色：用白色文字（保留渐变写法） */
+  background: linear-gradient(180deg, #ffffff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#contact .c-value{
+  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 1.05rem;
+  color: #ffffff; /* 值改为纯白 */
+  word-break: break-word;
+}
+
+/* 尾注文案 */
+#contact .contact-note{
+  align-self: end;
+  margin: clamp(10px, 2vh, 18px) 0 0 0;
+  color: rgba(255,255,255,.9); /* 半透明白 */
+  font-size: clamp(.95rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+}
+
+/* 与上一个横向区块边界更利落（可选） */
+#contact.section.six{ position: relative; z-index: 2; }
+
+
+
+/* 图图图 */
+/* 让图片能相对整个区块绝对定位 */
+#contact{ position: relative; }
+
+/* 右侧大图：右对齐、垂直居中；不挡交互 */
+#contact .contact-hero-img{
+  position: absolute;
+  right: max(32px, 6vw); /* 原 max(16px,3vw) → 再向左一些 */
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(40vw, 500px);
+  max-height: 78vh;
+  object-fit: contain;
+  pointer-events: none; /* 防止遮住卡片点击 */
+  filter: drop-shadow(0 14px 36px rgba(0,0,0,.25));
+  opacity: .95;
+  border-radius: 20px;
+}
+
+/* 小屏隐藏右侧图，避免拥挤 */
+@media (max-width: 900px){
+  #contact .contact-hero-img{ display: none; }
+}
+
+
+
+
+
+
+/* ====== 最后一页导航按钮 ====== */
+.fun-btn{
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #ff7c1d, #ffb016);
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 悬停动效：轻微放大 + 光晕 */
+.fun-btn:hover{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 28px rgba(0,0,0,.3);
+  color: rgb(146, 22, 15); /* ← 悬停时文字变红 */
+}
+
+/* 点击时轻微缩小 */
+.fun-btn:active{
+  transform: scale(0.96);
+}

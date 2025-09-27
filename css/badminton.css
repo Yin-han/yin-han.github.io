@@ -1,0 +1,100 @@
+/* ===== 主题色（与其他项目页一致） ===== */
+:root{
+  --c1: #e4efff;
+  --c2: #fff9ea;
+  --c3: #cde0ff;
+  --c4: #fff9ea;
+  --c5: #e4efff;
+  --c6: #fff9ea;
+  --c7: #cde0ff;
+  --c8: #fff9ea;
+  --c9: #cde0ff;
+  --c10: #fff9ea;
+
+  /* 如需让图再小一点点，可开启并微调：
+  --badminton-scale: 0.92;
+  */
+}
+
+/* ===== Lenis 兼容层 ===== */
+html.lenis{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto; }
+.lenis.lenis-smooth [data-lenis-prevent]{ overscroll-behavior:contain; }
+.lenis.lenis-scrolling iframe{ pointer-events:none; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+/* ===== 分屏基础 ===== */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background:#ffffff;
+}
+
+/* 每一屏：100vh；上下留白由变量控制 */
+.section{
+  min-height:100vh;
+  padding:var(--top-gap) 0;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* 背景层次（前 7 屏） */
+.section.one   { background: var(--c1); z-index:1; }
+.section.two   { background: var(--c2); z-index:2; }
+.section.three { background: var(--c3); z-index:3; }
+.section.four  { background: var(--c4); z-index:4; }
+.section.five  { background: var(--c5); z-index:5; }
+.section.six   { background: var(--c6); z-index:6; }
+.section.seven { background: var(--c7); z-index:7; }
+
+/* 分屏内只放图：占满容器但不裁切 */
+.section .grid-container{ width:100%; }
+.section .grid-x{ width:100%; }
+.section .cell{
+  width:100%;
+  height: calc(100vh - (var(--top-gap) * 2));
+  display:grid;
+  place-items:center;
+}
+
+/* 图框 */
+.section figure{
+  margin:0;
+  width: min(1100px, 90vw);
+  height: var(--frame-h);
+  border-radius:0px;
+  overflow:hidden;
+  background:#ffffff;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  display:grid;
+  place-items:center;
+
+  transform: translateY(calc(-1 * var(--lift)));
+}
+
+/* 图片：完整显示、居中 */
+.section img{
+  max-width:100%;
+  max-height:100%;
+  object-fit: contain;
+  object-position: center center;
+  display:block;
+}
+
+/* 额外屏数（第 8 屏起走统一底色） */
+.section.auto { background:#ffffff; }
+
+/* 小屏优化 */
+@media (max-width: 640px){
+  .section figure{ border-radius:12px; }
+}
+
+/* 可选缩放补丁（若启用上面的 --badminton-scale）：
+#deck .section figure{
+  width: calc(min(1100px, 90vw) * var(--badminton-scale));
+  height: calc(var(--frame-h) * var(--badminton-scale));
+}
+*/

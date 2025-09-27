@@ -1,22 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome to My Site</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      text-align: center;
-    }
-    h1 {
-      color: #09559C;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yinhan Liu — Portfolio</title>
+
+    <!-- 先加载菜单依赖的样式（foundation） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+
+    <!-- 再加载你自己的样式 -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/menu.css">
+
+    <!-- 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
-  <h1>🎉 Hello, this is my GitHub Pages!</h1>
-  <p>Owner: Yinhan</p>
+<!-- Loading Screen -->
+<div id="loading-screen">
+  <img src="images/loading.gif" alt="Loading..." />
+</div>
+
+    
+<!-- Intro Screen -->
+<div id="intro-screen">
+    <div class="block blue"></div>
+    <div class="block yellow"></div>
+    <div class="block red"></div>
+
+    <div class="intro-text">
+        <h1 class="text-shadow-drop-center">PORTFOLIO</h1>
+        <!-- 加入通用副标题类 -->
+        <p class="text-shadow-drop-center subline">YINHAN LIU</p>
+    </div>
+</div>
+
+<!-- Main: Home Hero -->
+<main id="home" class="home-hero">
+
+  <!-- 标题区 -->
+  <header class="home-hero__head">
+    <h1 class="hero-title">Hi, <br>I’m YINHAN LIU</h1>
+    <!-- 加入通用副标题类 -->
+    <p class="hero-tagline subline">“Every click deserves a little magic.”</p>
+  </header>
+
+  <!-- 卡片网格 -->
+  <section class="home-band" aria-label="Primary Navigation">
+    <div class="band-grid">
+      <!-- 1. About me -->
+      <a class="band-card" href="me.html" aria-label="About me">
+        <figure class="band-card__inner">
+          <img class="band-card__icon icon-about" src="images/me_icon.svg" alt="About me icon">
+          <figcaption class="band-card__title">About me</figcaption>
+        </figure>
+      </a>
+
+      <!-- 2. Projects -->
+      <a class="band-card" href="projects.html" aria-label="Projects">
+        <figure class="band-card__inner">
+          <img class="band-card__icon icon-projects" src="images/projects_icon.svg" alt="Projects icon">
+          <figcaption class="band-card__title">Projects</figcaption>
+        </figure>
+      </a>
+
+      <!-- 3. Doing -->
+      <a class="band-card" href="doing.html" aria-label="Doing">
+        <figure class="band-card__inner">
+          <img class="band-card__icon icon-doing" src="images/doing_icon.svg" alt="Doing icon">
+          <figcaption class="band-card__title">Doing</figcaption>
+        </figure>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<div class="floating-menu" style="display:none;">
+    <div id="myMenu"></div>
+</div>
+
+<!-- 菜单依赖库 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<!-- 主脚本 -->
+<script src="js/index.js"></script>
+<script src="js/menu.js"></script>
+
+<!-- loading -->
+<script src="js/loading.js"></script>
+
+<!-- 鼠标 -->
+<script src="js/cursor.js" defer></script>
+
 </body>
+
+
+
+<!-- Bubble Footer Animation -->
+<div class="footer">
+  <div class="bubbles">
+    <!-- 生成气泡：128个div -->
+    <script>
+      for (let i = 0; i < 128; i++) {
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.style.setProperty("--size", `${2+Math.random()*4}rem`);
+        bubble.style.setProperty("--distance", `${6+Math.random()*4}rem`);
+        bubble.style.setProperty("--position", `${-5+Math.random()*110}%`);
+        bubble.style.setProperty("--time", `${2+Math.random()*2}s`);
+        bubble.style.setProperty("--delay", `${-1*(2+Math.random()*2)}s`);
+        document.currentScript.parentNode.appendChild(bubble);
+      }
+    </script>
+  </div>
+
+
+
+  <!-- 联系方式 -->
+  <div class="content">
+    <div class="connect-left">
+      <!-- 左列：CONTACT -->
+      <div class="connect-title">
+        <b>CONTACT</b>
+      </div>
+
+  <!-- 联系方式（两行三列） -->
+  <div class="contact-table" role="table" aria-label="Contact details">
+    <!-- 第一行 -->
+    <div class="ct-row" role="row">
+      <div class="ct-cell empty" role="cell"></div>
+      <a class="ct-cell" role="cell" href="tel:+8613619364851">
+        <img src="images/phone.png" alt="Phone Icon" class="ct-icon">
+        <span>Phone</span> +86 13619364851
+      </a>
+      <a class="ct-cell" role="cell" href="mailto:yh0000210@163.com">
+        <img src="images/email.png" alt="Email Icon" class="ct-icon">
+        <span>Email</span> yh0000210@163.com
+      </a>
+    </div>
+
+    <!-- 第二行 -->
+    <div class="ct-row" role="row">
+      <div class="ct-cell empty" role="cell"></div>
+      <a class="ct-cell" role="cell" href="mailto:540882267@qq.com">
+        <img src="images/qq.png" alt="QQ Icon" class="ct-icon">
+        <span>QQ</span> 540882267
+      </a>
+      <a class="ct-cell" role="cell" href="#">
+        <img src="images/wechat.png" alt="WeChat Icon" class="ct-icon">
+        <span>WeChat</span> Yinnnnn_210
+      </a>
+    </div>
+  </div>
+
+  <div class="connect-right">
+    <a class="image" href="https://codepen.io/z-" target="_blank"
+      style="background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
+  </div>
+
+  <!-- 底部版权信息 -->
+  <div class="footer-bottom">
+    <p>© 2025 Portfolio of Yinhan Liu. All rights reserved.</p>
+  </div>
+
+
+
+<!-- SVG filter -->
+<svg style="position:fixed; top:100vh">
+  <defs>
+    <filter id="blob">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix" 
+        values="1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0  
+                0 0 0 19 -9" 
+        result="blob"/>
+    </filter>
+  </defs>
+</svg>
+
+
+
+
 </html>

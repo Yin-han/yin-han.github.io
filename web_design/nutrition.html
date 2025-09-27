@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Guidance - Get Fit</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout_nu.css">
+    
+</head>
+<!-- Add the specific class "Nutri-Page" to the body -->
+<body class="nutrition-page">
+    <nav>
+        <div class="logo-section2">
+            <img src="images/logo2.png" alt="Get Fit Logo" class="logo2"> 
+            <span class="brand-name">Get Fit</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fitness.html">Fitness</a></li>
+            <li><a href="nutrition.html">Nutrition Guidance</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="mental_wellness.html">Mental Wellness</a></li>
+        </ul>
+        <div class="menu-icon">
+            <img src="images/menu.png" alt="Menu">  
+            <ul class="dropdown-menu">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Join Us</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- mobile --> 
+    <nav id="menu-mobile">
+        <div class="logo-section2">
+            <img src="images/logo2.png" alt="Get Fit Logo" class="logo2"> 
+            <span class="brand-name">Get Fit</span>
+        </div>
+
+        <details>
+            <summary>Menu</summary>
+            <div class="menu-content">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="fitness.html">Fitness</a></li>
+                    <li><a href="nutrition.html">Nutrition Guidance</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="mental_wellness.html">Mental Wellness</a></li>
+                </ul>
+            </div>
+        </details>
+
+        <div class="menu-icon">
+            <img src="images/menu.png" alt="Menu"> 
+            <ul class="dropdown-menu">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Join Us</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- image -->
+    <div class="top-image">
+        <img src="images/nu1.png" alt="Nutrition Image" />
+        <div class="overlay-text">
+            <h2>Subscribe to Our Newsletter</h2>
+            <div class="newsletter-input">
+                <input type="email" placeholder="Enter email address" />
+                <button class="subscribe-btn">Get yours Today</button>
+            </div>
+            <p>Nutrition / News</p>
+        </div>
+    </div>
+
+    <header class="hero-section">
+        <div class="overlay">
+            <h1>Discover the Best Supplements for Your Health</h1>
+        </div>
+    </header>
+
+    <!-- card -->
+    <section class="up_card-section">
+        <div class="up_card">
+            <img src="images/card1.jpg" alt="Card 1">
+            <h3>Brussels Sprout Slaw</h3>
+            <p>With a zippy honey-mustard vinaigrette, this easy ……</p>
+        </div>
+        <div class="up_card">
+            <img src="images/card2.jpg" alt="Card 2">
+            <h3>Beef and Bacon Stew</h3>
+            <p>Nothing quite beats a warming bowl of stew on cold winter nights. </p>
+        </div>
+        <div class="up_card">
+            <img src="images/card3.jpg" alt="Card 3">
+            <h3>Celery Salad with Apples</h3>
+            <p>This simple celery salad recipe comes together in less than ten minutes. </p>
+        </div>
+    </section>
+
+    <main>
+        <section class="product-section">
+            <h2>Recommended Nutrition Products</h2>
+            <div id="product-list" class="product-list">
+                <!-- The product will load here dynamically via JavaScript -->
+            </div>
+        </section>
+
+        <section class="submission-section">
+            <h2>Submit Your Favorite Product</h2>
+            <form id="productForm">
+                <label for="product_name">Product Name:</label>
+                <input type="text" id="product_name" name="product_name" required>
+
+                <label for="product_owner">Product Owner:</label>
+                <input type="text" id="product_owner" name="product_owner" required>
+
+                <label for="product_description">Product Description:</label>
+                <textarea id="product_description" name="product_description" required></textarea>
+
+                <label for="product_photo">Product Photo:</label>
+                <input type="file" id="product_photo" name="product_photo">
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Get Fit. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="js/nutrition.js"></script>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           loadProducts();  // Call the function to load the products
+        });
+     </script> -->
+
+</body>
+</html

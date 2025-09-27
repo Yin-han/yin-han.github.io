@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Get Fit</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body class="home-page">
+    <nav id="menu-desktop">
+        <div class="logo-section">
+            <img src="images/logo.png" alt="Get Fit Logo" class="logo"> 
+            <span class="brand-name">Get Fit</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fitness.html">Fitness</a></li>
+            <li><a href="nutrition.html">Nutrition Guidance</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="mental_wellness.html">Mental Wellness</a></li>
+        </ul>
+        <div class="menu-icon">
+            <img src="images/menu.png" alt="Menu"> 
+            <ul class="dropdown-menu">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Join Us</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+   <!-- mobile -->
+    <nav id="menu-mobile">
+        <div class="logo-section">
+            <img src="images/logo.png" alt="Get Fit Logo" class="logo"> 
+            <span class="brand-name">Get Fit</span>
+        </div>
+
+        <details>
+            <summary>Menu</summary>
+            <div class="menu-content">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="fitness.html">Fitness</a></li>
+                    <li><a href="nutrition.html">Nutrition Guidance</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="mental_wellness.html">Mental Wellness</a></li>
+                </ul>
+            </div>
+        </details>
+
+        <div class="menu-icon">
+            <img src="images/menu.png" alt="Menu"> 
+            <ul class="dropdown-menu">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Join Us</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header>
+        <!-- Add hero-section to wrap the background image and text -->
+        <div class="hero-section">
+            <h1>Get Fit<br>Stay Health</h1>
+    </header>
+    <main>
+        <!-- The longitudinal slide area of the card -->
+        <section class="feature-section">
+            <div class="feature-card">
+                <img src="images/home2.png" alt="Advanced Fitness" class="card-image">
+                <div class="card-content">
+                    <h2>Advanced Fitness</h2>
+                    <p>Take your fitness to the next level with our Advanced Fitness Module, designed for those looking
+                        to push their limits …</p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="images/fit3d.png" alt="Fit3D Scans" class="card-image">
+                <div class="card-content">
+                    <h2>Fit3D Scans</h2>
+                    <p>At Get Fit, our members enjoy the industry-leading Fit3D Proscanner for highly accurate 3D body
+                        scans in under 2 minutes.</p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="images/lab.jpg" alt="Get Fit Lab" class="card-image">
+                <div class="card-content">
+                    <h2>Get Fit Lab</h2>
+                    <p>Our Get Fit Lab is a well equipped space for individual training. The Lab features a wide-range
+                        of equipment...</p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="images/24hour.png" alt="24 hour access" class="card-image">
+                <div class="card-content">
+                    <h2>24 hour access</h2>
+                    <p>Unlock the Power of Convenience: 24-Hour Access with Get Fit Elite and Get Fit APP.</p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="images/childcare.png" alt="Free Childcare" class="card-image">
+                <div class="card-content">
+                    <h2>Free Childcare</h2>
+                    <p>We understand that juggling fitness goals and childcare responsibilities can be challenging.</p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Get Fit. All rights reserved.</p>
+    </footer>
+
+    <!-- Privacy Protection Popup -->
+    <div class="privacy-overlay" id="privacyOverlay"></div> <!-- Darkening the background -->
+    <div class="privacy-popup" id="privacyPopup">
+        <div class="popup-content">
+            <h3>Privacy Notice</h3>
+            <p>We value your privacy and ensure that all information collected is used solely to enhance your experience.</p>
+            <p>Please read our <a href="https://www.oaic.gov.au/privacy/the-privacy-act" target="_blank">privacy policy</a> to learn more about how we protect your information.</p>
+            <button class="acknowledge-btn" id="acknowledgeBtn">I Acknowledge</button>
+        </div>
+    </div>
+
+
+    <!-- Link specific JavaScript files -->
+    <script type="module" src="js/index.js"></script>
+</body>
+
+</html>

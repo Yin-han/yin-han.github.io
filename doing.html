@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doing | Yinhan Liu</title>
+
+  <!-- Foundation (optional, used on index) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+  <!-- Shared base styles -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="css/doing.css">
+  <!-- Icons (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <img src="images/loading.gif" alt="Loading..." />
+  </div>
+
+<header class="doing-hero" role="banner">
+  <div class="doing-hero__inner">
+    <h1 class="doing-hero__title">Doing</h1>
+    <p class="doing-hero__tagline">当前在做的事 · 课程/项目进展</p>
+
+    <nav class="doing-hero__nav" aria-label="Primary">
+      <a class="doing-hero__link" href="index.html">Home</a>
+      <a class="doing-hero__link" href="me.html">About me</a>
+      <a class="doing-hero__link" href="projects.html">Projects</a>
+      <span class="doing-hero__link active" aria-current="page">Doing</span>
+      <a class="doing-hero__link" href="#contact">Contact</a>
+      <link rel="stylesheet" href="css/menu.css">
+
+    </nav>
+  </div>
+</header>
+
+<main class="doing-main" id="doing">
+  <section class="cards" aria-label="Doing modules">
+    <!-- XR -->
+    <article class="card">
+      <div class="card__badge">01</div>
+      <h2 class="card__title">XR</h2>
+      <p class="card__desc">Unity/Quest 原型、空间交互测试、沉浸式演示与协作场景实验。</p>
+      <a class="card__cta" href="#xr">查看进展</a>
+    </article>
+
+    <!-- FIRE -->
+    <article class="card">
+      <div class="card__badge">02</div>
+      <h2 class="card__title">FIRE</h2>
+      <p class="card__desc">FHIR/SMART on FHIR 学习与数字健康原型对接，小规模互操作实验。</p>
+      <a class="card__cta" href="#fire">查看进展</a>
+    </article>
+
+    <!-- Advanced HCI -->
+    <article class="card">
+      <div class="card__badge">03</div>
+      <h2 class="card__title">Advanced HCI</h2>
+      <p class="card__desc">评估方法、可用性实验与交互新范式调研，含可复现实验流程。</p>
+      <a class="card__cta" href="#advanced-hci">查看进展</a>
+    </article>
+
+    <!-- Social Mobile and Computing -->
+    <article class="card">
+      <div class="card__badge">04</div>
+      <h2 class="card__title">Social Mobile and Computing</h2>
+      <p class="card__desc">社交与移动场景中的体验设计、数据叙事与原型迭代。</p>
+      <a class="card__cta" href="#smc">查看进展</a>
+    </article>
+  </section>
+
+  <!-- Sections -->
+  <section id="xr" class="doing-list">
+    <h3 class="doing-list__title">XR</h3>
+    <ul class="doing-list__grid">
+      <li class="doing-item placeholder"><span>Coming soon…</span></li>
+    </ul>
+  </section>
+
+  <section id="fire" class="doing-list">
+    <h3 class="doing-list__title">FIRE</h3>
+    <ul class="doing-list__grid">
+      <li class="doing-item placeholder"><span>Coming soon…</span></li>
+    </ul>
+  </section>
+
+  <section id="advanced-hci" class="doing-list">
+    <h3 class="doing-list__title">Advanced HCI</h3>
+    <ul class="doing-list__grid">
+      <li class="doing-item placeholder"><span>Coming soon…</span></li>
+    </ul>
+  </section>
+
+  <section id="smc" class="doing-list">
+    <h3 class="doing-list__title">Social Mobile and Computing</h3>
+    <ul class="doing-list__grid">
+      <li class="doing-item placeholder"><span>Coming soon…</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="doing-footer" id="contact">
+  <div class="doing-footer__inner">
+    <p>© <span id="year"></span> Yinhan Liu</p>
+    <div class="doing-footer__links">
+      <a href="mailto:yh0000210@163.com"><i class="fa-regular fa-envelope"></i><span>Email</span></a>
+      <a href="tel:+8613619364851"><i class="fa-solid fa-phone"></i><span>Phone</span></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- 菜单 -->
+<div class="floating-menu" style="display:none;">
+  <div id="myMenu"></div>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 必须的依赖 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<!-- 你的菜单逻辑 -->
+<script src="js/menu.js"></script>
+
+<!-- loading -->
+<script src="js/loading.js"></script>
+
+<!-- 鼠标 -->
+<script src="js/cursor.js" defer></script>
+
+</body>
+</html>

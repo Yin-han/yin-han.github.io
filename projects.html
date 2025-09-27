@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Yinhan Liu</title>
+
+  <!-- 基础样式 -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/index.css"><!-- 复用首页 footer 样式（之后可无缝切到同款动画 footer） -->
+
+  <!-- 图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- 仅为“页脚贴底”加入的最小样式 -->
+  <style>
+    html, body { height: 100%; }
+    body{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;   /* 纵向布局：main 占满空间，footer 贴底 */
+    }
+    main{ flex: 1 0 auto; }     /* 占满剩余空间，把 footer 顶到页面最底部 */
+    .proj-footer{ margin-top: auto; } /* 兜底：确保贴底 */
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen（保留原逻辑） -->
+  <div id="loading-screen">
+    <img src="images/loading.gif" alt="Loading..." />
+  </div>
+
+  <!-- 用 main 包裹主体，让 footer 能贴底 -->
+  <main id="main">
+    <!-- 顶部主视觉：整块背景图（红-黄-红横条） -->
+    <header class="proj-hero" role="banner">
+      <div class="proj-hero__inner">
+        <h1 class="proj-hero__title">
+          <img class="proj-trophy" src="images/trophy.png" alt="Trophy">
+          Projects
+        </h1>
+
+        <!-- 卡片网格：放在背景图的黄色条带中 -->
+        <section class="proj-band" aria-label="Project Categories">
+          <div class="band-grid">
+            <!-- 1 -->
+            <a class="band-card" href="fitness.html" aria-label="Web Design">
+              <figure class="band-card__inner">
+                <img class="band-card__icon" src="images/web_icon.svg" alt="Web icon">
+                <figcaption class="band-card__title">Web Design</figcaption>
+              </figure>
+            </a>
+            <!-- 2 -->
+            <a class="band-card" href="#dv" aria-label="Information Visualisation">
+              <figure class="band-card__inner">
+                <img class="band-card__icon" src="images/visual_icon.svg" alt="Visualisation icon">
+                <figcaption class="band-card__title">Visualisation</figcaption>
+              </figure>
+            </a>
+            <!-- 3：Industry -->
+            <a class="band-card" href="drone.html" target="_blank" aria-label="Industry">
+              <figure class="band-card__inner">
+                <img class="band-card__icon icon-industry" src="images/industry_icon.svg" alt="Industry icon">
+                <figcaption class="band-card__title">Industry</figcaption>
+              </figure>
+            </a>
+
+            <!-- 4：Sport APP -->
+            <a class="band-card" href="cloth.html" target="_blank" aria-label="Sport App">
+              <figure class="band-card__inner">
+                <img class="band-card__icon icon-app" src="images/app_icon.svg" alt="Sport App icon">
+                <figcaption class="band-card__title">Sport APP</figcaption>
+              </figure>
+            </a>
+
+          </div>
+        </section>
+      </div>
+    </header>
+  </main>
+
+  <!-- 页脚（先贴底，之后你要换成 index 的 Bubble Footer 时可直接替换这整个 <footer>） -->
+  <div class="footer">
+  <div class="bubbles">
+    <!-- 生成气泡：128个div -->
+    <script>
+      for (let i = 0; i < 128; i++) {
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.style.setProperty("--size", `${2+Math.random()*4}rem`);
+        bubble.style.setProperty("--distance", `${6+Math.random()*4}rem`);
+        bubble.style.setProperty("--position", `${-5+Math.random()*110}%`);
+        bubble.style.setProperty("--time", `${2+Math.random()*2}s`);
+        bubble.style.setProperty("--delay", `${-1*(2+Math.random()*2)}s`);
+        document.currentScript.parentNode.appendChild(bubble);
+      }
+    </script>
+  </div>
+
+
+
+  <!-- 联系方式 -->
+  <div class="content">
+    <div class="connect-left">
+      <!-- 左列：CONTACT -->
+      <div class="connect-title">
+        <b>CONTACT</b>
+      </div>
+
+  <!-- 联系方式（两行三列） -->
+  <div class="contact-table" role="table" aria-label="Contact details">
+    <!-- 第一行 -->
+    <div class="ct-row" role="row">
+      <div class="ct-cell empty" role="cell"></div>
+      <a class="ct-cell" role="cell" href="tel:+8613619364851">
+        <img src="images/phone.png" alt="Phone Icon" class="ct-icon">
+        <span>Phone</span> +86 13619364851
+      </a>
+      <a class="ct-cell" role="cell" href="mailto:yh0000210@163.com">
+        <img src="images/email.png" alt="Email Icon" class="ct-icon">
+        <span>Email</span> yh0000210@163.com
+      </a>
+    </div>
+
+    <!-- 第二行 -->
+    <div class="ct-row" role="row">
+      <div class="ct-cell empty" role="cell"></div>
+      <a class="ct-cell" role="cell" href="mailto:540882267@qq.com">
+        <img src="images/qq.png" alt="QQ Icon" class="ct-icon">
+        <span>QQ</span> 540882267
+      </a>
+      <a class="ct-cell" role="cell" href="#">
+        <img src="images/wechat.png" alt="WeChat Icon" class="ct-icon">
+        <span>WeChat</span> Yinnnnn_210
+      </a>
+    </div>
+  </div>
+
+  <div class="connect-right">
+    <a class="image" href="https://codepen.io/z-" target="_blank"
+      style="background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
+  </div>
+
+  <!-- 底部版权信息 -->
+  <div class="footer-bottom">
+    <p>© 2025 Portfolio of Yinhan Liu. All rights reserved.</p>
+  </div>
+
+
+
+<!-- SVG filter -->
+<svg style="position:fixed; top:100vh">
+  <defs>
+    <filter id="blob">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix" 
+        values="1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0  
+                0 0 0 19 -9" 
+        result="blob"/>
+    </filter>
+  </defs>
+</svg>
+
+  <!-- 悬浮菜单 -->
+  <div class="floating-menu" style="display:none;">
+    <div id="myMenu"></div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function () {
+      var ls = document.getElementById('loading-screen');
+      if (ls) { ls.classList.add('fade-out'); setTimeout(function(){ try{ ls.remove(); }catch(e){} }, 320); }
+    });
+  </script>
+
+  <!-- 依赖顺序：jQuery -> jQuery UI -> anime.js -> menu.js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- 你的页面脚本 -->
+  <script src="js/menu.js"></script>
+  <script src="js/loading.js"></script>
+  <script src="js/cursor.js" defer></script>
+</body>
+</html>

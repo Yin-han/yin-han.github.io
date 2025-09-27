@@ -1,0 +1,726 @@
+body {
+    background-color: #FFECDF;
+}
+
+/* Navbar styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF7C1D;
+    padding: 20px;
+    height: 30px; 
+    flex-direction: row;
+}
+
+
+
+/* Navigation menu items style */
+nav ul {
+    list-style-type: none;
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; 
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Logo and brand name styles */
+.logo-section2 {
+    display: flex;
+    align-items: center;
+    position: relative; 
+    margin-left: 0; 
+    padding-left: 20px; 
+}
+
+.logo2 {
+    height: 40px; 
+    margin-right: 10px;
+}
+
+.brand-name {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold; 
+}
+
+
+
+/* Menu icon styles */
+.menu-icon {
+    position: relative;
+}
+
+.menu-icon img {
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+    width: 150px; 
+}
+
+.menu-icon:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+    color: #515151; 
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 300; 
+    font-size: 1rem; 
+    line-height: 2; 
+}
+
+.dropdown-menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Discover */
+.hero-section {
+    position: relative;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-section .overlay {
+    padding: 20px;
+    position: relative;
+    top: 30px; 
+}
+
+.hero-section .overlay h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3rem; 
+    color: #FF7C1D; 
+}
+
+
+/* Background image */
+.top-image img {
+    width: 100%; 
+    height: auto; 
+}
+
+.top-image img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 30%; /* Move text and button up */
+    left: 20%; /* Move text and button left */
+    transform: translate(-30%, -50%);
+    color: #ffffff;
+    text-align: left;
+}
+
+.overlay-text h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.newsletter-input {
+    display: flex;
+    justify-content: flex-start; /* Left-align input box and button */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.newsletter-input input {
+    padding: 10px;
+    border-radius: 0px;
+    border: none;
+    font-size: 1rem;
+    width: 250px;
+}
+
+.subscribe-btn {
+    background-color: #FF7C1D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 0px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0px;
+}
+
+button:hover {
+    background-color: #ff6a00;
+}
+
+.overlay-text p {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: white;
+}
+
+
+
+
+/* 3 card */
+.up_card-section {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    gap: 30px; /* Add gap attribute to adjust spacing between cards */
+}
+
+.up_card {
+    background-color: white;
+    border-radius: 30px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    width: 23%;
+    height: 600px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 10px; /* Adjust card's horizontal margin to reduce spacing */
+}
+
+.up_card img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover; /* Ensure the image does not distort */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.up_card h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.up_card p {
+    min-height: 60px; 
+    padding: 0 15px;
+    font-size: 1rem;
+    color: #515151;
+    margin-bottom: 10px; 
+    
+}
+
+.up_card:hover {
+    transform: translateY(-10px); /* Move up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow effect */
+}
+
+/* Form section styles */
+/* "Recommended Nutrition Products"  */
+.product-section h2 {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 3rem; 
+    color: #FF7C1D; 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+/* Container style for holding the form and image */
+.submission-section-container {
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+    gap: 20px; /* Spacing between form and image */
+    margin-bottom: 20px;
+}
+
+.submission-section {
+    background-color: white; /* Set background color to white */
+    text-align: left; /* Align text to the left */
+    padding: 40px; /* Set padding */
+    border-radius: 30px; /* Set rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow */
+    max-width: 500px; /* Set maximum width */
+    margin: 40px auto; /* Center the form */
+}
+
+.submission-section h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem; /* Set font size */
+    color: #515151; /* Set font color */
+    margin-bottom: 20px; /* Set bottom margin */
+}
+
+.submission-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Set spacing between form items */
+}
+
+.submission-section input, 
+.submission-section textarea {
+    padding: 15px; /* Set padding */
+    border: 1px solid #ddd; /* Border style */
+    border-radius: 0px; /* No rounded corners */
+    font-family: 'Open Sans', sans-serif;
+    width: 100%; /* Set input width to 100% */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.submission-section button {
+    background-color: #FF7C1D; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 15px 0; /* Set padding */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    width: 100%; /* Button width set to 100% */
+    border-radius: 15px; /* Rounded corners */
+}
+
+.submission-section button:hover {
+    background-color: #ff6a00; /* Button background color on hover */
+}
+
+.submission-section label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem; /* Set font size */
+    color: #515151; /* Set font color */
+    margin-bottom: 5px;
+}
+
+
+
+
+/* GET */
+/* Product card list container */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Individual product card */
+.card {
+    background-color: white;
+    border-radius: 30px; /* Add rounding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    width: 23%;
+    height: 600px; /* Increase card height */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 20px; /* Adjust left and right margins for spacing */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Move up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow effect */
+}
+
+/* Product image */
+.card img {
+    width: 100%;
+    height: 400px; /* Fixed image height for consistency */
+    object-fit: cover; /* Prevent image distortion */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/* Product name */
+.card h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+/* Product description */
+.card p {
+    min-height: 60px; /* Set minimum height to ensure consistent text area */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis */
+    white-space: nowrap; /* Prevent text wrap */
+    padding: 0 15px;
+    font-size: 1rem;
+    color: #515151;
+    margin-bottom: 0px; /* Ensure enough space below */
+}
+
+/* Product image style */
+.product-image {
+    width: 100%;
+    height: 400px; /* Fixed image height for consistency */
+    object-fit: cover; /* Prevent image distortion */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/* Placeholder style when no image is available */
+.product-image-placeholder {
+    width: 100%;
+    height: 400px; /* Fixed height for consistency */
+    object-fit: cover; /* Prevent image distortion */
+    color: #8e8e8e;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/* Footer style */
+footer {
+    background-color: #FF7C1D; 
+    color: white; 
+    text-align: center; 
+    padding: 20px 0; /* Add padding on top and bottom */
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 1.2rem; 
+}
+
+/* Ensure spacing between main content and footer */
+main {
+    padding-bottom: 40px; /* Leave enough space for footer */
+}
+
+/* Display desktop menu on screens larger than 601px */
+@media (min-width: 601px) {
+    #menu-desktop {
+        display: flex; /* Show desktop navigation */
+    }
+
+    #menu-mobile {
+        display: none; /* Hide mobile navigation */
+    }
+}
+
+/* Responsive design for smaller screens */
+/* 12Pro: 390 * 844 */
+@media (max-width: 600px) {
+    
+    /* Hide "Get Fit" text next to logo */
+    .brand-name {
+        display: none;
+    }
+
+    /* Set fixed logo size */
+    .logo2 {
+        height: 40px; /* Set fixed height */
+    }
+
+    /* Adjust logo position */
+    .logo-section2 {
+        height: 30px;
+        margin-right: 330px;
+        margin-left: 0; /* Remove extra left margin, align logo to the left */
+    }
+
+    /* Adjust menu icon position */
+    .menu-icon {
+        position: absolute;
+        top: 15px; /* 10px from top */
+        right: 10px; /* 10px from right */
+        display: block;
+    }
+
+    #menu-desktop {
+        display: none; /* Hide desktop navigation */
+    }
+
+    #menu-mobile {
+        display: flex; /* Show mobile navigation */
+        flex-direction: column;
+        align-items: center;
+        background-color: #FF7C1D; /* Same color as desktop navigation */
+    }
+
+    /* Menu */
+    #menu-mobile ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #menu-mobile ul li {
+        margin: 1px 0; /* Increase spacing between nav items */
+    }
+
+    #menu-mobile ul li a {
+        color: rgb(116, 116, 116);
+        text-decoration: none;
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 50px; /* Below menu icon */
+        right: 10px; /* Align to right */
+        background-color: #ffffff; /* Menu background color */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for visual effect */
+    }
+
+    /* Use .show class to toggle menu visibility */
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    /* Set menu text color to gray and reduce font size */
+    .dropdown-menu li a {
+        color: #afafaf; /* Set font color to gray */
+        text-decoration: none;
+        font-size: 0.9rem; /* Reduce font size */
+    }
+
+    .dropdown-menu li {
+        padding: 10px 0px;
+    }
+
+    .menu-icon:hover .dropdown-menu {
+        display: block; /* Show dropdown menu on hover */
+    }
+
+    /* Summary link */
+    summary {
+        list-style: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ffffff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-top: -25px; /* Move up the menu button */
+    }
+
+    /* Dropdown menu arrow */
+    summary::before {
+        content: '\25B6'; /* Unicode triangle */
+        display: inline-block;
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate triangle when menu is open */
+    details[open] summary::before {
+        transform: rotate(90deg);
+        z-index: 9999; /* Ensure menu is on top when expanded */
+    }
+
+    /* Keep summary text position */
+    details summary {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Menu content style */
+    .menu-content {
+        background-color: #ffffff; /* Set background to white */
+        padding: 15px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        margin-top: 10px;
+    }
+
+    /* Menu item style */
+    .menu-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Hide navigation bar */
+    nav {
+        display: none;
+    }
+
+    /* Background image */
+    .top-image img {
+        width: 100%; 
+        height: 130px; /* Maintain image aspect ratio */
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 16%; /* Move text and button up */
+        left: 20%; /* Move text and button left */
+        transform: translate(-20%, -50%);
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .overlay-text h2 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        font-weight: 400; 
+    }
+
+    .newsletter-input {
+        display: flex;
+        justify-content: flex-start; /* Left-align input box and button */
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .newsletter-input input {
+        padding: 10px;
+        border-radius: 0px;
+        border: none;
+        font-size: 0.8rem;
+        width: 150px;
+    }
+
+    .subscribe-btn {
+        background-color: #FF7C1D;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-left: 0px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 0px;
+    }
+
+    button:hover {
+        background-color: #ff6a00;
+    }
+
+    .overlay-text p {
+        margin-top: 20px;
+        font-size: 0.8rem;
+        color: white;
+    }
+
+    /* Discover section */
+    .hero-section .overlay h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.5rem; /* Reduce font size slightly */
+        color: #FF7C1D; /* Change font color */
+    }
+
+    /* Top card section */
+    /* Adjust card layout to column */
+    .up_card-section {
+        flex-direction: column;
+        align-items: center; /* Center cards */
+        gap: 20px; /* Set spacing between cards */
+    }
+
+    /* Adjust card height and image size */
+    .up_card {
+        width: 80%; /* Make card take up 90% width */
+        height: auto; /* Allow card height to adapt to content */
+    }
+
+    .up_card img {
+        height: 250px; /* Adjust image height */
+    }
+
+    .up_card h3 {
+        font-size: 1.2rem; /* Adjust title font size */
+    }
+
+    .up_card p {
+        font-size: 0.9rem; /* Adjust body text font size */
+    }
+
+    /* Recommendation section */
+    .product-section h2 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 2rem; /* Adjust font size */
+        font-weight: 600; /* Set font weight to normal */
+        color: #FF7C1D; /* Keep orange font color */
+        text-align: center; 
+        margin-bottom: 20px;
+    }
+
+    /* Bottom card layout */
+    .product-list {
+        display: flex;
+        flex-direction: column; /* Make cards stack vertically on mobile */
+        align-items: center;
+        gap: 20px; /* Set spacing between cards */
+        padding: 20px;
+    }
+    
+    .card {
+        width: 80%; /* Make card take up 80% width */
+        height: auto;
+        text-align: center;
+        background-color: white;
+        border-radius: 30px; /* Add rounding */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card img {
+        height: 250px; /* Adjust image height */
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .card h3 {
+        font-size: 1.2rem; /* Adjust title font */
+        margin: 10px 0;
+    }
+    
+    .card p {
+        font-size: 0.9rem; /* Adjust body font */
+        color: #515151;
+        padding: 0 15px;
+    }
+
+    /* Form adjustments for mobile */
+    .submission-section {
+        width: 80%; /* Reduce card width to 90% of screen width */
+        padding: 15px; /* Reduce padding */
+    }
+
+    .submission-section input, 
+    .submission-section textarea {
+        width: 100%; /* Keep input and textarea full width */
+        font-size: 1rem; /* Adjust font size for mobile */
+        margin-bottom: 10px; /* Reduce spacing between inputs */
+    }
+
+    .submission-section button {
+        width: 100%; /* Submit button remains full width */
+        font-size: 1rem; /* Reduce button font size */
+        padding: 8px; /* Reduce button padding */
+    }
+}
+
+/* Ensure the navigation bar is at the top layer */
+#menu-mobile, #menu-desktop {
+    position: relative;
+    z-index: 10; /* Set higher than background layer */
+}

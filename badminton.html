@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Badminton Project — Viewer</title>
+
+  <!-- 站点基础（与其他页面一致） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+
+  <!-- 字体与全站基础样式（与 me.html / drone.html 一致） -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- 导航样式 / 全站样式（承接 me 页菜单与部分基础排版） -->
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/me.css">
+
+  <!-- 本页样式 -->
+  <link rel="stylesheet" href="css/badminton.css">
+</head>
+<body>
+  <!-- Loading Screen（复用 loading.js） -->
+  <div id="loading-screen">
+    <img src="images/loading.gif" alt="Loading..." />
+  </div>
+
+  <!-- 分屏容器（JS 会根据图片数组生成每一屏） -->
+  <main id="deck"></main>
+
+  <!-- 图片清单：14 张图 -->
+  <script>
+    window.BADMINTON_PAGES = [
+      "images/badminton01.jpg",
+      "images/badminton02.jpg",
+      "images/badminton03.jpg",
+      "images/badminton04.jpg",
+      "images/badminton05.jpg",
+      "images/badminton06.jpg",
+      "images/badminton07.jpg",
+      "images/badminton08.jpg",
+      "images/badminton09.jpg",
+      "images/badminton10.jpg",
+      "images/badminton11.jpg",
+      "images/badminton12.jpg",
+      "images/badminton13.jpg",
+      "images/badminton14.jpg"
+    ];
+  </script>
+
+  <!-- 悬浮菜单容器（与 me / drone / irrigation / cloth 页统一） -->
+  <div class="floating-menu" style="display:none;">
+    <div id="myMenu"></div>
+  </div>
+
+  <!-- ==================== 脚本（顺序很重要，与 drone.html 一致） ==================== -->
+  <!-- 1) 菜单依赖库（不加 defer，保证按顺序立即可用） -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- 2) 其它动效库（与菜单无强依赖，可用 defer） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.39/bundled/lenis.min.js" defer></script>
+
+  <!-- 3) 本页逻辑 -->
+  <script src="js/badminton.js" defer></script>
+
+  <!-- 4) 菜单与全站脚本（menu.js 需在依赖库之后执行） -->
+  <script src="js/menu.js"></script>
+  <script src="js/loading.js" defer></script>
+  <script src="js/cursor.js" defer></script>
+  <!-- ==================== 结束 ==================== -->
+</body>
+</html>

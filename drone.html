@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Drone Project — Viewer</title>
+
+  <!-- 站点基础（与其他页面一致） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+
+  <!-- 字体与全站基础样式（与 me.html 一致） -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- 导航样式 / 全站样式（承接 me 页菜单与部分基础排版） -->
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/me.css">
+
+  <!-- 本页样式 -->
+  <link rel="stylesheet" href="css/drone.css">
+</head>
+<body>
+  <!-- Loading Screen（可复用 loading.js） -->
+  <div id="loading-screen">
+    <img src="images/loading.gif" alt="Loading..." />
+  </div>
+
+  <!-- 分屏容器（JS 会根据图片数组生成每一屏） -->
+  <main id="deck"></main>
+
+  <!-- 图片清单：按顺序把 /images 里的页面图填进去 -->
+  <script>
+    window.DRONE_PAGES = [
+      "images/drone01.jpg",
+      "images/drone02.jpg",
+      "images/drone03.jpg",
+      "images/drone04.jpg",
+      "images/drone05.jpg",
+      "images/drone06.jpg",
+      "images/drone07.jpg",
+      "images/drone08.jpg",
+      "images/drone09.jpg",
+      "images/drone10.jpg"
+      // ……继续添加
+      
+    ];
+  </script>
+
+  <!-- 悬浮菜单容器（与 me 页统一） -->
+  <div class="floating-menu" style="display:none;">
+    <div id="myMenu"></div>
+  </div>
+
+  <!-- ==================== 脚本（顺序很重要） ==================== -->
+  <!-- 1) 菜单依赖库（均不加 defer，保证按顺序立即可用） -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- 2) 其它动效库（与菜单无强依赖，可用 defer） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.39/bundled/lenis.min.js" defer></script>
+
+  <!-- 3) 本页逻辑 -->
+  <script src="js/drone.js" defer></script>
+
+  <!-- 4) 菜单与全站脚本（menu.js 需在依赖库之后执行） -->
+  <script src="js/menu.js"></script>
+  <script src="js/loading.js" defer></script>
+  <script src="js/cursor.js" defer></script>
+  <!-- ==================== 结束 ==================== -->
+
+  <!-- Mini TOC小目录 -->
+  <nav class="mini-toc connect" aria-label="Quick navigation">
+    <a class="toc-btn" href="drone.html">🛩️ Drone</a>
+    <a class="toc-btn" href="irrigation.html">💧 Irrigation</a>
+  </nav>
+
+
+</body>
+</html>
