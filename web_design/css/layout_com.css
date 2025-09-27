@@ -1,0 +1,452 @@
+body {
+    background-color: #FFECDF;
+}
+
+/* Navbar styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF7C1D;
+    padding: 20px;
+    height: 30px; /* Increase navbar height */
+    position: relative; /* Ensure navbar is positioned relative to other elements */
+    z-index: 10; /* Set a high z-index to ensure navbar appears above images */
+}
+
+/* Navigation menu item styles */
+nav ul {
+    list-style-type: none;
+    margin: 0; /* Center navigation items */
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; /* Slightly increase font size */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Logo and brand name styles */
+.logo-section2 {
+    display: flex;
+    align-items: center;
+    position: relative; /* For square positioning */
+    margin-left: 0; /* Remove negative left margin */
+    padding-left: 20px; /* Add appropriate padding */
+}
+
+.logo2 {
+    height: 40px; /* Adjust logo size */
+    margin-right: 10px;
+}
+
+.brand-name {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold; /* Set title to bold */
+}
+
+/* Menu icon styles */
+.menu-icon {
+    position: relative;
+}
+
+.menu-icon img {
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+    width: 150px; /* Adjust menu width if needed */
+}
+
+.menu-icon:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+    color: #515151; /* Use light gray as font color */
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif; /* Use body font */
+    font-weight: 300; /* Set font to thin */
+    font-size: 1rem; /* Set appropriate font size */
+    line-height: 2; /* Increase line height for spacing */
+}
+
+.dropdown-menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Background image */
+/* Hero section for Community page */
+.top-image img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.overlay-text h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem; /* Increase font size */
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+/* Main content styles */
+.section-category {
+    margin-bottom: 60px; /* Increase spacing between sections */
+}
+
+.community-page {
+    padding: 80px;
+}
+
+/* Header and button horizontal alignment */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Title styles */
+.section-title {
+    font-size: 2.5rem;
+    color: #FF7C1D;
+}
+
+/* Button styles */
+.all-stories-btn {
+    background-color: #FF7C1D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.all-stories-btn:hover {
+    background-color: #e66a00;
+}
+
+/* Card container styles */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Card styles */
+.up_card {
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.up_card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.up_card h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.up_card p {
+    min-height: 60px;
+    padding: 0 15px;
+    font-size: 1rem;
+    color: #515151;
+    margin-bottom: 10px;
+}
+
+/* Card hover effect */
+.up_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer styles */
+footer {
+    background-color: #FF7C1D;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+}
+
+/* Ensure spacing between main content and footer */
+main {
+    padding-bottom: 40px;
+}
+
+/* Responsive design for mobile */
+/* 12Pro: 390 * 844 */
+@media (max-width: 600px) {
+    #menu-desktop {
+        display: none;
+    }
+
+    #menu-mobile {
+        display: flex; /* Display mobile navigation */
+        flex-direction: column;
+        align-items: center;
+        background-color: #FF7C1D; /* Match desktop navbar color */
+    }
+    
+    /* Hide "Get Fit" text next to logo */
+    .brand-name {
+        display: none;
+    }
+
+    /* Set fixed logo size */
+    .logo2 {
+        height: 40px; /* Set fixed height */
+    }
+
+    /* Adjust logo position */
+    .logo-section2 {
+        height: 30px;
+        margin-right: 330px;
+        margin-left: 0; /* Remove extra left margin to align logo left */
+    }
+
+    /* Adjust menu icon position */
+    .menu-icon {
+        position: absolute;
+        top: 15px; /* 10px from top */
+        right: 10px; /* 10px from right */
+        display: block;
+    }
+
+    /* Menu */
+    #menu-mobile ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #menu-mobile ul li {
+        margin: 1px 0; /* Increase spacing between nav items */
+    }
+
+    #menu-mobile ul li a {
+        color: rgb(116, 116, 116);
+        text-decoration: none;
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 50px; /* Below menu icon */
+        right: 10px; /* Align right */
+        background-color: #ffffff; /* Menu background color */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for visual effect */
+    }
+
+    /* Use .show class to toggle menu visibility */
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    /* Set menu text color to gray and reduce font size */
+    .dropdown-menu li a {
+        color: #afafaf; /* Set font color to gray */
+        text-decoration: none;
+        font-size: 0.9rem; /* Reduce font size */
+    } 
+
+    .dropdown-menu li {
+        padding: 10px 0px;
+    }
+
+    .menu-icon:hover .dropdown-menu {
+        display: block; /* Show dropdown menu on hover */
+    }
+
+    /* Summary link appearance */
+    summary {
+        list-style: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ffffff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-top: -25px; /* Move menu button up */
+    }
+
+    /* Triangle for collapsible menu */
+    summary::before {
+        content: '\25B6'; /* Unicode triangle */
+        display: inline-block;
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate triangle when menu is expanded */
+    details[open] summary::before {
+        transform: rotate(90deg);
+        z-index: 9999; /* Ensure menu is on top when expanded */
+    }
+
+    /* Keep summary text position */
+    details summary {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Menu content style */
+    .menu-content {
+        background-color: #ffffff; /* Set background to white */
+        padding: 15px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        margin-top: 10px;
+    }
+
+    /* Menu item styles */
+    .menu-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Hide desktop navigation */
+    nav {
+        display: none;
+    }
+
+    /* Community page */
+    .top-image img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .overlay-text {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+    .overlay-text h2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2rem; /* Increase font size */
+        margin-bottom: 20px;
+        color: white;
+        text-align: center;
+    }
+
+    /* Card adjustments */
+    .card-container {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center align cards */
+        gap: 20px; /* Maintain card spacing */
+        width: 100%; /* Ensure card width fits screen */
+    }
+
+    .up_card {
+        width: 85%; /* Adjust card width for mobile */
+        margin-bottom: 20px; /* Add sufficient vertical spacing */
+    }
+
+    .up_card img {
+        height: auto;
+        max-width: 100%;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
+    .up_card h3 {
+        font-size: 1.2rem; /* Adjust font size */
+        margin: 10px 0;
+    }
+
+    .up_card p {
+        font-size: 0.9rem; /* Reduce text size */
+        padding: 0 10px;
+    }
+
+    /* Community page top padding */
+    .community-page {
+        padding: 10px;
+    }
+
+    /* Title styles */
+    .section-title {
+        font-size: 1.5rem;
+        color: #FF7C1D;
+    }
+}
+
+/* Responsive design for desktop */
+@media (min-width: 601px) {
+    #menu-desktop {
+        display: flex; /* Show desktop navigation */
+    }
+    #menu-mobile {
+        display: none; /* Hide mobile navigation */
+    }
+}
+
+/* Ensure navigation bar is at the top layer */
+#menu-mobile, #menu-desktop {
+    position: relative;
+    z-index: 10; /* Set above background layer */
+}
