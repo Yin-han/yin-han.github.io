@@ -50,6 +50,7 @@ body{ background: var(--paper); color: var(--ink); }
   max-width: 840px;
 }
 
+
 /* me 页面同款按钮（保持你现在的文本），蓝色渐变 */
 .fun-btn{
   display: inline-block;
@@ -61,15 +62,28 @@ body{ background: var(--paper); color: var(--ink); }
   border-radius: 14px;
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(0,0,0,.25);
-  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  transition: color .25s ease, transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
-.fun-btn:hover{
+
+/* 避免被浏览器默认链接色覆盖 */
+.fun-btn:link,
+.fun-btn:visited{
+  color: #fff;
+}
+
+.fun-btn:hover,
+.fun-btn:focus-visible{
+  color: #ffffff; /* ← hover 时字体颜色 */
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 28px rgba(0,0,0,.3);
   filter: brightness(1.05);
 }
+
 .fun-btn:active{ transform: scale(.96); }
 .see-web{ margin-top: .35rem; }
+
+
+
 
 /* ——— 去掉“框框” ——— */
 .card{
@@ -137,4 +151,17 @@ body{ background: var(--paper); color: var(--ink); }
 .viz-hero .page-title{
   font-weight: 800;       /* extra bold */
   letter-spacing: .2px;
+}
+
+/* Justification 标题字体（与 References 同级的标题风格） */
+#justification .sec-title{
+  font-family: "Yatra One","Open Sans",system-ui,sans-serif !important;
+  font-weight: 200;
+}
+
+#justification .sub-title {
+  color: #3c3c3c;
+  font-family: var(--font-body, inherit);
+  font-weight: 700;
+  text-shadow: none;
 }
