@@ -1,0 +1,650 @@
+:root {
+    --primary: #35388e;
+    --accent: #fdc500;
+    --warning: #dd3131;
+    --bg-light: #f8f8f8;
+    --text-dark: #2e2e2e;
+  }
+  
+  /* 设置正文使用 Open Sans 字体 */
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+  }
+
+  /* 设置所有标题（h1, h2 等）使用 Ubuntu 字体 */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .chart-heading {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+  }
+
+  .chart-heading h2 {
+    font-size: 2.2em;
+    margin-top: 80px;
+    margin-bottom: 10px;
+  }
+
+  .chart-heading p {
+    font-size: 1.05em;
+    color: #444;
+  }
+
+
+
+
+
+
+  
+  header {
+    background-color: var(--primary);
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  /* 主标题带图标横排样式 */
+  .header-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    background-color: var(--primary);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .header-with-icon h1 {
+    margin: 0;
+    font-size: 3.2em;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .header-icon {
+    height: 200px;   /* 你可以改为 100px 看效果 */
+    width: auto;
+    animation: float 4s ease-in-out infinite;
+    will-change: transform; /* ✅ 优化性能，确保 GPU 加速 */
+  }
+
+  /* 月亮动画关键帧 */
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+
+
+  /* 名字 */
+  .designer-badge {
+  position: absolute;
+  bottom: -30px;              /* 再往下 */
+  left: 0px;
+  background-color: #dd3131;
+  color: white;
+  padding: 8px 20px;        /* 加宽加高 */
+  font-size: 1.25em;            /* 字体更大 */
+  font-family: 'Ubuntu', sans-serif;
+  text-align: left;
+  line-height: 1.4;
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  min-width: 100px;          /* 变宽 */
+}
+
+.designer-badge span {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+header {
+  position: relative; /* 确保定位生效 */
+}
+
+
+  
+  h1 {
+    margin: 0;
+    font-size: 3.0em;
+    font-weight: 300;       
+  }
+  
+  /* 副标题 */
+  .subtitle {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .subtext {
+    font-size: 1.4em;      /* 放大字体 */
+    font-weight: 500;
+    color: #ffffff;
+    margin-top: 30px;      /* 往下移 */
+    text-align: center;
+  }
+
+
+  main {
+    padding: 40px 20px;
+    max-width: 1500px;
+    margin: auto;
+  }
+  
+  /* .intro {
+    font-size: 1.2em;
+    line-height: 1.8;
+    background-color: white;
+    padding: 25px 30px;
+    border-left: 8px solid var(--accent);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+
+    /* 添加或修改以下部分以增加宽度 */
+    /* max-width: 1500px;     
+    margin-left: auto;
+    margin-right: auto;
+  } */ 
+
+  /* 黄色框 */
+  /* 黄色高亮盒子 + 滑入动画 */
+  .intro {
+    background-color: #fdc500; /* 整块 */
+    border-left: 20px solid #fdc500; /* 左侧黄色标记条 */
+    padding: 30px 40px;
+    border-radius: 0px;
+    margin: 40px auto;
+    max-width: 1500px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateX(60px); /* 初始从右边滑入 */
+    animation: slideFadeIn 1s ease-out forwards;
+  }
+
+  /* 动画定义 */
+  @keyframes slideFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+
+  .chart {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  footer {
+    margin-top: 50px;
+    background-color: #35388e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+  }
+  
+  
+  .grid line {
+    stroke: #ccc;
+    stroke-opacity: 0.3;
+  }
+
+
+  /* story 1 SLEEP START TIME VARIES BY AGE */
+  .section-title {
+    font-size: 28px;        /* 放大标题 */
+    text-align: center;
+    /* font-weight:normal ; */
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+
+  .section-text {
+    font-size: 18px;
+    font-weight: 100;       /* 加粗正文 */
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+
+  
+
+  /*Avg. sq图*/
+  .chart-image {
+    text-align: left;
+    margin-top: 50px;
+  }
+
+  .chart-image img.svg-chart {
+    max-width: 50%;
+    height: auto;
+  }
+
+  .sleep-illustration-container {
+    position: relative;
+    height: 400px;
+    margin: 100px auto;
+    text-align: center;
+  }
+
+  .sleep-illustration-container img {
+    max-height: 180px;
+    margin: 0 20px;
+  }
+
+
+  .flourish-embed {
+    max-width: 1200px;     /* 可根据需要改成 800px / 1000px 等 */
+    margin: 0 auto;       /* ✅ 居中 */
+    padding: 10px 0;
+  }
+
+  /* 四张图 */
+  .chart-analysis-section {
+    max-width: 1500px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 0px 0px;
+  }
+
+  .chart-analysis-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+
+  .four-charts img {
+    max-width: 100%;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 0px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .four-charts img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+
+  .four-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* 每行2张图 */
+    gap: 30px;                       /* 图之间的间距 */
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  .analysis-text {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #333;
+    max-width: 1200px;
+    margin: 30px auto;  /* ✅ 水平居中关键设置 */
+  }
+
+
+
+/* 图1 */
+  .chart-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chart-left {
+    flex: 1 1 50%;
+    min-width: 350px;
+    text-align: center;
+  }
+
+  .chart-left img.svg-chart {
+    max-width: 90%;   /* 控制图表宽度 */
+    height: auto;
+  }
+
+  .chart-left .section {
+    margin-bottom: 30px;  /* ✅ 控制标题和图之间的距离，可调节 */
+  }
+
+
+  .chart-right {
+    flex: 1 1 40%;
+    min-width: 300px;
+    font-size: 1.05em;
+    line-height: 1.5;
+  }
+
+  .chart-right h2 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+
+    /* 图2 */
+    .chart-section-swap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 120px auto 60px auto; /* ⬅️ 增大顶部间距为100px */
+    max-width: 1400px;
+  }
+
+  .chart-section-swap .text-block {
+    flex: 1 1 40%;
+    min-width: 300px;
+    font-size: 1.05em;
+    line-height: 1.5;
+  }
+
+  .chart-section-swap .text-block h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+  }
+
+  .chart-section-swap .image-block {
+    flex: 1 1 50%;
+    min-width: 350px;
+    text-align: center;
+  }
+
+  .chart-section-swap .image-block img.svg-chart {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .conclusion {
+    max-width: 1500px;
+    margin: 100px auto 60px auto;
+    padding: 40px 30px;
+    background-color: var(--warning);  /* 红色背景 */
+    border-left: 20px solid var(--accent);  /* 黄色竖条 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    font-size: 1.15em;
+    line-height: 1.5;
+    color: white;  /* ✅ 字体颜色改为白色 */
+    border-radius: 0px;
+  }
+
+  .conclusion h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: white;  /* ✅ 标题字体也改为白色 */
+  }
+
+  .conclusion p {
+    margin: 0;
+  }
+
+
+  .references {
+    max-width: 1500px;
+    margin: 100px auto 50px auto;
+    padding: 20px;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #444;
+    border-top: 1px solid #ccc;
+  }
+
+  .references h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #2e2e2e;
+  }
+
+  .references a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .references a:hover {
+    text-decoration: underline;
+  }
+
+
+
+/* 卡片3 */
+.chart-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  padding: 20px 30px;
+  margin: 60px auto;
+  max-width: 700px;
+  max-height: 300px;
+  transform-origin: top center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.chart-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px; /* 控制两个图表之间的距离 */
+  flex-wrap: nowrap;
+}
+
+.chart-block {
+  min-width: 300px;
+  max-width: 300px;
+  transform: scale(0.4);
+  transform-origin: top left;
+  margin-right: 60px; /* 缩短图表间距 */
+}
+
+.chart-block svg {
+  display: block;
+}
+
+.chart-title h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.chart-title p {
+  font-size: 0.85em;
+  color: #444;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+/* 卡片 */
+.chart-card {
+  background-color: white;
+  border-radius: 0px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  padding: 20px 30px;
+  margin: 30px 0;         /* ✅ 改这里：上下30px，取消左右auto */
+  max-width: 600px;
+  max-height: 300px;
+  transform-origin: top center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+
+.chart-card .chart-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;                  /* 控制两个图表间距 */
+  flex-wrap: nowrap;
+}
+
+.chart-card .chart-block {
+  min-width: 300px;
+  max-width: 300px;
+  transform: scale(0.35);      /* 缩小图表本体尺寸 */
+  transform-origin: top left;
+  margin-right: 30px;         /* 控制图表之间“收拢”的距离 */
+}
+
+.chart-card .chart-block svg {
+  display: block;
+}
+
+.chart-card .chart-title h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.chart-card .chart-title p {
+  font-size: 0.85em;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* 卡片容器布局（每行两个） */
+.card-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+/* 外层卡片容器 */
+.flip-card {
+  perspective: 1000px;
+  width: 600px;
+  height: 360px;
+  margin: 30px;
+  position: relative;
+}
+
+/* 内部旋转体 */
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* 翻转状态 */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 放大状态 */
+.flip-card.zoomed .flip-card-inner {
+  transform: scale(1.2);
+}
+
+/* 正面和背面通用 */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* 背面样式 */
+.flip-card-back {
+  background-color: #dd3131;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.2em;
+  font-family: 'Ubuntu', sans-serif;
+  transform: rotateY(0deg);
+}
+
+/* 正面样式 */
+.flip-card-front {
+  background-color: white;
+  transform: rotateY(180deg);
+  overflow: hidden;
+  padding: 20px 30px;
+}
+
+/* 正面内容结构：图表标题 */
+.chart-title h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.chart-title p {
+  font-size: 0.85em;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* 图表区域（两个图表并排） */
+.chart-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* 每个图表块大小与缩放 */
+.chart-block {
+  min-width: 300px;
+  max-width: 300px;
+  transform: scale(0.35);
+  transform-origin: top left;
+  margin-right: 30px;
+}
+
+.chart-block svg {
+  display: block;
+}
+
+/* 时间标签文本在背面卡片中 */
+.time-label {
+  font-weight: bold;
+}
