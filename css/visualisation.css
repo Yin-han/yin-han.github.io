@@ -30,6 +30,7 @@ body{ background: var(--paper); color: var(--ink); }
   border-radius: 16px;
   padding: clamp(.4rem, 1vw, .8rem);
   box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  cursor: zoom-in;  /* 提示可放大 */
 }
 .viz-figure img{
   display: block;
@@ -83,12 +84,10 @@ body{ background: var(--paper); color: var(--ink); }
 #justification .sec-title{
   font-family: var(--font-heading, var(--font-title, inherit)) !important;
   font-weight: 800; /* same weight as your References heading */
-  /* 不设颜色，继承全局 .sec-title/h2 的颜色，确保与 References 完全一致 */
 }
-
 /* Keep inner subtitles as body font */
 #justification .sub-title{
-  font-family: var(--font-body, inherit) ;
+  font-family: var(--font-body, inherit);
   font-weight: 700;
   text-shadow: none;
 }
@@ -109,6 +108,7 @@ body{ background: var(--paper); color: var(--ink); }
   position: fixed; inset: 0; background: rgba(4,16,28,.55);
   display: grid; place-items: center; padding: 4vmin;
   opacity: 0; pointer-events: none; transition: opacity .2s ease; z-index: 60;
+  cursor: zoom-out;  /* 提示可缩小 */
 }
 .img-modal img{
   max-width: 92vw; max-height: 86vh; width: auto; height: auto;
@@ -129,9 +129,12 @@ body{ background: var(--paper); color: var(--ink); }
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* Center & bold the top page title */
-.viz-hero .page-title{
+/* Center & bold the top page title + center the subtitle line */
+.viz-hero .page-title,
+.viz-hero .lead{
   text-align: center;
+}
+.viz-hero .page-title{
   font-weight: 800;       /* extra bold */
-  letter-spacing: .2px;   /* 微调字距，可删 */
+  letter-spacing: .2px;
 }

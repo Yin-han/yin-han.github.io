@@ -862,12 +862,6 @@ html {
   transform: none !important;           /* 关闭内层 hover 动画，防止双层效果 */
 }
 
-/* Center & bold the top page title */
-.viz-hero .page-title{
-  text-align: center;
-  font-weight: 800;       /* extra bold */
-  letter-spacing: .2px;   /* 微调字距，可删 */
-}
 
 
 
