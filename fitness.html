@@ -8,9 +8,6 @@
 		<meta name="format-detection" content="telephone=no">
 		<title>Yinhan Liu — Fitness</title>
 		<link rel="stylesheet" href="css/base.css" type="text/css">
-
-		
-		
 		<link rel="stylesheet" href="css/animate.min.css" type="text/css">
 		<link rel="stylesheet" href="css/swiper.css" type="text/css">
 		<link rel="stylesheet" href="css/fitness.css" type="text/css">
@@ -22,8 +19,42 @@
 		</script>
 
 		<style>
-			html,body{ cursor:auto; }          /* 默认显示系统光标 */
-			.cursor-hidden{ cursor:none; }     /* 脚本就绪后再隐藏系统光标 */
+			/* 默认显示系统光标；cursor.js 加载后再隐藏系统光标 */
+			html,body{ cursor:auto; }
+			.cursor-hidden{ cursor:none; }
+
+			/* ========= 新按钮（与 me 页一致的单层动效） ========= */
+			.fun-btn{
+				display:inline-flex;
+				align-items:center;
+				gap:8px;
+				padding:12px 22px;
+				font-size:14px;
+				font-weight:700;
+				color:#fff;
+				border-radius:14px;
+				text-decoration:none;
+				box-shadow:0 6px 18px rgba(0,0,0,.25);
+				transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+				line-height:1;
+				will-change: transform;
+			}
+			.fun-btn--blue{
+				/* 你的蓝色系（可渐变） */
+				background: linear-gradient(135deg, #005EA2, #0B74D6);
+			}
+			.fun-btn:hover{
+				transform: translateY(-3px) scale(1.04);
+				box-shadow: 0 10px 28px rgba(0,0,0,.30);
+				filter: saturate(1.05);
+			}
+			.fun-btn:active{ transform: scale(0.97); }
+			.fun-btn .fit-cta__icon{ width:20px; height:auto; }
+			/* 顶部这颗的局部位置微调（如需可改） */
+			.oneLeft .fun-btn{ margin-top:12px; }
+			/* 底部按钮容器对齐 */
+			.btnzh .fun-btn{ margin-top:10px; }
+			/* ================================================ */
 		</style>
 	</head>
 
@@ -52,25 +83,15 @@
     <div class="one_text wow fadeInUp" data-wow-delay="0.4s">
       <div class="oneLeft">
         <h2>Health & Fitness Platform Design</h2>
-        <!-- 修改：仅更改跳转地址 -->
-        <a class="fancy-button"
-			href="./web_design/index.html"
-			target="_blank"
-			rel="noopener"
-			aria-label="Open Web Design Project"
-			style="--front-color:#005EA2; --back-color:#ffffff; --back-bg:#FF7C1D;">
-			<div class="fancy-flipper">
-				<div class="fancy-front">
-					<span>View Project</span>
-					<img class="fit-cta__icon" src="images/fit1_icon.svg" alt="">
-				</div>
-				<div class="fancy-back">
-					<span>View Project</span>
-					<img class="fit-cta__icon" src="images/fit1_icon.svg" alt="">
-				</div>
-			</div>
-		</a>
-
+        <!-- 顶部按钮：改为单层动效 -->
+        <a class="fun-btn fun-btn--blue"
+           href="./web_design/index.html"
+           target="_blank"
+           rel="noopener"
+           aria-label="Open Web Design Project">
+          <span>View Project</span>
+          <img class="fit-cta__icon" src="images/fit1_icon.svg" alt="">
+        </a>
       </div>
 
       <div class="oneRright">
@@ -498,8 +519,6 @@ UI Components</p>
 					<p>Transforming design concepts into a functional, responsive website.</p>
 				</div>
 
-
-
 				<!-- Key Features -->
 				 <div class="pmen_nr">
 					<h2 class=" wow fadeInUp" data-wow-delay="0.4s">Key Features</h2>
@@ -567,12 +586,6 @@ UI Components</p>
 					<img class="zoom-image" src="" alt="">
 				</div>
 
-
-
-
-
-
-
 				<div class="tech wow FadeInUp" data-wow-delay="0.4s">
 					<h2 class=" wow fadeInUp" data-wow-delay="0.4s">Technical Challenges & Solutions</h2>
 					<div class="techbox">
@@ -610,6 +623,7 @@ UI Components</p>
 			</div>
 		</div>
 	</div>	
+	
 	
 	
 	<!-- Reflection -->
@@ -692,42 +706,26 @@ UI Components</p>
 						<p>Get Fit combines fitness, nutrition, and wellness into a responsive, accessible platform that fosters community and motivation. The project demonstrates how thoughtful design and development can turn user needs into an engaging, inclusive digital experience.</p>
 					</div>
 					<div class="btnzh">
-					<!-- 修改：仅更改跳转地址 -->
-					<!-- 页面底部（Reflection 区域）按钮 -->
-					<a class="fancy-button wow fadeInUp"
-						data-wow-delay="0.4s"
-						href="./web_design/index.html"
-						target="_blank"
-						rel="noopener"
-						aria-label="Open Web Design Project"
-						style="--front-color:#005EA2; --back-color:#ffffff; --back-bg:#FF7C1D;">
-						<div class="fancy-flipper">
-							<div class="fancy-front"><span>View Project</span>
-							<img class="fit-cta__icon" src="images/fit1_icon.svg" alt="">
-							</div>
-							<div class="fancy-back"><span>View Project</span>
-							<img class="fit-cta__icon" src="images/fit1_icon.svg" alt="">
-							</div>
-						</div>
-					</a>
-
+						<!-- 底部按钮：改为单层动效 -->
+						<a class="fun-btn fun-btn--blue wow fadeInUp"
+						   data-wow-delay="0.4s"
+						   href="./web_design/index.html"
+						   target="_blank"
+						   rel="noopener"
+						   aria-label="Open Web Design Project">
+						  <span>View Project</span>
+						  <img class="fit-cta__icon" src="images/fit1_icon.svg" alt="">
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 
-
-
-
-
 	<div class="dxnrbox">
 		<div class="dxnr wow fadeInRight" data-wow-delay="1s">
-			<p ><img src="images/a20.svg">Thank you for watching!</p>
+			<p><img src="images/a20.svg">Thank you for watching!</p>
 		</div>
 	</div>
-
-
-
 
 <div class="footer">
   <div class="footerbox">
@@ -796,7 +794,7 @@ UI Components</p>
       align-items: center;
       gap: .5rem;
       text-decoration: none;
-      color: #fff;                /* ← 文字改为白色 */
+      color: #fff;
       background: none;
       border: none;
       cursor: pointer;
@@ -806,10 +804,10 @@ UI Components</p>
     .contact-list img { width: 20px; height: 20px; object-fit: contain; }
     .contact-list a:hover,
     .contact-list button:hover {
-      opacity: .7;                /* ← hover 时半透明 */
+      opacity: .7;
       text-decoration: underline;
     }
-    .contact-list span { color: #fff; } /* 确保 span 内文字也是白色 */
+    .contact-list span { color: #fff; }
   </style>
 
   <div class="bqxx">
@@ -817,12 +815,8 @@ UI Components</p>
   </div>
 </div>
 
-
-
-
-
-<!-- Swiper JS -->
- <script>
+<!-- Swiper 全屏查看 -->
+<script>
   (function () {
     const overlay = document.getElementById('zoomOverlay');
     const bigImg  = overlay.querySelector('.zoom-image');
@@ -833,7 +827,7 @@ UI Components</p>
       bigImg.alt = alt || '';
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // 禁止底层滚动
+      document.body.style.overflow = 'hidden';
     }
     function close() {
       overlay.classList.remove('open');
@@ -842,12 +836,10 @@ UI Components</p>
       document.body.style.overflow = '';
     }
 
-    // 绑定点击
     document.querySelectorAll('.pmen_nr img.js-zoom').forEach(img => {
       img.addEventListener('click', () => open(img.src, img.alt));
     });
 
-    // 关闭：点遮罩、点×、按 ESC
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) close();
     });
@@ -858,24 +850,16 @@ UI Components</p>
   })();
 </script>
 
-
-
-
 <!-- Floating Menu -->
 <div class="floating-menu" style="display:none;">
   <div id="myMenu"></div>
 </div>
 
-
-
 <!-- Cursor effect (与 index 页相同的路径) -->
 <script src="js/cursor.js" defer
         onload="document.body.classList.add('cursor-hidden')"></script>
-</body>
-</html>
 
-<!-- <script src="js/jquery1.42.min.js"></script> -->
-<!-- 菜单依赖库（与 index 保持一致的版本与顺序） -->
+<!-- jQuery / Anime（与 index 保持一致） -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -883,21 +867,16 @@ UI Components</p>
 <!-- 悬浮菜单主脚本 -->
 <script src="js/menu.js"></script>
 
-
 <script type="text/javascript">
 $(function() {
     var istop = true
     $('#loutiNav li').click(function() {
         istop = false
         $("#loutiNav h2").removeClass("active")
-
         $(this).find("#loutiNav h2").addClass("active")
 
         var index = $(this).index()
-
-        var target = $("#main .louti").eq(index).offset().top //当前点击的对象相对于页面的高度就是滚动条的高度
-
-        //滚动条动画 达到目标值
+        var target = $("#main .louti").eq(index).offset().top
         $('body,html').stop().animate({
             'scrollTop': target
         }, 300, function() {
@@ -906,11 +885,9 @@ $(function() {
     })
 
     $(window).scroll(function() {
-
         if (istop) {
             var top = $(window).scrollTop()
             var index = 0
-            //利用每次循环作比较  用一个变量来接收当前的下标值	
             $("#main .louti").each(function(ind, obj) {
                 if (top >= $(obj).offset().top - 600) {
                     index = ind
@@ -918,13 +895,11 @@ $(function() {
             })
             $("#loutiNav h2").removeClass("active")
             $("#loutiNav h2").eq(index).addClass("active");
-            console.log(index % 2);
             if (index % 2 === 0) {
-                    $('#loutiNav').addClass('whiteState')
-                } else {
-                     $('#loutiNav').removeClass('whiteState')
-              }
-            
+                $('#loutiNav').addClass('whiteState')
+            } else {
+                $('#loutiNav').removeClass('whiteState')
+            }
         }
     })
 })
@@ -934,57 +909,30 @@ $(function() {
 <script>
     var swiper2 = new Swiper(".mySwiper1", {
 			breakpoints: {
-			1024: {
+			1024: { slidesPerView: 5, spaceBetween: 0 },
+			768:  { slidesPerView: 3, spaceBetween: 0 },
+			640:  { slidesPerView: 2, spaceBetween: 0 },
+			320:  { slidesPerView: 1.5, spaceBetween: 0 }
+			},
 			slidesPerView: 5,
-			spaceBetween: 0
-			},
-			768: {
-			slidesPerView: 3,
-			spaceBetween: 0
-			},
-			640: {
-			slidesPerView: 2,
-			spaceBetween: 0
-			},
-			320: {
-			slidesPerView: 1.5,
-			spaceBetween: 0
-			}
-			},
-			   slidesPerView: 5,
-			  spaceBetween: 0,
-			  centeredSlides: true,
-			  //loop: true,
-		//	  autoplay: {
-		//      delay: 2500,
-		//      disableOnInteraction: false,
-		//    },
-			  pagination: {
+			spaceBetween: 0,
+			centeredSlides: true,
+			pagination: {
 				el: '.mySwiper1 .swiper-pagination',
 				clickable: true,
-			  },
+			},
        });
 	  swiper2.slideTo(2);
-	  $('.mySwiper1').on('click', '.swiper-slide', function(e) {
-	  		  // 使用Swiper的clickedIndex属性获取正确的索引
+	  $('.mySwiper1').on('click', '.swiper-slide', function() {
 	  		  var realIndex = swiper2.clickedIndex;
-	  		  console.log("点击的slide真实索引:", realIndex);
-	  		  
-	  		  // 滑动到被点击的slide
 	  		  swiper2.slideTo(realIndex);
-	  		 
 	  });
-  </script>
+</script>
 
-
-
-
-  <script>
-	  
+<script>
 	$(function(){
 		$(window).scroll(function(){
 			var heig = $(window).scrollTop();
-			console.log(heig);
 			if(heig> 500){
 				$('.nav').addClass('on');
 			}else{
@@ -992,7 +940,6 @@ $(function() {
 			}
 		})
 	})
-	 
 </script>
 <script type="text/javascript">
 	$('.dhbtn').click(function(){
@@ -1001,19 +948,21 @@ $(function() {
 			$('.nav').animate({left:'-3rem'});
 		}else{
 			$(this).addClass('on');
-			
 			$('.nav').animate({left:0});	
 		}	
 	})
 </script>
 
-<!--<script type="text/javascript">
+<!--
+<script type="text/javascript">
 	$('.laybox').click(function(){
 		$(this).children('.laytc').fadeIn();
-			
 	})
 	$('.laytc').click(function(e){
 		$(this).stop().fadeOut();
 		e.stopPropagation();	
 	})
-</script>-->
+</script>
+-->
+</body>
+</html>
