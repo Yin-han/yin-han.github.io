@@ -5,108 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Information Visualisation | Yinhan Liu</title>
 
-  <!-- 与 fitness 页一致的基础依赖 -->
+  <!-- 悬浮菜单依赖的样式（与首页一致） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+
+  <!-- 站点与本页样式 -->
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/menu.css"><!-- 悬浮菜单同款 -->
+  <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/visualisation.css">
 
-  <!-- 字体与基础框架风格参考 fitness 页面 --> <!-- :contentReference[oaicite:4]{index=4} -->
+  <!-- 先显示系统鼠标，cursor.js 加载后再隐藏系统光标 -->
+  <style>
+    html, body { cursor: auto; }
+    .cursor-hidden { cursor: none; }
+  </style>
 </head>
 <body>
-
-  <!-- 顶部 Hero：横版图片（完整显示 & 可放大） -->
   <header class="viz-hero" role="banner">
-    <figure class="hero-figure">
-      <!-- 替换为你的横版图片路径 -->
-      <img id="heroImage" src="images/viz-hero.jpg" alt="Information Visualisation hero image">
-      <figcaption class="sr-only">Top banner image for the Information Visualisation project</figcaption>
-      <!-- 点击放大按钮（无障碍可聚焦） -->
-      <button class="zoom-btn" aria-label="Enlarge image" title="Enlarge image"></button>
-    </figure>
-
-    <!-- 进入网页按钮：默认跳转到 PDF 中提供的线上成品 -->
-    <a class="cta-enter" href="https://yin-han.github.io/7220-A4/" target="_blank" rel="noopener">
-      Enter the Interactive Website
-    </a> <!-- :contentReference[oaicite:5]{index=5} -->
+    <div class="container">
+      <h1 class="page-title">Information Visualisation — Sleep</h1>
+      <p class="lead">This is an information visualisation design based on a sleep dataset.</p>
+    </div>
   </header>
 
   <main id="main" class="viz-main" role="main">
-    <!-- 内容来自 PDF（分节排版） -->
-    <section class="section">
-      <h1 class="page-title">DECO7220 Information Visualisation</h1>
-      <p><strong>Name:</strong> Yinhan Liu &nbsp;&nbsp; <strong>Student Number:</strong> 48236333 &nbsp;&nbsp; <strong>Practical Session:</strong> PRA1, Activity 07</p>
+    <!-- 图片与按钮 -->
+    <section class="section container">
+      <div class="media-block">
+        <figure class="viz-figure">
+          <!-- 保持你的文件名，不做修改 -->
+          <img src="images/7220.svg" alt="Overview poster of the sleep visualisation">
+          <figcaption class="sr-only">Overview poster of the sleep visualisation</figcaption>
+        </figure>
+
+        <!-- 说明文字 + 你的按钮（文字保持不变） -->
+        <p class="btn-note">
+          This web visualisation selects one analytical module from the poster
+          and turns it into an interactive, narrative story.
+        </p>
+        <a class="fun-btn see-web"
+           href="https://yin-han.github.io/7220-A4/"
+           target="_blank" rel="noopener"
+           aria-label="Open the interactive website">
+          See Visualisation Project 🌐
+        </a>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Instructions for Viewing the Interactive Work</h2>
-      <ol>
-        <li>Visit the hosted webpage:&nbsp;<a href="https://yin-han.github.io/7220-A4/" target="_blank" rel="noopener">https://yin-han.github.io/7220-A4/</a></li>
-        <li>Alternatively, open the project locally by unzipping and opening <code>index.html</code> in a modern browser.</li>
-        <li>No installation is required (HTML/CSS/JS only).</li>
-      </ol>
+    <!-- Justification / References -->
+    <section class="section container" id="justification">
+      <h2 class="sec-title">Justification</h2>
+
+      <article class="card reveal">
+        <h3 class="sub-title">1. Key Visualisation Choices &amp; Interaction Benefits</h3>
+        <ul class="tight">
+          <li><strong>1.1</strong> Revealing differences in sleep timing by age — time slider (8 intervals) for exploration.</li>
+          <li><strong>1.2</strong> Highlighting rhythmic/responsibility differences (teens later; 46–60 more stable).</li>
+          <li><strong>1.3</strong> Analysing relationship between bedtime and sleep quality — coordinated comparison.</li>
+          <li><strong>1.4</strong> Supporting data-driven causal exploration with two linked views.</li>
+          <li><strong>1.5</strong> Personalised exploration matches Shneiderman’s mantra.</li>
+          <li><strong>1.6</strong> Coordinated multi-chart storytelling: When → Who → Why (Setting → Aha).</li>
+          <li><strong>1.7</strong> Time slider + colour encoding (blue sleep %, red quality) for dimensional comparison.</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <h3 class="sub-title">2. Interactions &amp; Animations (Annotated)</h3>
+        <ul class="tight">
+          <li><strong>P1</strong> Story navigation with arrows — <em>View manipulation</em>.</li>
+          <li><strong>P2</strong> Autoplay slider — <em>Temporal animation</em>.</li>
+          <li><strong>P3</strong> Tooltips for exact values — <em>Details on demand</em>.</li>
+          <li><strong>P4–P5</strong> Flip card animation in “Looking Closer”.</li>
+          <li><strong>P6</strong> Colour emphasis on min/max values.</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <h3 class="sub-title">3. Design Theory References</h3>
+        <ul class="tight">
+          <li>Shneiderman (1996) — Information Seeking Mantra.</li>
+          <li>Heer &amp; Shneiderman (2012) — Taxonomy of Interactive Dynamics.</li>
+          <li>Tufte — Graphical integrity &amp; data-ink ratio.</li>
+          <li>Munzner — Visual perception &amp; colour encoding.</li>
+        </ul>
+      </article>
     </section>
 
-    <section class="section">
-      <h2>Justification</h2>
-      <h3>1. Key Visualisation Choices &amp; Interaction Benefits</h3>
-      <ul class="tight">
-        <li><strong>1.1</strong> Revealing Differences in Sleep Timing by Age — time slider (8 intervals) for exploration.</li>
-        <li><strong>1.2</strong> Highlighting rhythmic/responsibility differences (teens later; 46–60 more stable).</li>
-        <li><strong>1.3</strong> Analysing relationship between bedtime and sleep quality — coordinated comparison.</li>
-        <li><strong>1.4</strong> Supporting data-driven causal exploration with two linked views.</li>
-        <li><strong>1.5</strong> Personalised exploration matches Shneiderman’s mantra.</li>
-        <li><strong>1.6</strong> Coordinated multi-chart storytelling: When → Who → Why (Setting → Aha).</li>
-        <li><strong>1.7</strong> Time slider + colour encoding (blue sleep %, red quality) for dimensional comparison.</li>
-      </ul>
-
-      <h3>2. Interactions &amp; Animations (Annotated)</h3>
-      <ul class="tight">
-        <li><strong>P1</strong> Story navigation with arrows — <em>View manipulation</em>.</li>
-        <li><strong>P2</strong> Autoplay slider — <em>Temporal animation</em>.</li>
-        <li><strong>P3</strong> Tooltips for exact values — <em>Details on demand</em>.</li>
-        <li><strong>P4–P5</strong> Flip card animation in “Looking Closer”.</li>
-        <li><strong>P6</strong> Colour emphasis on min/max values.</li>
-      </ul>
-
-      <h3>3. Design Theory References</h3>
-      <ul class="tight">
-        <li>Shneiderman (1996) – Information Seeking Mantra.</li>
-        <li>Heer &amp; Shneiderman (2012) – Taxonomy of Interactive Dynamics.</li>
-        <li>Tufte – Graphical integrity &amp; data-ink ratio.</li>
-        <li>Munzner – Visual perception &amp; colour encoding.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>References</h2>
+    <section class="section container">
+      <h2 class="sec-title">References</h2>
       <ul class="refs">
-        <li>Flourish Studio. <a href="https://flourish.studio" target="_blank" rel="noopener">https://flourish.studio</a></li>
-        <li>Open Sans / Ubuntu – Google Fonts.</li>
+        <li>Flourish Studio — <a href="https://flourish.studio" target="_blank" rel="noopener">https://flourish.studio</a></li>
+        <li>Open Sans / Ubuntu — Google Fonts.</li>
         <li>Heer, J., &amp; Shneiderman, B. (2012). <em>Interactive dynamics for visual analysis</em>.</li>
         <li>Tufte, E. R. (2001). <em>The Visual Display of Quantitative Information</em>.</li>
         <li>Munzner, T. (2014). <em>Visualization, Analysis, and Design</em>.</li>
-        <li>Dataset: Kaggle – Sleep health and lifestyle.</li>
+        <li>Dataset: Kaggle — Sleep health and lifestyle.</li>
       </ul>
     </section>
   </main>
 
-  <!-- 图片放大用的模态层（纯原生，无第三方依赖） -->
-  <div id="imgModal" class="img-modal" aria-hidden="true" role="dialog" aria-label="Image preview">
-    <button class="modal-close" aria-label="Close preview">&times;</button>
-    <img src="images/viz-hero.jpg" alt="Preview of top banner image">
-  </div>
-
-  <!-- 页脚：悬浮菜单（结构与依赖保持一致） -->
+  <!-- 悬浮菜单容器（关键：必须存在，menu.js 才能挂载） -->
   <div class="floating-menu" style="display:none;">
     <div id="myMenu"></div>
   </div>
 
-  <!-- 依赖顺序与 projects.html 保持一致：jQuery -> jQuery UI -> anime.js -> menu.js -->
+  <!-- 可选图片预览模态 -->
+  <div id="imgModal" class="img-modal" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="modal-close" aria-label="Close preview">&times;</button>
+    <img src="images/7220.svg" alt="Preview of the visualisation image">
+  </div>
+
+  <!-- 依赖顺序与首页一致 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script src="js/menu.js"></script> <!-- 与 projects/fitness 的悬浮菜单逻辑一致 --> <!-- :contentReference[oaicite:6]{index=6} -->
-
+  <script src="js/menu.js"></script>
+  <script src="js/cursor.js" defer onload="document.body.classList.add('cursor-hidden')"></script>
   <script src="js/visualisation.js"></script>
 </body>
 </html>

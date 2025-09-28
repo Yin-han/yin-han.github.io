@@ -1,119 +1,130 @@
-/* 版面沿用 fitness 的字体与基色体系（base.css / fitness.css 已设置全站字体） */
+:root{
+  --brand: var(--primary-color, #09559C);
+  --brand-2: var(--secondary-color, #0B74D6);
+  --accent: var(--tertiary-color, #FF7C1D);
+  --ink: var(--heading-color, #313131);
+  --paper: var(--background-color, #FFFFFF);
+}
 
-/* 顶部 hero */
-.viz-hero{
-  padding: clamp(16px, 3vw, 28px) clamp(16px, 5vw, 48px);
+*{ box-sizing: border-box; }
+body{ background: var(--paper); color: var(--ink); }
+.container{ width: min(1280px, 96vw); margin: 0 auto; }  /* 放宽主容器 */
+
+/* 顶部（无背景） */
+.viz-hero{ background: none; padding: 1.2rem 0 .5rem; }
+.viz-main .page-title{ margin: 0 0 .25rem; }
+.lead{ margin: 0 0 1rem; color: color-mix(in srgb, var(--ink) 82%, #000 18%); }
+
+/* 图片 + 按钮：上下居中 */
+.media-block{
   display: grid;
-  place-items: center;
-  gap: clamp(14px, 2.5vw, 20px);
-  background: #f7f9fc;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  row-gap: .75rem;
 }
 
-.hero-figure{
-  width: min(1200px, 92vw);
+/* 图像容器：完整显示，不裁切 */
+.viz-figure{
   margin: 0;
-  position: relative;
-  border-radius: 16px;
   background: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  padding: clamp(8px, 1vw, 12px);
+  border-radius: 16px;
+  padding: clamp(.4rem, 1vw, .8rem);
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
 }
-
-.hero-figure img{
+.viz-figure img{
+  display: block;
   width: 100%;
-  max-height: 60vh;            /* 必须完整显示 */
-  object-fit: contain;         /* 不裁剪，完整展示 */
-  display: block;
-  border-radius: 12px;
+  height: auto;
+  max-height: 86vh;      /* 更大 */
+  object-fit: contain;
+  border-radius: 10px;
 }
 
-.zoom-btn{
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 2px solid rgba(9,92,174,.9);
-  background: rgba(255,255,255,.9);
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,.12);
-}
-.zoom-btn:after{
-  content: "+";
-  font-size: 22px;
-  line-height: 38px;
-  display: block;
+/* 新增：按钮上方说明文字 */
+.btn-note{
+  margin: .35rem 0 0;
+  font-size: .95rem;
+  color: #5a6a7a;
   text-align: center;
-  color: #095cae;
-  font-weight: 700;
+  max-width: 840px;
 }
 
-/* CTA */
-.cta-enter{
+/* me 页面同款按钮（保持你现在的文本），蓝色渐变 */
+.fun-btn{
   display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #005EA2;
-  color: #fff;
+  padding: 14px 28px;
+  font-size: 1.2rem;                 /* 与 me 按钮一致 */
   font-weight: 700;
-  letter-spacing: .2px;
-  box-shadow: 0 10px 24px rgba(0,94,162,.25);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  color: #fff;
+  background: linear-gradient(135deg, #0B74D6, #09559C);
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
-.cta-enter:hover{ transform: translateY(-1px); box-shadow: 0 14px 28px rgba(0,94,162,.32); background:#0B74D6; }
-
-/* 主文内容 */
-.viz-main{
-  width: min(960px, 92vw);
-  margin: 28px auto 80px;
+.fun-btn:hover{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 28px rgba(0,0,0,.3);
+  filter: brightness(1.05);
 }
-.section{ margin: 32px 0; }
-.page-title{ font-weight: 800; font-size: clamp(24px, 4.8vw, 38px); color:#163494; }
-.section h2{ font-size: clamp(20px, 3.6vw, 28px); color:#333; margin: 8px 0 12px; }
-.section h3{ font-size: clamp(18px, 3vw, 22px); color:#444; margin: 16px 0 8px; }
-.section p, .section li{ font-size: clamp(14px, 2.4vw, 16px); line-height: 1.7; color:#515151; }
-.section ol{ padding-left: 1.2em; }
-.section ul.tight{ padding-left: 1.1em; }
-.refs{ padding-left: 1.1em; }
+.fun-btn:active{ transform: scale(.96); }
+.see-web{ margin-top: .35rem; }
 
-/* 图片放大 Modal */
+/* ——— 去掉“框框” ——— */
+.card{
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: .25rem 0 .75rem;   /* 仅保留垂直间距 */
+  margin: .4rem 0;
+}
+
+/* Headings: make "Justification" use the same heading font as "References" */
+#justification .sec-title{
+  font-family: var(--font-heading, var(--font-title, inherit)) !important;
+  font-weight: 800; /* same weight as your References heading */
+  /* 不设颜色，继承全局 .sec-title/h2 的颜色，确保与 References 完全一致 */
+}
+
+/* Keep inner subtitles as body font */
+#justification .sub-title{
+  font-family: var(--font-body, inherit) ;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+/* 列表/引用保持原样 */
+.section{ padding: 1.1rem 0; }
+.tight{ margin: 0; padding-left: 1.1rem; }
+.tight li{ margin: .35rem 0; }
+.refs{ margin: .4rem 0 1.2rem; padding-left: 1.1rem; }
+.refs li{ margin: .25rem 0; }
+
+/* reveal 动画（可留可去） */
+.reveal{ opacity: 0; translate: 0 18px; }
+.reveal.in{ opacity: 1; translate: 0 0; transition: opacity .6s ease, translate .6s ease; }
+
+/* 图片放大模态（保留） */
 .img-modal{
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.75);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 4vmin;
-  z-index: 9999;
+  position: fixed; inset: 0; background: rgba(4,16,28,.55);
+  display: grid; place-items: center; padding: 4vmin;
+  opacity: 0; pointer-events: none; transition: opacity .2s ease; z-index: 60;
 }
 .img-modal img{
-  width: min(1200px, 96vw);
-  max-height: 92vh;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.35);
-  background:#fff;
+  max-width: 92vw; max-height: 86vh; width: auto; height: auto;
+  object-fit: contain; border-radius: 14px;
+  box-shadow: 0 22px 60px rgba(0,0,0,.45); background: #fff;
 }
-.img-modal[aria-hidden="false"]{ display: flex; }
-
+.img-modal[aria-hidden="false"]{ opacity: 1; pointer-events: auto; }
 .modal-close{
-  position: absolute; top: 12px; right: 12px;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.95);
-  color: #163494;
-  border: 0;
-  font-size: 26px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+  position: absolute; right: 20px; top: 12px;
+  width: 44px; height: 44px; border: none; border-radius: 999px;
+  background: var(--accent); color: #fff; font-size: 26px; line-height: 44px;
+  cursor: pointer; box-shadow: 0 10px 24px rgba(0,0,0,.25);
 }
 
-/* 隐藏仅供朗读的说明文字 */
+/* 无障碍隐藏文本 */
 .sr-only{
-  position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px; overflow: hidden;
-  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
