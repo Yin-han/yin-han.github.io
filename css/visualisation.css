@@ -1,13 +1,12 @@
 :root{
   --brand: var(--primary-color, #09559C);
-  --brand-2: var(--secondary-color, #0B74D6);
-  --accent: var(--tertiary-color, #FF7C1D);
-  --ink: var(--heading-color, #313131);
-  --paper: var(--background-color, #FFFFFF);
+
 }
 
+
 *{ box-sizing: border-box; }
-body{ background: var(--paper); color: var(--ink); }
+body{ background: #ffffff !important;  /* 你的背景色 */
+  color: var(--ink); }
 .container{ width: min(1280px, 96vw); margin: 0 auto; }  /* 放宽主容器 */
 
 /* 顶部（无背景） */
@@ -165,3 +164,19 @@ body{ background: var(--paper); color: var(--ink); }
   font-weight: 700;
   text-shadow: none;
 }
+
+/* 顶部 banner */
+/* .banner {
+  width: 100%;
+  max-height: 400px;         
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;          
+} */
