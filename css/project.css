@@ -9,9 +9,7 @@ html, body { margin: 0; height: 100%; }
 body{
   font-family: 'Open Sans', sans-serif;
   color: var(--heading-color);
-  /* 背景图：红-黄-红横条 */
-  background: url('../images/projects_bg.png') center/cover no-repeat fixed;
-
+  background-color: #FFB016;
 }
 
 /* ===== 顶部主视觉 ===== */
@@ -38,7 +36,8 @@ body{
   width: clamp(64px, 6vw, 96px);  /* 最小64px，常规按视口放大，最大96px */
   height: auto;
   flex-shrink: 0;                 /* 防止被压缩变形 */
-  transform: translateY(-12px);     /* 细调与文字对齐（可按需改为 0） */ }
+  transform: translateY(-12px);   /* 细调与文字对齐（可按需改为 0） */
+}
 
 /* ===== 黄色条带中的 4 张红色卡片（图2风格） ===== */
 .proj-band{
@@ -50,7 +49,7 @@ body{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(1rem, 3vw, 2rem);
-
+}
 
 @media (max-width: 1000px){
   .band-grid{ grid-template-columns: repeat(2, 1fr); }
@@ -73,7 +72,6 @@ body{
   box-shadow: 0 6px 14px rgba(0,0,0,.15);
   transition: transform .2s ease, box-shadow .2s ease;
 
-
   /* 固定正方形比例 & 缩小尺寸 */
   aspect-ratio: 1 / 1;
   width: 60%;          /* 缩小一些卡片，不是100% */
@@ -82,7 +80,6 @@ body{
   /* 内容居中 */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   justify-content: space-between;  /* 保证上下分布 */
   align-items: center;
   padding: 1rem;
@@ -93,16 +90,14 @@ body{
   filter: brightness(1.03);
 }
 
-
 /* 图标与标题 */
 .band-card__icon{
   width: clamp(60px, 7vw, 90px);
   height: auto;
   display: block;
-  margin-bottom: .0rem;
+  margin-bottom: 0;
 }
 .band-card__title{
-  
   font-family: 'Yatra One', cursive; /* 与主标题一致 */
   color: #fff;
   font-size: clamp(0.9rem, 1.8vw, 1.3rem);
@@ -111,21 +106,18 @@ body{
   margin: 0;
 }
 
-}
 /* 单独控制羽毛球图标大小 */
 .band-card__icon.icon-app{
-  width: clamp(40px, 9vw, 60px); /* 最小100，中间随屏幕变化，最大150 */
+  width: clamp(40px, 9vw, 60px);
   height: auto;
   transform: translateY(25px);  /* 自己调，比如 15~25px */
 }
 
-/* 单独Industry 专属图标尺寸 */
+/* 单独 Industry 专属图标尺寸 */
 .band-card__icon.icon-industry{
   width: clamp(78px, 9vw, 120px);
   height: auto;
-  
 }
-
 
 /* ===== 可选：后续分区（锚点列表） ===== */
 .proj-main{ padding: 2rem 1rem 0; }
@@ -188,8 +180,6 @@ body{
   *{ transition: none !important; animation: none !important; }
 }
 
-
-
 /* 平板区间：整体等比缩小，但保持居中 */
 @media (max-width: 1024px) and (min-width: 700px){
   .proj-band{ overflow: visible; }          /* 不裁剪，避免看起来被“偏切” */
@@ -241,10 +231,10 @@ body{
 
   /* 图标变小并下移（向下 8px，可按需调整） */
   .band-card__icon{
-    width: clamp(46px, 10vw, 62px);      /* 比之前再小一档 */
+    width: clamp(46px, 10vw, 62px);
     height: auto;
     margin: 0;
-    transform: translateY(8px);          /* ↓ icon 下移 */
+    transform: translateY(8px);
   }
 
   /* 标题同步微调，保持对齐 */
@@ -256,7 +246,7 @@ body{
     margin: 0;
   }
 
-  /* Web Design 不换行（保留你的需求） */
+  /* Web Design 不换行 */
   .band-grid .band-card:nth-child(1) .band-card__title{
     white-space: nowrap;
     overflow: hidden;
@@ -271,7 +261,204 @@ body{
   }
 }
 
+/* =========================
+   Timeline (scoped styles)
+   ========================= */
+.timeline-wrap{
+  --tl-bg: rgba(0,0,0,.45);
+  --tl-card: rgba(255,255,255,.06);
+  --tl-card-border: rgba(255,255,255,.14);
+  --tl-cyan: var(--secondary-color, #0B74D6);
+  --tl-pink: var(--tertiary-color, #D43321);
+  --tl-line: rgba(255,255,255,.35);
+  --tl-text: #ededed;
+  --tl-muted: #ffffff;
+
+  position: relative;
+  margin: 2rem auto 3rem;
+  padding: 2rem 1rem;
+  color: var(--tl-text);
+  backdrop-filter: blur(2px);
+}
+.timeline-wrap .timeline-container{
+  width: min(1000px, 96vw);
+  margin: 0 auto;
+  position: relative;
+}
+.timeline-wrap .timeline{
+  position: relative;
+
+  padding-left: 200px; /* 放大：原 56px */
+}
+.timeline-wrap .timeline::before{
+  content:"";
+  position:absolute; left: 24px; top:0; width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--tl-line), transparent 85%);
+  border-radius: 4px;
+}
+.timeline-wrap .timeline-item{
+  position: relative;
+  margin-bottom: 42px;
+  padding-left: 32px;
+  opacity: 0; transform: translateY(16px);
+  animation: tl-fade 0.7s ease forwards;
+}
+.timeline-wrap .timeline-item:nth-child(1){ animation-delay: .08s; }
+.timeline-wrap .timeline-item:nth-child(2){ animation-delay: .18s; }
+.timeline-wrap .timeline-item:nth-child(3){ animation-delay: .28s; }
+.timeline-wrap .timeline-item:nth-child(4){ animation-delay: .38s; }
+.timeline-wrap .timeline-item:nth-child(5){ animation-delay: .48s; }
+.timeline-wrap .timeline-item:nth-child(6){ animation-delay: .58s; }
+
+/* 线上的小点（伪元素） */
+.timeline-wrap .timeline-item::before{
+  content:"";
+  position:absolute; left:0px; top: 2px;      /* 放大：原 -24px */
+  width: 36px; height: 36px; border-radius: 50%;/* 放大：原 26x26 */
+  background: var(--tl-cyan);
+  border: 0px solid rgba(0,0,0,.35);            /* 放大：原 4px */
+  transition: transform .25s ease, background .25s ease;
+}
+.timeline-wrap .timeline-item:hover::before{
+  transform: scale(1.15);
+  background: var(--tl-pink);
+}
+
+/* 主圆圈（含图标） */
+.timeline-wrap .timeline-icon{
+  position:absolute; 
+  left:-60px; 
+  top: -2px;     /* 放大：原 -52px */
+  width: 50px; height: 50px; border-radius: 50%;/* 放大：原 38x38 */
+  display:flex; align-items:center; justify-content:center;
+  background: var(--tl-cyan); color: #fff;
+  transition: transform .45s ease, background .25s ease, filter .25s ease;
+  box-shadow: 0 10px 22px rgba(0,0,0,.28);
+}
+.timeline-wrap .timeline-icon i{
+  font-size: 22px; /* 图标放大（可按需 20~24px） */
+}
+.timeline-wrap .timeline-item:hover .timeline-icon{
+  transform: rotate(360deg) scale(1.02);
+  background: var(--tl-pink);
+  filter: brightness(1.03);
+}
+
+/* 内容卡片 */
+.timeline-wrap .timeline-content{
+  background: #D43321;  /* #FFB016色卡片  红#D43321*/
+  border: 1px solid #D43321;
+  border-radius: 14px;
+  padding: 16px 18px;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+
+  /* 新增：控制卡片宽度 */
+  max-width: 700px;   /* 最大宽度 700px，可自行调整 */
+  width: 50%;         /* 占容器的 85%，也可以改为固定 px */
+  margin: 0 auto;     /* 左右居中 */
+
+  /* 卡片保证统一高度 */
+  min-height: 180px;  /* 根据你需要的视觉效果调整数值 */
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; /* 内容垂直居中 */
+}
+.timeline-wrap .timeline-item:hover .timeline-content{
+  transform: translateX(16px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+}
+
+.timeline-wrap .timeline-date{
+  color: #fff;;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .3px;
+  margin-bottom: 6px;
+}
+.timeline-wrap .timeline-title{
+  color: #fff;
+  font-family: 'Yatra One', cursive;
+  font-size: 1.15rem;
+  margin: 0 0 6px;
+}
+.timeline-wrap .timeline-description{
+  color: var(--tl-muted);
+  line-height: 1.55;
+  margin: 0;
+}
 
 
-/* footer表格 */
+/* Modal */
+.timeline-wrap .modal-custom{
+  position: fixed; inset: 0;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.72);
+  z-index: 1000;
+}
+.timeline-wrap .modal-content-custom{
+  width: min(600px, 92vw);
+  background: rgba(20,20,20,.96);
+  color: #e9eef5;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  padding: 24px 22px 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.36);
+  position: relative;
+}
+.timeline-wrap .modal-close{
+  position: absolute; right: 12px; top: 10px;
+  width: 36px; height: 36px; border-radius: 8px;
+  font-size: 1.2rem; line-height: 1;
+  background: rgba(255,255,255,.06); color: #fff; border: 0;
+  cursor: pointer;
+}
+.timeline-wrap .modal-close:hover{ background: rgba(255,255,255,.12); }
+.timeline-wrap .modal-skill-title{ margin: 12px 0 8px; font-size: .95rem; opacity: .9; }
+.timeline-wrap #modal-skills{ margin: 0; padding-left: 1rem; display: grid; gap: .25rem; grid-template-columns: repeat(2, minmax(0,1fr)); }
+.timeline-wrap #modal-skills li{ color: #d7e0ea; }
 
+/* 响应式：放大后的小屏适配 */
+@media (max-width: 768px){
+  .timeline-wrap .timeline{ padding-left: 60px; } /* 原 40px → 为更大的圆让位 */
+  .timeline-wrap .timeline::before{ left: 0px; }
+  .timeline-wrap .timeline-icon{
+    left: -56px;
+    width: 48px; height: 48px;
+  }
+  .timeline-wrap .timeline-icon i{ font-size: 18px; }
+  .timeline-wrap .timeline-item::before{
+    left: -28px; 
+    width: 30px; 
+    height: 30px; 
+    border-width: 5px;
+  }
+}
+
+@keyframes tl-fade{
+  from{ opacity:0; transform: translateY(16px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .timeline-wrap *{ animation: none !important; transition: none !important; }
+}
+
+/* 卡片里的图标（右边内容区用的） */
+.timeline-wrap .timeline-card-icon{
+  display: block;
+  width: clamp(60px, 10vw, 80px);  /* 把范围整体放大 */
+  height: auto;
+  margin: 0 auto 10px;   /* 居中 + 和标题留间距 */
+  object-fit: contain;
+}
+
+/* 去掉卡片内链接的默认样式 */
+.timeline-content {
+  text-decoration: none;   /* 去掉下划线 */
+  color: inherit;          /* 保持继承的文字颜色 */
+  display: block;          /* 保证整个卡片可点 */
+}
+.timeline-content:hover {
+  text-decoration: none;   /* 悬停也不要下划线 */
+  color: inherit;          /* 保持颜色不变 */
+}

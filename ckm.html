@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CKM — SMART‑on‑FHIR Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/ckm.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="images/ckm_logo.svg" alt="CKM Logo" class="logo">
+        <span class="brand-text">Connected Kidney Management (CKM)</span>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#features">Features</a>
+        <a href="#design">Design</a>
+        <a href="#impact">Impact</a>
+        <a href="#next">Next Steps</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <h1>Connected Kidney Management (CKM): <br><span class="accent">A SMART‑on‑FHIR Platform for Patient–Clinician Engagement</span></h1>
+        <p class="lead">A patient‑centred platform that enables real‑time symptom reporting, proactive nursing response, and interoperable care using FHIR standards.</p>
+        <div class="hero-actions">
+          <a href="#overview" class="btn primary">Start</a>
+          <a href="#features" class="btn ghost">See Features</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container two-col">
+        <div class="content">
+          <h2>Overview</h2>
+          <p>As part of the COMP3820 <em>Digital Health Software Project</em> at The University of Queensland, our team (ByteHealth) collaborated with a healthcare client to design and develop a SMART‑on‑FHIR application. The project addresses a critical challenge in ESRF care: improving symptom recognition and communication for patients and clinicians.</p>
+        </div>
+        <!-- <div class="gallery" aria-label="Overview images">
+          <figure><img src="images/ckm/overview-1.jpg" alt="CKM overview mockup 1" loading="lazy"></figure>
+          <figure><img src="images/ckm/overview-2.jpg" alt="CKM overview mockup 2" loading="lazy"></figure>
+          <figure><img src="images/ckm/overview-3.jpg" alt="CKM data flow" loading="lazy"></figure>
+          <figure><img src="images/ckm/overview-4.jpg" alt="Patient dashboard concept" loading="lazy"></figure>
+          <figure><img src="images/ckm/overview-5.jpg" alt="Clinician dashboard concept" loading="lazy"></figure>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section id="problem" class="section alt">
+      <div class="container two-col">
+        <div class="content">
+          <h2>The Problem</h2>
+          <p>Patients with ESRF (eGFR &lt; 15) often experience symptoms—swelling, nausea, shortness of breath—that are not recognised as kidney‑related. Warning signs are missed, delaying interventions and increasing hospital admissions. Communication among nephrologists, palliative care specialists, and GPs can be fragmented, further slowing coordinated care.</p>
+        </div>
+        <!-- <div class="gallery" aria-label="Problem images">
+          <figure><img src="images/ckm/problem-1.jpg" alt="Fragmented communication diagram" loading="lazy"></figure>
+          <figure><img src="images/ckm/problem-2.jpg" alt="ESRF symptom list" loading="lazy"></figure>
+          <figure><img src="images/ckm/problem-3.jpg" alt="Patient journey gaps" loading="lazy"></figure>
+          <figure><img src="images/ckm/problem-4.jpg" alt="Hospital admission trend" loading="lazy"></figure>
+          <figure><img src="images/ckm/problem-5.jpg" alt="Care coordination challenge" loading="lazy"></figure>
+        </div>
+      </div> -->
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="section">
+      <div class="container two-col">
+        <div class="content">
+          <h2>The Solution</h2>
+          <p>The <strong>Connected Kidney Management (CKM) platform</strong> empowers patients, caregivers, and clinicians with real‑time symptom reporting and care coordination. Patients can log symptoms, upload photos, and set consultation preferences; nurses receive alerts for timely intervention. Using <strong>FHIR</strong> and <strong>SMART‑on‑FHIR</strong>, CKM integrates securely with EMRs and scales for future extensions.</p>
+        </div>
+        <!-- <div class="gallery" aria-label="Solution images">
+          <figure><img src="images/ckm/solution-1.jpg" alt="Real-time symptom flow" loading="lazy"></figure>
+          <figure><img src="images/ckm/solution-2.jpg" alt="Alerting workflow" loading="lazy"></figure>
+          <figure><img src="images/ckm/solution-3.jpg" alt="FHIR resource mapping" loading="lazy"></figure>
+          <figure><img src="images/ckm/solution-4.jpg" alt="SMART-on-FHIR launch" loading="lazy"></figure>
+          <figure><img src="images/ckm/solution-5.jpg" alt="EMR integration concept" loading="lazy"></figure>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section alt">
+      <div class="container">
+        <h2>Key Features</h2>
+        <ul class="feature-list">
+          <li><strong>Patient Dashboard:</strong> Demographics, care team, and eGFR at a glance.</li>
+          <li><strong>Symptom Reporting:</strong> Simple UI with large buttons; photo upload supported.</li>
+          <li><strong>Consultation Preferences:</strong> Telehealth, video, home visit, or clinic attendance.</li>
+          <li><strong>Vitals &amp; Care Plans:</strong> Blood pressure, weight, crisis and advance care plans.</li>
+          <li><strong>Nurse Review System:</strong> Real‑time notifications for timely clinical response.</li>
+          <li><strong>Accessibility &amp; Security:</strong> WCAG 2.2, encryption, and role‑based access.</li>
+        </ul>
+        <div class="gallery" aria-label="Feature images">
+          <figure><img src="images/ckm_1.png" alt="Patient dashboard UI" loading="lazy"></figure>
+          <figure><img src="images/ckm_2.png" alt="Symptom reporting UI" loading="lazy"></figure>
+          <figure><img src="images/ckm_3.png" alt="Consultation preference UI" loading="lazy"></figure>
+          <figure><img src="images/ckm_4.png" alt="Vitals tracking UI" loading="lazy"></figure>
+          <figure><img src="images/ckm_5.png" alt="Nurse review panel" loading="lazy"></figure>
+          <figure><img src="images/ckm_6.png" alt="Nurse review panel" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Approach -->
+    <section id="design" class="section">
+      <div class="container two-col">
+        <div class="content">
+          <h2>Design Approach</h2>
+          <p><strong>User‑centred:</strong> Optimised for elderly users (~70y) with high contrast, large type, and clear navigation.</p>
+          <p><strong>Separate Interfaces:</strong> Dedicated patient and clinician views improve usability and security.</p>
+          <p><strong>SDLC‑Driven:</strong> We followed requirements → design → implementation → testing with continuous client feedback.</p>
+        </div>
+        <div class="gallery" aria-label="Design images">
+          <figure><img src="images/ckm_7.png" alt="Typography and color tokens" loading="lazy"></figure>
+          <figure><img src="images/ckm_8.png" alt="Wireframes" loading="lazy"></figure>
+          <figure><img src="images/ckm_9.png" alt="Patient vs clinician IA" loading="lazy"></figure>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact" class="section alt">
+      <div class="container two-col">
+        <div class="content">
+          <h2>Impact</h2>
+          <p>CKM aims to reduce hospital admissions via early intervention, enhance multi‑disciplinary coordination, and empower patients through education and real‑time communication. With FHIR interoperability, the solution is scalable to broader digital health ecosystems.</p>
+        </div>
+        <!-- <div class="gallery" aria-label="Impact images">
+          <figure><img src="images/ckm/impact-1.jpg" alt="Reduced admissions chart" loading="lazy"></figure>
+          <figure><img src="images/ckm/impact-2.jpg" alt="Care coordination map" loading="lazy"></figure>
+          <figure><img src="images/ckm/impact-3.jpg" alt="Patient empowerment storyboard" loading="lazy"></figure>
+          <figure><img src="images/ckm/impact-4.jpg" alt="Interoperability landscape" loading="lazy"></figure>
+          <figure><img src="images/ckm/impact-5.jpg" alt="Scalability model" loading="lazy"></figure>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Reflection & Next Steps -->
+    <section id="next" class="section">
+      <div class="container two-col">
+        <div class="content">
+          <h2>Reflection &amp; Ongoing Work</h2>
+          <p>Applying FHIR and SMART‑on‑FHIR in practice; designing accessible tools for vulnerable populations; and collaborating with a multidisciplinary client team. Next, we plan to extend analytics for symptom trends, add multilingual support, and enable push notifications to improve engagement.</p>
+          <p>Still in development.</p>
+        </div>
+        <!-- <div class="gallery" aria-label="Next steps images">
+          <figure><img src="images/ckm/next-1.jpg" alt="Analytics roadmap" loading="lazy"></figure>
+          <figure><img src="images/ckm/next-2.jpg" alt="Localization plan" loading="lazy"></figure>
+          <figure><img src="images/ckm/next-3.jpg" alt="Notification flow" loading="lazy"></figure>
+          <figure><img src="images/ckm/next-4.jpg" alt="Testing backlog" loading="lazy"></figure>
+          <figure><img src="images/ckm/next-5.jpg" alt="V2 scope outline" loading="lazy"></figure>
+        </div> -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Yinhan Liu · Project: CKM (Connected Kidney Management) · COMP3820</p>
+      <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <script src="js/ckm.js"></script>
+</body>
+</html>

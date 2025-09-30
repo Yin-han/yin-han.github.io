@@ -9,9 +9,9 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/project.css">
   <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/index.css"><!-- 复用首页 footer 样式（之后可无缝切到同款动画 footer） -->
+  <link rel="stylesheet" href="css/index.css"><!-- 复用首页 footer 样式 -->
 
-  <!-- 图标库 -->
+  <!-- 图标库（页面已有 6.5.0，保留即可） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- 仅为“页脚贴底”加入的最小样式 -->
@@ -43,128 +43,192 @@
           Projects
         </h1>
 
-        <!-- 卡片网格：放在背景图的黄色条带中 -->
-        <section class="proj-band" aria-label="Project Categories">
-          <div class="band-grid">
-            <!-- 1 -->
-            <a class="band-card" href="fitness.html" aria-label="Web Design">
-              <figure class="band-card__inner">
-                <img class="band-card__icon" src="images/web_icon.svg" alt="Web icon">
-                <figcaption class="band-card__title">Web Design</figcaption>
-              </figure>
-            </a>
-            <!-- 2 -->
-            <a class="band-card" href="visualisation.html" aria-label="Information Visualisation">
-              <figure class="band-card__inner">
-                <img class="band-card__icon" src="images/visual_icon.svg" alt="Visualisation icon">
-                <figcaption class="band-card__title">Visualisation</figcaption>
-              </figure>
-            </a>
-            <!-- 3：Industry -->
-            <a class="band-card" href="drone.html" target="_blank" aria-label="Industry">
-              <figure class="band-card__inner">
-                <img class="band-card__icon icon-industry" src="images/industry_icon.svg" alt="Industry icon">
-                <figcaption class="band-card__title">Industry</figcaption>
-              </figure>
-            </a>
+        
 
-            <!-- 4：Sport APP -->
-            <a class="band-card" href="/badminton.html" aria-label="Sport App">
-              <figure class="band-card__inner">
-                <img class="band-card__icon icon-app" src="images/app_icon.svg" alt="Sport App icon">
-                <figcaption class="band-card__title">Sport APP</figcaption>
-              </figure>
-            </a>
+        <!-- ========== 新增：纵向时间轴（不改变原卡片样式/颜色） ========== -->
+        <section class="timeline-wrap" aria-label="Project timeline">
+          <div class="timeline-container">
+            <div class="timeline">
 
+              <!-- 2025 - CKM -->
+              <div class="timeline-item"
+                  data-details='{"title":"CKM — Connected Kidney Management","description":"Kidney care platform: symptom reporting, nurse triage dashboard, SMART-on-FHIR integration.","skills":["HCI","FHIR","React/TS"]}'>
+                <div class="timeline-icon"><i class="fas fa-heart-pulse" aria-hidden="true"></i></div>
+                <a href="ckm.html" target="_blank" rel="noopener noreferrer" class="timeline-content">
+                  <div class="timeline-date">2025</div>
+                  <!-- 新增：卡片内图标 -->
+                  <img class="timeline-card-icon" src="images/CKM_icon.svg" alt="CKM icon">
+                  <h3 class="timeline-title">CKM</h3>
+                  <p class="timeline-description">Connected Kidney Management platform.</p>
+                </a>
+              </div>
+
+              <!-- 2025 - XR -->
+              <div class="timeline-item"
+                  data-details='{"title":"XR-Present World","description":"Reimagining slides in XR: place/scale/collaborate in 3D rooms with gesture interactions.","skills":["Unity","XR","Interaction Design"]}'>
+                <div class="timeline-icon"><i class="fas fa-vr-cardboard" aria-hidden="true"></i></div>
+                <a href="XR.html" target="_blank" rel="noopener noreferrer" class="timeline-content">
+                  <div class="timeline-date">2025</div>
+                  <img class="timeline-card-icon" src="images/XR_icon.svg" alt="XR icon">
+                  <h3 class="timeline-title">XR</h3>
+                  <p class="timeline-description">Immersive presentation in XR.</p>
+                </a>
+              </div>
+
+              <!-- 2024 - Web Design -->
+              <div class="timeline-item"
+                  data-details='{"title":"Web Design","description":"Portfolio web pages with floating menu, animated footer, responsive layouts.","skills":["HTML/CSS/JS","UI","Animation"]}'>
+                <div class="timeline-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+                <a href="fitness.html" target="_blank" rel="noopener noreferrer" class="timeline-content">
+                  <div class="timeline-date">2024</div>
+                  <img class="timeline-card-icon" src="images/web_icon.svg" alt="Web Design icon">
+                  <h3 class="timeline-title">Web Design</h3>
+                  <p class="timeline-description">Portfolio site building.</p>
+                </a>
+              </div>
+
+              <!-- 2024 - Visualisation -->
+              <div class="timeline-item"
+                  data-details='{"title":"Information Visualisation","description":"Narrative charts, interactive/animated conversions, design critique & refinement.","skills":["D3.js","Data Viz","Storytelling"]}'>
+                <div class="timeline-icon"><i class="fas fa-chart-simple" aria-hidden="true"></i></div>
+                <a href="visualisation.html" target="_blank" rel="noopener noreferrer" class="timeline-content">
+                  <div class="timeline-date">2024</div>
+                  <img class="timeline-card-icon" src="images/visual_icon.svg" alt="Visualisation icon">
+                  <h3 class="timeline-title">Visualisation</h3>
+                  <p class="timeline-description">Interactive/narrative data viz.</p>
+                </a>
+              </div>
+
+              <!-- 2023 - Industry -->
+              <div class="timeline-item"
+                  data-details='{"title":"Industry Project","description":"Industry-style brief & delivery; prototyping, iteration, stakeholder comms.","skills":["Prototyping","Stakeholder","UX"]}'>
+                <div class="timeline-icon"><i class="fas fa-industry" aria-hidden="true"></i></div>
+                <a href="drone.html" target="_blank" rel="noopener noreferrer" class="timeline-content">
+                  <div class="timeline-date">2023</div>
+                  <img class="timeline-card-icon" src="images/industry_icon.svg" alt="Industry icon">
+                  <h3 class="timeline-title">Industry</h3>
+                  <p class="timeline-description">Industry-aligned project.</p>
+                </a>
+              </div>
+
+              <!-- 2023 - Sport App -->
+              <div class="timeline-item"
+                  data-details='{"title":"Sport App","description":"Fitness features, content architecture, interaction flows & mobile responsive.","skills":["Mobile UX","IA","Frontend"]}'>
+                <div class="timeline-icon"><i class="fas fa-basketball" aria-hidden="true"></i></div>
+                <a href="badminton.html" target="_blank" rel="noopener noreferrer" class="timeline-content">
+                  <div class="timeline-date">2023</div>
+                  <img class="timeline-card-icon" src="images/app_icon.svg" alt="Sport App icon">
+                  <h3 class="timeline-title">Sport App</h3>
+                  <p class="timeline-description">Sports/fitness app design.</p>
+                </a>
+              </div>
+
+
+
+
+            </div>
           </div>
+
+          <!-- Modal：点击条目弹出详情 -->
+          <!-- <div class="modal-custom" id="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+            <div class="modal-content-custom">
+              <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+              <h3 class="modal-title" id="modal-title"></h3>
+              <p class="modal-description" id="modal-description"></p>
+              <h4 class="modal-skill-title">Skills</h4>
+              <ul id="modal-skills"></ul>
+            </div>
+          </div> -->
         </section>
+        <!-- ========== /新增时间轴 ========== -->
+
       </div>
     </header>
   </main>
 
   <!-- 页脚（先贴底，之后你要换成 index 的 Bubble Footer 时可直接替换这整个 <footer>） -->
   <div class="footer">
-  <div class="bubbles">
-    <!-- 生成气泡：128个div -->
-    <script>
-      for (let i = 0; i < 128; i++) {
-        const bubble = document.createElement("div");
-        bubble.className = "bubble";
-        bubble.style.setProperty("--size", `${2+Math.random()*4}rem`);
-        bubble.style.setProperty("--distance", `${6+Math.random()*4}rem`);
-        bubble.style.setProperty("--position", `${-5+Math.random()*110}%`);
-        bubble.style.setProperty("--time", `${2+Math.random()*2}s`);
-        bubble.style.setProperty("--delay", `${-1*(2+Math.random()*2)}s`);
-        document.currentScript.parentNode.appendChild(bubble);
-      }
-    </script>
-  </div>
+    <div class="bubbles">
+      <!-- 生成气泡：128个div -->
+      <script>
+        for (let i = 0; i < 128; i++) {
+          const bubble = document.createElement("div");
+          bubble.className = "bubble";
+          bubble.style.setProperty("--size", `${2+Math.random()*4}rem`);
+          bubble.style.setProperty("--distance", `${6+Math.random()*4}rem`);
+          bubble.style.setProperty("--position", `${-5+Math.random()*110}%`);
+          bubble.style.setProperty("--time", `${2+Math.random()*2}s`);
+          bubble.style.setProperty("--delay", `${-1*(2+Math.random()*2)}s`);
+          document.currentScript.parentNode.appendChild(bubble);
+        }
+      </script>
+    </div>
 
+    <!-- 联系方式 -->
+    <div class="content">
+      <div class="connect-left">
+        <!-- 左列：CONTACT -->
+        <div class="connect-title">
+          <b>CONTACT</b>
+        </div>
 
+        <!-- 联系方式（两行三列） -->
+        <div class="contact-table" role="table" aria-label="Contact details">
+          <!-- 第一行 -->
+          <div class="ct-row" role="row">
+            <div class="ct-cell empty" role="cell"></div>
+            <a class="ct-cell" role="cell" href="tel:+8613619364851">
+              <img src="images/phone.png" alt="Phone Icon" class="ct-icon">
+              <span>Phone</span> +86 13619364851
+            </a>
+            <a class="ct-cell" role="cell" href="mailto:yh0000210@163.com">
+              <img src="images/email.png" alt="Email Icon" class="ct-icon">
+              <span>Email</span> yh0000210@163.com
+            </a>
+          </div>
 
-  <!-- 联系方式 -->
-  <div class="content">
-    <div class="connect-left">
-      <!-- 左列：CONTACT -->
-      <div class="connect-title">
-        <b>CONTACT</b>
+          <!-- 第二行 -->
+          <div class="ct-row" role="row">
+            <div class="ct-cell empty" role="cell"></div>
+            <a class="ct-cell" role="cell" href="mailto:540882267@qq.com">
+              <img src="images/qq.png" alt="QQ Icon" class="ct-icon">
+              <span>QQ</span> 540882267
+            </a>
+            <a class="ct-cell" role="cell" href="#">
+              <img src="images/wechat.png" alt="WeChat Icon" class="ct-icon">
+              <span>WeChat</span> Yinnnnn_210
+            </a>
+          </div>
+        </div>
       </div>
 
-  <!-- 联系方式（两行三列） -->
-  <div class="contact-table" role="table" aria-label="Contact details">
-    <!-- 第一行 -->
-    <div class="ct-row" role="row">
-      <div class="ct-cell empty" role="cell"></div>
-      <a class="ct-cell" role="cell" href="tel:+8613619364851">
-        <img src="images/phone.png" alt="Phone Icon" class="ct-icon">
-        <span>Phone</span> +86 13619364851
-      </a>
-      <a class="ct-cell" role="cell" href="mailto:yh0000210@163.com">
-        <img src="images/email.png" alt="Email Icon" class="ct-icon">
-        <span>Email</span> yh0000210@163.com
-      </a>
+      <div class="connect-right">
+        <a class="image" href="https://codepen.io/z-" target="_blank"
+           style="background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
+      </div>
     </div>
 
-    <!-- 第二行 -->
-    <div class="ct-row" role="row">
-      <div class="ct-cell empty" role="cell"></div>
-      <a class="ct-cell" role="cell" href="mailto:540882267@qq.com">
-        <img src="images/qq.png" alt="QQ Icon" class="ct-icon">
-        <span>QQ</span> 540882267
-      </a>
-      <a class="ct-cell" role="cell" href="#">
-        <img src="images/wechat.png" alt="WeChat Icon" class="ct-icon">
-        <span>WeChat</span> Yinnnnn_210
-      </a>
+    <!-- 底部版权信息 -->
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Portfolio of Yinhan Liu. All rights reserved.</p>
     </div>
+
+    <!-- SVG filter -->
+    <svg style="position:fixed; top:100vh">
+      <defs>
+        <filter id="blob">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+          <feColorMatrix in="blur" mode="matrix" 
+            values="1 0 0 0 0  
+                    0 1 0 0 0  
+                    0 0 1 0 0  
+                    0 0 0 19 -9" 
+            result="blob"/>
+        </filter>
+      </defs>
+    </svg>
   </div>
-
-  <div class="connect-right">
-    <a class="image" href="https://codepen.io/z-" target="_blank"
-      style="background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
-  </div>
-
-  <!-- 底部版权信息 -->
-  <div class="footer-bottom">
-    <p>© 2025 Portfolio of Yinhan Liu. All rights reserved.</p>
-  </div>
-
-
-
-<!-- SVG filter -->
-<svg style="position:fixed; top:100vh">
-  <defs>
-    <filter id="blob">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-      <feColorMatrix in="blur" mode="matrix" 
-        values="1 0 0 0 0  
-                0 1 0 0 0  
-                0 0 1 0 0  
-                0 0 0 19 -9" 
-        result="blob"/>
-    </filter>
-  </defs>
-</svg>
+  
 
   <!-- 悬浮菜单 -->
   <div class="floating-menu" style="display:none;">
@@ -185,9 +249,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-  <!-- 你的页面脚本 -->
+  <!-- 你的页面脚本（保持原顺序） -->
   <script src="js/menu.js"></script>
   <script src="js/loading.js"></script>
   <script src="js/cursor.js" defer></script>
+
+  <!-- 新增：时间轴交互（只作用于 .timeline-wrap，不影响其它模块） -->
+  <script src="js/projects.js"></script>
 </body>
 </html>

@@ -174,7 +174,7 @@ a:hover {
   /* min-height: 100vh; */
   /* min-height: calc(100vh - 9rem); 一屏 - footer高度 */
   padding: clamp(2rem, 6vw, 3.5rem) 1rem 3rem;
-  background: url('../images/home_bg.svg') center/cover no-repeat fixed;
+  background: url('../images/index_bg.svg') center/cover no-repeat fixed;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -196,7 +196,7 @@ a:hover {
   text-align: left;
 }
 #home .hero-title{
-  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-size: clamp(2rem, 6vw, 3.1rem);
   line-height: 1.06;
   margin: 0.25rem 0 1rem;
   font-weight: 800;
@@ -269,6 +269,8 @@ a:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,.20);
   filter: brightness(1.05);
 }
+
+
 
 /* 图标与标题 */
 #home .band-card__icon{
@@ -674,3 +676,60 @@ html, body {
   margin-top: auto;
   
 }
+
+/* 指定 About me 卡片：改为黄色 */
+#home .band-grid a[aria-label="About me"] .band-card__inner{
+  background: #FFB016 !important;  /* 你的黄 */
+}
+
+/* 指定 Projects 卡片：改为蓝色 */
+#home .band-grid a[aria-label="Projects"] .band-card__inner{
+  background: #005EA2 !important;  /* 你的蓝（也可换 #09559C） */
+}
+
+
+
+/* About me 卡片整体右移 */
+#home .band-grid a[aria-label="About me"] {
+  margin-left: 200px;   /* 数值可调，比如 20px, 60px */
+}
+
+/* Projects 卡片整体右移 */
+#home .band-grid a[aria-label="Projects"] {
+  margin-left: 400px;   /* 保持一致，或给不同数值 */
+}
+
+
+
+
+/* 让 note 能在首页区域内做绝对定位 */
+#home.home-hero{ position: relative; }
+
+/* 右侧黄色区域的小字 */
+.hero-note{
+  position: absolute;
+  right: clamp(16px, 5vw, 56px);
+  top: clamp(20px, 12vw, 80px);
+  max-width: 420px;
+
+  font-size: clamp(0.9rem, 0.8vw, 1.05rem);
+  line-height: 1.5;
+  text-align: left;
+
+  /* 在黄色背景上更清晰的深蓝色 */
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+  pointer-events: none; /* 避免挡到右侧交互 */
+}
+
+/* 小屏时可隐藏或下移（二选一：推荐隐藏） */
+@media (max-width: 720px){
+  .hero-note{ display: none; }
+  /* 若想显示但下移，请用下面这行替换上面隐藏
+     .hero-note{ top:auto; bottom: 1rem; right: 1rem; } */
+}
+
+
+
+
+

@@ -165,20 +165,18 @@ $(function(){
     // 第一个圆圈：menu.svg，只负责展开和收回
     var item0 = new Item("images/menu.svg", "#ffaa00ff");
 
-    // 其他菜单项，对应页面
-    var item1 = new Item("images/main.svg", "#00b51bff", "index.html");      // 首页
-    var item2 = new Item("images/me.svg", "#d01500ff", "me.html");           // 关于我
+    // 其他菜单项，对应页面（已移除草绿色“正在做的”）
+    var item1 = new Item("images/main.svg", "#ff7700", "index.html");       // 首页
+    var item2 = new Item("images/me.svg", "#d01500ff", "me.html");            // 关于我
     var item3 = new Item("images/projects.svg", "#00487bff", "projects.html"); // 项目
-    var item4 = new Item("images/doing.svg", "#898700ff", "doing.html");      // 正在做的
 
     // 添加菜单项
     menu.add(item0, true);
     menu.add(item1);
     menu.add(item2);
     menu.add(item3);
-    menu.add(item4);
 
-    // 延迟显示菜单（假设intro动画持续3秒）
+    // 延迟显示菜单
     setTimeout(function(){
         $(".floating-menu").fadeIn();
     }, 500);
@@ -197,4 +195,3 @@ $(function(){
     `);
   });
 });
-

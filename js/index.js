@@ -67,3 +67,6 @@ function enterMainContent() {
         document.body.style.overflow = 'auto';
     }, 1000); // 等淡出动画完成
 }
+
+
+

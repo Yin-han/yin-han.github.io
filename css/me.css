@@ -792,8 +792,8 @@ h1{
   color: #fff;
 }
 
-.panel.blue { background-color: #ad350d; }   /* Gym */
-.panel.green { background-color: #e85d04; }  /* Vocal */
+.panel.blue { background-color: #f25c05; }   /* Gym */
+.panel.green { background-color: #faa307; }  /* Vocal */
 .panel.purple { background-color: #f48c06; } /* Volunteer */
 .panel.teal { background-color: #faa307; }      /* Badminton */
 .panel.orange { background-color: #f78800; } /* Piano */
@@ -881,7 +881,7 @@ h1{
   position: relative;
   flex: 0 0 auto;                       /* 图片宽度不被拉伸 */
   width: clamp(250px, 44vw, 350px);     /* 照片更小（不影响右侧文字位置） */
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 5.5;
   cursor: pointer;
 }
 #happy-list .card-stack .shot{
@@ -1145,3 +1145,8 @@ h1{
 .fun-btn:active{
   transform: scale(0.96);
 }
+
+
+
+
+

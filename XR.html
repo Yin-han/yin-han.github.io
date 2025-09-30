@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>XR-Present World</title>
+  <link rel="stylesheet" href="css/XR.css">
+  <meta name="description" content="XR-Present World — 将 PowerPoint 带入 XR 空间的原型与研究">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">XR-Present World</a>
+      <nav class="menu">
+        <a href="#overview">Overview</a>
+        <a href="#p1">Prototype 1</a>
+        <a href="#p2">Prototype 2</a>
+        <a href="#ongoing">Ongoing</a>
+      </nav>
+      <button class="hamburger" aria-label="menu">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 英雄区 -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <h1>Reimagining Presentations in XR</h1>
+          <p>Place, scale, and co-edit slides in 3D space—transforming presentations from flat and linear to immersive, multi-user, and interactive.</p>
+          <!-- <a class="btn" href="#overview">Read Overview</a> -->
+        </div>
+        <div class="hero-media reveal">
+          <img src="images/XR.jpg" alt="XR-Present World 概念示意（用你的主图替换）" class="zoomable">
+        </div>
+      </div>
+    </section>
+
+    <!-- 概述 -->
+    <section id="overview" class="section">
+      <div class="container narrow">
+        <h2 class="section-title">Overview</h2>
+        <p class="lead">
+          XR-Present World reimagines Microsoft PowerPoint within an Extended Reality (XR) environment.
+          Traditional slide presentations are often constrained by flat, linear formats that limit immersion and collaboration.
+          This project introduces a 3D virtual presentation space where slides can be placed, scaled, and interacted with in spatial environments.
+          The aim is to enhance user engagement, support collaborative work, and transform presentations into dynamic, multi-user XR experiences.
+        </p>
+        <ul class="bullets">
+          <li><b>Spatial Slide Authoring</b> – freely move, rotate, and scale slides in 3D.</li>
+          <li><b>Immersive Media Walls</b> – transform photos into interactive 3D scenes.</li>
+          <li><b>Collaborative Environments</b> – real-time co-editing and shared spaces.</li>
+          <li><b>Themed Rooms</b> – visually and aurally enriched contexts to match presentation topics.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Prototype 1 -->
+    <section id="p1" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Prototype 1: Horizontal Exploration</h2>
+          <p class="muted">Unity (mouse & keyboard) • breadth over depth</p>
+        </div>
+
+        <div class="columns">
+          <div>
+            <h3 class="h3">Goals</h3>
+            <ul class="bullets">
+              <li>Test slide placement and editing.</li>
+              <li>Enable photo scene sharing.</li>
+              <li>Explore immersive themed environments.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h3">Findings</h3>
+            <ul class="bullets">
+              <li>Users struggled with slide editing (deletion, switching, mode confusion).</li>
+              <li>Photo sharing worked, though returning from scenes caused some confusion.</li>
+              <li>Themed rooms were engaging but not clearly tied to presentation tasks.</li>
+              <li>Average SUS usability score: 68 — met benchmark but revealed inconsistencies.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="muted">Design insights: clearer mode cues, core editing (delete/switch), consistent navigation, stronger theme–content links.</p>
+
+        <h3 class="h3 mt">Gallery · Horizontal Exploration</h3>
+        <div class="grid three">
+          <figure class="card reveal">
+            <img src="images/p1-1.jpg" alt="P1 image 1" class="zoomable">
+            <figcaption>Core Assumption</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p1-2.jpg" alt="P1 image 2" class="zoomable">
+            <figcaption>Features and Interactions to Test</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p1-3.jpg" alt="P1 image 3" class="zoomable">
+            <figcaption>Storyboard</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p1-4.jpg" alt="P1 image 4" class="zoomable">
+            <figcaption>Interaction home</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p1-5.jpg" alt="P1 image 5" class="zoomable">
+            <figcaption>Themed room</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p1-6.jpg" alt="P1 image 6" class="zoomable">
+            <figcaption>Testing-SUS Chart</figcaption>
+          </figure>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Prototype 2 -->
+    <section id="p2" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Prototype 2: Vertical Depth</h2>
+          <p class="muted">Meta Quest • gesture-based • depth over breadth</p>
+        </div>
+
+        <div class="columns">
+          <div>
+            <h3 class="h3">Core Functions</h3>
+            <ul class="bullets">
+              <li>Slide placement and scaling.</li>
+              <li>Shape insertion via poke interaction.</li>
+              <li>Image placement on slides.</li>
+              <li>Palm gestures (up/down) for immersive photo sharing.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h3">Testing Approach</h3>
+            <ul class="bullets">
+              <li>Think Aloud protocol to capture reasoning.</li>
+              <li>SUS questionnaire to benchmark usability.</li>
+              <li>Interviews for insights on gestures, ease of use, and engagement.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div>
+            <h3 class="h3">Expected Outcomes</h3>
+            <ul class="bullets">
+              <li>Intuitive slide manipulation and scaling.</li>
+              <li>Natural shape and image insertion.</li>
+              <li>Engaging, gesture-based photo sharing.</li>
+              <li>Improved user experience compared to Prototype 1.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h3">Meta Testing</h3>
+            <div class="p2-video-grid">
+              <div class="video-frame reveal p2-video">
+                <video controls preload="metadata" poster="images/prototype2.1.mp4">
+                  <source src="images/prototype2.1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <small class="video-caption"><Demo 1> </small>
+              </div>
+
+              <div class="video-frame reveal p2-video">
+                <video controls preload="metadata" poster="images/prototype2.2.mp4">
+                  <source src="images/prototype2.2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <small class="video-caption">Demo 2 </small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="h3 mt">Gallery · Vertical Depth</h3>
+        <div class="grid three">
+          <figure class="card reveal">
+            <img src="images/p2-1.jpg" alt="P2 image 1" class="zoomable">
+            <figcaption>Slide placement & editing</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p2-2.jpg" alt="P2 image 2" class="zoomable">
+            <figcaption>Poke to insert shapes</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p2-3.jpg" alt="P2 image 3" class="zoomable">
+            <figcaption>Image placement</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p2-4.jpg" alt="P2 image 4" class="zoomable">
+            <figcaption>Palm gesture: share the photo(Scene1)</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p2-5.jpg" alt="P2 image 5" class="zoomable">
+            <figcaption>Palm gesture: share the photo(Scene2)</figcaption>
+          </figure>
+          <figure class="card reveal">
+            <img src="images/p2-6.jpg" alt="P2 image 6" class="zoomable">
+            <figcaption>Meta Qust Testing-Immersive loop</figcaption>
+          </figure>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Ongoing -->
+    <section id="ongoing" class="section">
+      <div class="container narrow">
+        <h2 class="section-title">Ongoing Work</h2>
+        <p class="lead">Still in development.</p>
+        <img src="images/XR_ongoing.gif" alt="XR_ongoing" class="only-this">
+      </div>
+          
+    </section>
+
+  </main>
+
+  <!-- 图片放大查看 -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img alt="">
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 Yinhan Liu XR-Present World</div>
+  </footer>
+
+  <script src="js/XR.js"></script>
+</body>
+</html>

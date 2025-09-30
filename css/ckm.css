@@ -1,0 +1,252 @@
+/* ckm.css — minimal, clean, responsive */
+:root{
+  --brand:#0086FF;        /* Primary Blue */
+  --brand-dk:#004BA2;     /* Secondary Dark Blue */
+  --ink:#1f2937;          /* Gray-800 */
+  --muted:#6b7280;        /* Gray-500 */
+  --paper:#ffffff;
+  --paper-alt:#f7fafc;    /* Soft background for alt sections */
+  --ring: 0 10px 30px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'PingFang SC', 'Microsoft Yahei', sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+}
+
+/* Layout */
+.container{ width:min(1200px,92vw); margin:0 auto; }
+
+.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(140%) blur(8px);
+  background:color-mix(in srgb, var(--paper) 80%, var(--brand) 5%);
+  border-bottom:1px solid #e5e7eb;
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .8rem 0;
+}
+.brand{ display:flex; align-items:center; gap:.6rem; font-weight:700; color:var(--brand-dk); }
+.logo{ font-size:1.25rem }
+.brand-text{ letter-spacing:.2px; }
+.site-nav{ display:flex; align-items:center; gap:1rem; }
+.site-nav a{
+  text-decoration:none; color:#374151; font-weight:600; font-size:.95rem;
+  padding:.5rem .6rem; border-radius:10px;
+}
+.site-nav a:hover{ background:#eef6ff; color:var(--brand-dk); }
+.theme-toggle{
+  margin-left:.5rem; padding:.45rem .6rem; border-radius:10px; border:1px solid #e5e7eb; background:var(--paper);
+  cursor:pointer;
+}
+
+.hero{
+  background: radial-gradient(60% 60% at 70% 10%, #e9f3ff 0%, transparent 60%),
+              linear-gradient(180deg, #f8fbff 0%, #ffffff 60%);
+  padding: 6rem 0 3rem;
+}
+.hero-inner{ text-align:center; }
+h1{ font-size:clamp(1.6rem, 2.5vw + 1rem, 2.6rem); line-height:1.2; margin:0 0 1rem; color:#0b1f44; }
+h1 .accent{ color:var(--brand-dk) }
+.lead{ font-size:1.05rem; color:#4b5563; max-width:900px; margin:0.5rem auto 1.5rem; }
+.hero-actions{ display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; }
+.btn{
+  display:inline-block; padding:.8rem 1.1rem; border-radius:14px; text-decoration:none; font-weight:700;
+  border:1px solid #dbeafe;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn.primary{ background:linear-gradient(135deg, var(--brand), var(--brand-dk)); color:#fff; box-shadow: var(--ring); }
+.btn.ghost{ background:#fff; color:var(--brand-dk); }
+.btn:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }
+
+.section{ padding: 3rem 0; }
+.section.alt{ background: var(--paper-alt); }
+.section h2{ font-size:1.6rem; margin:0 0 .6rem; color:#0b1f44; }
+.section .content p{ margin:.6rem 0 0; color:#374151; }
+
+.two-col{
+  display:grid; grid-template-columns: 1.1fr .9fr; gap:1.8rem; align-items:start;
+}
+@media (max-width: 900px){
+  .two-col{ grid-template-columns: 1fr; }
+}
+
+.gallery{
+  display:grid; gap:.6rem;
+  grid-template-columns: repeat(5, 1fr);
+}
+.gallery figure{ margin:0; border-radius:14px; overflow:hidden; background:#eef2f7; border:1px solid #e5e7eb; }
+.gallery img{
+  display:block; width:100%; height:140px; object-fit:cover;
+  filter:saturate(104%) contrast(102%);
+  transition: transform .25s ease;
+}
+.gallery img:hover{ transform: scale(1.03); }
+
+/* Features list */
+.feature-list{
+  display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .8rem 1.4rem;
+  margin: .6rem 0 1.4rem; padding:0; list-style:none;
+}
+.feature-list li{
+  background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:.9rem 1rem; box-shadow: var(--ring);
+}
+
+/* Footer */
+.site-footer{ border-top:1px solid #e5e7eb; background:#fafafa; }
+.footer-inner{ display:flex; align-items:center; justify-content:space-between; padding:1rem 0; color:#6b7280; }
+.back-to-top{
+  text-decoration:none; border:1px solid #e5e7eb; padding:.4rem .6rem; border-radius:10px; color:#374151; background:#fff;
+}
+.back-to-top:hover{ background:#eef6ff; color:var(--brand-dk); }
+
+/* Dark theme */
+:root[data-theme="dark"]{
+  --paper:#0b1220; --paper-alt:#0d1528; --ink:#e5e7eb; --muted:#9aa4b2;
+}
+:root[data-theme="dark"] .site-header{ background: color-mix(in oklab, var(--paper) 92%, #0a1a34 8%); border-bottom-color:#1f2a44; }
+:root[data-theme="dark"] .site-nav a{ color:#c9d3e0 }
+:root[data-theme="dark"] .site-nav a:hover{ background:#142341; }
+:root[data-theme="dark"] .hero{ background: radial-gradient(60% 60% at 70% 10%, #0f2242 0%, transparent 55%), linear-gradient(180deg, #0b1220 0%, #0b1220 60%); }
+:root[data-theme="dark"] h1{ color:#f3f5f7 }
+:root[data-theme="dark"] .lead{ color:#c9d3e0 }
+:root[data-theme="dark"] .btn.ghost{ background:#0f1629; color:#dbeafe; border-color:#1f2a44; }
+:root[data-theme="dark"] .section.alt{ background:#0d1528 }
+:root[data-theme="dark"] .section h2{ color:#e8eef9 }
+:root[data-theme="dark"] .section .content p{ color:#c9d3e0 }
+:root[data-theme="dark"] .feature-list li{ background:#0f1629; border-color:#1f2a44 }
+:root[data-theme="dark"] .gallery figure{ background:#0f1629; border-color:#1f2a44 }
+:root[data-theme="dark"] .site-footer{ background:#0f1629; border-top-color:#1f2a44 }
+:root[data-theme="dark"] .back-to-top{ background:#0b1220; color:#dbeafe; border-color:#1f2a44 }
+
+
+/* === Centered Layout & Card Gallery Overrides (2025-09-30) === */
+
+/* Make all textual content centered by default */
+.section, .section .content, .feature-list, .site-footer, .hero-inner, .header-inner {
+  text-align: center;
+}
+
+/* Stack each section's content first, images second (single column) */
+.two-col{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+/* Constrain text width for better readability while centered */
+.section .content, .lead {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Feature list centered with centered text inside each card */
+.feature-list{
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.feature-list li{
+  text-align: center;
+}
+
+/* Card-style gallery below text */
+/* Screenshot gallery: 3 per row, bigger items */
+.gallery{
+  display: grid;
+  gap: 1rem;                                /* 卡片间距稍大一点 */
+  grid-template-columns: repeat(3, minmax(0, 1fr));  /* 每行 3 个 */
+}
+
+.gallery figure{
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #eef2f7;
+  border: 1px solid #e5e7eb;
+}
+
+.gallery img{
+  display: block;
+  width: 100%;
+  height: 240px;            /* 放大截图高度（原 140px），可改 220~280 之间 */
+  object-fit: cover;
+  filter: saturate(104%) contrast(102%);
+  transition: transform .25s ease;
+}
+
+.gallery img:hover{ transform: scale(1.03); }
+
+/* 响应式：窄屏改 2 列 / 1 列，避免挤在一起 */
+@media (max-width: 1100px){
+  .gallery{ grid-template-columns: repeat(2, 1fr); }
+  .gallery img{ height: 220px; }
+}
+@media (max-width: 640px){
+  .gallery{ grid-template-columns: 1fr; }
+  .gallery img{ height: 200px; }
+}
+
+
+/* Dark theme card treatment */
+:root[data-theme="dark"] .gallery figure{
+  background:#0f1629;
+  border-color:#1f2a44;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+
+.logo {
+  width: 40px;   /* 可以根据需要调大小，比如 32px */
+  height: auto;
+  display: inline-block;
+}
+
+
+/* ==== CKM hard fix for floating menu & cursor leaks (page-safe) ==== */
+
+/* 1) 悬浮菜单固定到右下角，去掉任何背景占位，避免参与文档流 */
+.floating-menu{
+  position: fixed !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 1100 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+/* 若菜单还未被menu.js填充，则隐藏，避免空容器占位 */
+.floating-menu:empty,
+.floating-menu #myMenu:empty{
+  display: none !important;
+}
+
+/* 2) 防止鼠标动效脚本在 <body> 末尾注入的画布/图片/矢量把布局撑开
+   —— 强制它们 fixed 定位 + 不响应事件 */
+body > canvas,
+body > svg.cursor-layer,
+body > svg[data-cursor],
+body > img.cursor-layer,
+body > div.cursor-layer,
+body > .cursor-layer {
+  position: fixed !important;
+  inset: 0 !important;           /* top/right/bottom/left = 0 */
+  pointer-events: none !important;
+  z-index: 1099 !important;
+}
+
+/* 3) 安全兜底：若外部样式把全局 <img> 设成了 100vh，重置仅限直系 body 子元素 */
+body > img { height: auto !important; max-width: 100% !important; }
+
+/* 你已有的布局/图库样式保持不变（下方都是你原有规则，无需改动） */

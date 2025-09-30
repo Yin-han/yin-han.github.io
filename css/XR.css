@@ -1,0 +1,207 @@
+:root{
+  /* 主题色与深色面板 */
+  --brand:#60a5fa;
+  --brand2:#3b82f6;
+  --ink:#e5e7eb;
+  --muted:#94a3b8;
+  --bg:#0a0f1a;          /* 页面背景 */
+  --panel:#0f172a;       /* 卡片/面板背景 */
+  --line:rgba(148,163,184,.14);
+
+  /* 发光阴影（蓝色微光 + 轻边框） */
+  --glow:
+    0 12px 40px rgba(59,130,246,.25),
+    0 2px 12px rgba(2,6,23,.55),
+    0 0 0 1px rgba(148,163,184,.12);
+}
+
+/* Reset */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+/* Base */
+body{
+  font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+        'PingFang SC','Hiragino Sans GB','Microsoft YaHei', sans-serif;
+  color:var(--ink);
+  /* 深色背景 + 柔和的渐变光 */
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(59,130,246,.12), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(56,189,248,.08), transparent 60%),
+    var(--bg);
+}
+img{ max-width:100%; display:block; }
+a{ color:var(--brand); text-decoration:none; }
+
+.container{ width:min(1100px,92vw); margin:0 auto; }
+.container.narrow{ width:min(860px,92vw); }
+
+.section{ padding:56px 0; }
+.section-title{ font-size:clamp(22px,3.2vw,32px); margin:0 0 14px; }
+.h3{ font-size:20px; margin:18px 0 8px; }
+.mt{ margin-top:14px; }
+.muted{ color:var(--muted); }
+.lead{ color:#cbd5e1; }
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:40;
+  background:rgba(10,15,26,.6);
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(8px) saturate(110%);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
+.brand{ font-weight:800; letter-spacing:.2px; color:var(--brand); font-size:20px; }
+.menu{ display:flex; gap:22px; }
+.menu a{ color:#c7d2fe; font-weight:600; opacity:.9; }
+.menu a:hover{ color:#ffffff; opacity:1; }
+.hamburger{ display:none; font-size:22px; background:none; border:0; cursor:pointer; color:var(--ink); }
+
+/* Hero */
+.hero{ padding:40px 0 16px; }
+.hero-grid{ display:grid; grid-template-columns: 1fr; gap:30px; align-items:center; } /* 单列（你之前的设置保留） */
+.hero h1{ font-size:clamp(28px,4.5vw,44px); line-height:1.12; margin:0 0 8px; }
+.hero p{ color:var(--muted); margin:0 0 16px; }
+.hero-media{ grid-column:1 / -1; }
+.hero-media img{
+  border-radius:18px;
+  box-shadow:var(--glow);
+  border:1px solid var(--line);
+  width:100%;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+}
+.btn{
+  display:inline-block; padding:12px 20px; border-radius:12px; cursor:pointer;
+  background: linear-gradient(135deg, var(--brand2), var(--brand));
+  color:#0b1220; font-weight:800;
+  box-shadow:
+    0 14px 36px rgba(59,130,246,.35),
+    0 0 0 1px rgba(59,130,246,.35);
+}
+.btn:hover{ filter:brightness(1.06); transform:translateY(-2px); }
+
+/* Columns */
+.columns{ display:grid; gap:20px; grid-template-columns:1fr 1fr; align-items:start; }
+.bullets{ margin:8px 0 0 0; padding-left:18px; }
+.bullets li{ margin:6px 0; }
+
+/* Grid gallery */
+.grid{ display:grid; gap:0px; }
+.grid.three{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 1400px){ .grid.three{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 640px){ .grid.three{ grid-template-columns: 1fr; } }
+
+/* Cards */
+.card{
+  background:var(--panel);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--glow);
+  border:1px solid var(--line);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.card:hover{
+  box-shadow:
+    0 20px 60px rgba(59,130,246,.35),
+    0 6px 18px rgba(2,6,23,.6),
+    0 0 0 1px rgba(148,163,184,.16);
+  transform: translateY(-2px);
+}
+.card img{ width:100%; height:200px; object-fit:cover; }
+.card figcaption{ padding:10px 12px; color:#cbd5e1; font-size:14px; }
+
+/* 仅缩小两个画廊内部卡片的间距（不影响左右页边距） */
+#p1 .grid.three,
+#p2 .grid.three{ gap:50px; }
+
+/* 去掉 figure 默认外边距 */
+#p1 .card,
+#p2 .card,
+figure.card{ margin:0; }
+
+/* Video */
+.video-frame video{
+  width:100%;
+  border-radius:16px;
+  box-shadow:var(--glow);
+  border:1px solid var(--line);
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed; inset:0; background:rgba(2,6,23,.85);
+  display:none; align-items:center; justify-content:center; z-index:999;
+}
+.lightbox img{
+  max-width:min(1000px,92vw); max-height:86vh;
+  border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+/* Reveal */
+.reveal{ opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.show{ opacity:1; transform:none; }
+
+/* Footer */
+.site-footer{
+  padding: 32px 0; color:var(--muted);
+  border-top:1px solid var(--line); margin-top: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+}
+.site-footer .container{ text-align:center; }
+
+/* Responsive tweaks */
+@media (max-width: 900px){
+  .columns{ grid-template-columns:1fr; }
+  .menu{ display:none; }
+  .hamburger{ display:block; }
+}
+
+/* —— 你之前的定制保留 —— */
+
+/* Prototype 1：把左右两列改为上下排列 */
+#p1 .columns{
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Prototype 2：四块内容改为单列竖排 */
+#p2 .columns{
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* 让 Overview 的左边对齐到与 Prototype 相同的位置 */
+#overview .container.narrow{ width: min(1100px, 92vw); }
+
+/* 让 Ongoing Work 的左边对齐到与其他部分一致 */
+#ongoing .container.narrow{ width: min(1100px, 92vw); }
+
+/* Ongoing：只这张图（保留你的类名），左对齐 + 圆角 + 微光 */
+#ongoing img.only-this{
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 12px 0;
+  border-radius: 16px;
+  box-shadow: var(--glow);
+  object-fit: contain;
+}
+
+
+/* 仅此处视频容器的宽度/位置 */
+.video-frame.p2-video{
+  width: min(780px, 100%);  /* 想更小可改 640px；想居中就把下一行改成 margin: 8px auto; */
+  margin: 8px 0;
+  border-radius: 16px;
+}
+
+/* 仅此处的视频尺寸与比例 */
+.video-frame.p2-video video{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;     /* 想更“高”可改 4/3；或删除改用 height: 420px + object-fit */
+  display: block;
+  border-radius: 16px;
+}
