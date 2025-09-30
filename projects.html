@@ -146,72 +146,75 @@
     </header>
   </main>
 
-  <!-- 页脚（先贴底，之后你要换成 index 的 Bubble Footer 时可直接替换这整个 <footer>） -->
-  <div class="footer">
-    <div class="bubbles">
-      <!-- 生成气泡：128个div -->
-      <script>
-        for (let i = 0; i < 128; i++) {
-          const bubble = document.createElement("div");
-          bubble.className = "bubble";
-          bubble.style.setProperty("--size", `${2+Math.random()*4}rem`);
-          bubble.style.setProperty("--distance", `${6+Math.random()*4}rem`);
-          bubble.style.setProperty("--position", `${-5+Math.random()*110}%`);
-          bubble.style.setProperty("--time", `${2+Math.random()*2}s`);
-          bubble.style.setProperty("--delay", `${-1*(2+Math.random()*2)}s`);
-          document.currentScript.parentNode.appendChild(bubble);
-        }
-      </script>
-    </div>
+  
 
-    <!-- 联系方式 -->
-    <div class="content">
-      <div class="connect-left">
-        <!-- 左列：CONTACT -->
-        <div class="connect-title">
-          <b>CONTACT</b>
-        </div>
+<!-- Bubble Footer Animation -->
+<div class="footer">
+  <div class="bubbles">
+    <!-- 生成气泡：128个div -->
+    <script>
+      for (let i = 0; i < 128; i++) {
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.style.setProperty("--size", `${2+Math.random()*4}rem`);
+        bubble.style.setProperty("--distance", `${6+Math.random()*4}rem`);
+        bubble.style.setProperty("--position", `${-5+Math.random()*110}%`);
+        bubble.style.setProperty("--time", `${2+Math.random()*2}s`);
+        bubble.style.setProperty("--delay", `${-1*(2+Math.random()*2)}s`);
+        document.currentScript.parentNode.appendChild(bubble);
+      }
+    </script>
+  </div>
 
-        <!-- 联系方式（两行三列） -->
-        <div class="contact-table" role="table" aria-label="Contact details">
-          <!-- 第一行 -->
-          <div class="ct-row" role="row">
-            <div class="ct-cell empty" role="cell"></div>
-            <a class="ct-cell" role="cell" href="tel:+8613619364851">
-              <img src="images/phone.png" alt="Phone Icon" class="ct-icon">
-              <span>Phone</span> +86 13619364851
-            </a>
-            <a class="ct-cell" role="cell" href="mailto:yh0000210@163.com">
-              <img src="images/email.png" alt="Email Icon" class="ct-icon">
-              <span>Email</span> yh0000210@163.com
-            </a>
-          </div>
 
-          <!-- 第二行 -->
-          <div class="ct-row" role="row">
-            <div class="ct-cell empty" role="cell"></div>
-            <a class="ct-cell" role="cell" href="mailto:540882267@qq.com">
-              <img src="images/qq.png" alt="QQ Icon" class="ct-icon">
-              <span>QQ</span> 540882267
-            </a>
-            <a class="ct-cell" role="cell" href="#">
-              <img src="images/wechat.png" alt="WeChat Icon" class="ct-icon">
-              <span>WeChat</span> Yinnnnn_210
-            </a>
-          </div>
-        </div>
+
+  <!-- 联系方式 -->
+  <div class="content">
+    <div class="connect-left">
+      <!-- 左列：CONTACT -->
+      <div class="connect-title">
+        <b>CONTACT</b>
       </div>
 
-      <div class="connect-right">
-        <a class="image" href="https://codepen.io/z-" target="_blank"
-           style="background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
-      </div>
+  <!-- 联系方式（两行三列） -->
+  <div class="contact-table" role="table" aria-label="Contact details">
+    <!-- 第一行 -->
+    <div class="ct-row" role="row">
+      <div class="ct-cell empty" role="cell"></div>
+      <a class="ct-cell" role="cell" href="tel:+8613619364851">
+        <img src="images/phone.png" alt="Phone Icon" class="ct-icon">
+        <span>Phone</span> +86 13619364851
+      </a>
+      <a class="ct-cell" role="cell" href="mailto:yh0000210@163.com">
+        <img src="images/email.png" alt="Email Icon" class="ct-icon">
+        <span>Email</span> yh0000210@163.com
+      </a>
     </div>
 
-    <!-- 底部版权信息 -->
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> Portfolio of Yinhan Liu. All rights reserved.</p>
+    <!-- 第二行 -->
+    <div class="ct-row" role="row">
+      <div class="ct-cell empty" role="cell"></div>
+      <a class="ct-cell" role="cell" href="mailto:540882267@qq.com">
+        <img src="images/qq.png" alt="QQ Icon" class="ct-icon">
+        <span>QQ</span> 540882267
+      </a>
+      <a class="ct-cell" role="cell" href="#">
+        <img src="images/wechat.png" alt="WeChat Icon" class="ct-icon">
+        <span>WeChat</span> Yinnnnn_210
+      </a>
     </div>
+  </div>
+
+  <div class="connect-right">
+    <a class="image" href="https://codepen.io/z-" target="_blank"
+      style="background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
+  </div>
+
+  <!-- 底部版权信息 -->
+  <div class="footer-bottom">
+    <p>© 2025 Portfolio of Yinhan Liu. All rights reserved.</p>
+  </div>
+
 
     <!-- SVG filter -->
     <svg style="position:fixed; top:100vh">
@@ -228,7 +231,7 @@
       </defs>
     </svg>
   </div>
-  
+
 
   <!-- 悬浮菜单 -->
   <div class="floating-menu" style="display:none;">
@@ -258,3 +261,5 @@
   <script src="js/projects.js"></script>
 </body>
 </html>
+
+
