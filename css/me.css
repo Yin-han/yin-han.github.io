@@ -881,7 +881,7 @@ h1{
   position: relative;
   flex: 0 0 auto;                       /* 图片宽度不被拉伸 */
   width: clamp(250px, 44vw, 350px);     /* 照片更小（不影响右侧文字位置） */
-  aspect-ratio: 4 / 5.5;
+  aspect-ratio: 4 / 5.8;
   cursor: pointer;
 }
 #happy-list .card-stack .shot{
