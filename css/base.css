@@ -1,5 +1,45 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Yatra+One&display=swap');
+/* Google Fonts: Caveat（可变字重 400–700） */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Courgette&display=swap');
+
+
+
+/* Courgette 工具类（仅 400） */
+.font-courgette{
+  font-family: "Courgette", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
+/* ===== Handwritten / Caveat utility ===== */
+:root{
+  /* 需要时也可以重写这个默认粗细 */
+  --caveat-weight: 500;
+}
+
+.font-caveat{
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;          /* 让 Google Fonts 可变字更清晰 */
+  font-weight: var(--caveat-weight);  /* 默认 500，可被下面的权重类覆盖 */
+  letter-spacing: .2px;               /* 轻微字距，读起来更稳 */
+}
+
+/* 快捷权重：按需叠加在 .font-caveat 后面 */
+.w400{ --caveat-weight: 400; }
+.w500{ --caveat-weight: 500; }
+.w600{ --caveat-weight: 600; }
+.w700{ --caveat-weight: 700; }
+
+
+
+
+
 
 /* Define color variables */
 :root {
@@ -109,8 +149,8 @@ h5 {
 /* ===== 鼠标 Custom Cursor Trail ===== */
 :root{
   --cursor-size: 26px;
-  --cursor-fill: rgba(113, 141, 194, 0.1);   /* 主橙 #FF7C1D 的半透填充 */
-  --cursor-stroke: rgba(25, 81, 158, 0.45); /* 主橙描边 */
+  --cursor-fill: rgba(153, 176, 219, 0.1);   /* 主橙 #FF7C1D 的半透填充 */
+  --cursor-stroke: rgba(14, 49, 98, 0.45); /* 主橙描边 */
 }
 
 .cursor-trail{
@@ -165,67 +205,4 @@ html, body{ cursor: none; }
 :where(input, textarea, select){ cursor: text !important; }
 
 
-/* === Fancy Button（修正版：去外层阴影，正反面重叠） === */
-.fancy-button{
-  position: relative;
-  display: inline-block;      /* 外层不再加阴影/背景 */
-  perspective: 1000px;
-  cursor: pointer;
-  margin-top: 1.5rem;         /* ↑ 按钮与上方增加距离（你要的效果） */
-}
 
-.fancy-button .fancy-flipper{
-  position: relative;
-  display: grid;              /* 用 grid 让两面重叠在同一层 */
-  transform-style: preserve-3d;
-  transition: transform .35s ease;
-}
-
-.fancy-button .fancy-front,
-.fancy-button .fancy-back{
-  grid-area: 1 / 1;           /* 两面重叠 */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .8rem;
-  padding: .8rem 1.1rem;
-  border-radius: 12px;
-  font-weight: 700;
-  font-family: 'Open Sans', sans-serif;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-/* 可配置颜色（默认蓝） */
-.fancy-button{
-  --front-color: #005EA2;     /* 正面底色 */
-  --back-color:  #005EA2;     /* 反面文字/边框色 */
-  --back-bg:     transparent; /* 反面背景色 */
-}
-
-/* 正面：把阴影放在正面，不放在外层，避免“白卡片” */
-.fancy-button .fancy-front{
-  background: var(--front-color);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(0,0,0,.10);
-}
-
-/* 反面：保持重叠且可自定义背景 */
-.fancy-button .fancy-back{
-  background: var(--back-bg);
-  border: 2px solid var(--back-color);
-  color: var(--back-color);
-  transform: rotateX(180deg);
-}
-
-/* 交互 */
-.fancy-button:hover .fancy-flipper{ transform: rotateX(180deg); }
-.fancy-button:active .fancy-flipper{ transform: rotateX(180deg) scale(.95); }
-
-/* 图标大小与右侧间距 */
-.fancy-button .fit-cta__icon{
-  width: 28px;
-  height: 28px;
-  margin-left: 10px;
-  display: block;
-}

@@ -204,11 +204,11 @@ a:hover {
 }
 
 #home .hero-tagline{
-  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  font-size: clamp(0.8rem, 2.2vw, 2rem);
   color: #fff;
   margin: 0 0 2rem;        /* 取消水平居中 */
   max-width: 900px;        /* 可保留，也可去掉 */
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 
@@ -423,7 +423,7 @@ a:hover {
     font-size: clamp(2.1rem, 8vw, 3rem);
   }
   .hero-tagline {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   .hero-link {
     font-size: 1.05rem;
