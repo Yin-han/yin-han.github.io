@@ -204,11 +204,11 @@ a:hover {
 }
 
 #home .hero-tagline{
-  font-size: clamp(0.8rem, 2.2vw, 2rem);
+  font-size: clamp(0.5rem, 2.2vw, 1.0rem);
   color: #fff;
   margin: 0 0 2rem;        /* 取消水平居中 */
   max-width: 900px;        /* 可保留，也可去掉 */
-  /* font-style: italic; */
+  font-weight: 500;
 }
 
 
