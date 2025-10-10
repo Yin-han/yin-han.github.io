@@ -446,9 +446,9 @@ header {
   border-radius: 20px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
   padding: 20px 30px;
-  margin: 60px auto;
-  max-width: 700px;
-  max-height: 300px;
+  margin: 0px auto;
+  max-width: 500px;
+  max-height: 500px;
   transform-origin: top center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
@@ -499,7 +499,7 @@ header {
   padding: 20px 30px;
   margin: 30px 0;         /* ✅ 改这里：上下30px，取消左右auto */
   max-width: 600px;
-  max-height: 300px;
+  max-height: 400px;
   transform-origin: top center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
@@ -529,7 +529,7 @@ header {
 
 .chart-card .chart-title h3 {
   font-size: 1.2em;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
 
 .chart-card .chart-title p {
@@ -648,3 +648,7 @@ header {
 .time-label {
   font-weight: bold;
 }
+
+
+
+
