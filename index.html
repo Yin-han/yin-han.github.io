@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Redirect only when visiting on github.io -->
+    <script>
+    (function () {
+      try {
+        var onGithubIO = /\.github\.io$/i.test(location.hostname);
+        if (onGithubIO) {
+          var target = 'https://yin-han-github-io.pages.dev' 
+                      + location.pathname + location.search + location.hash;
+          // 不留历史记录、避免回退又跳
+          location.replace(target);
+        }
+      } catch (e) {}
+    })();
+    </script>
+    <noscript>
+      <!-- 关闭 JS 时也能跳（不保留路径，兜底） -->
+      <meta http-equiv="refresh" content="0;url=https://yin-han-github-io.pages.dev">
+    </noscript>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yinhan Liu — Portfolio</title>
