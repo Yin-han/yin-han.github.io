@@ -40,3 +40,4 @@
   // 初始位置
   move(lastX, lastY);
 })();
+

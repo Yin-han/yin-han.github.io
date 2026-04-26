@@ -78,10 +78,66 @@
   animation-delay: 3.3s; /* 稍微晚一点 */
 }
 
+.intro-scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(28px, 6vh, 64px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-family: 'Yatra One', sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  animation: scrollHintFade 0.7s ease forwards 3.7s;
+}
+
+.intro-scroll-arrow {
+  width: 18px;
+  height: 18px;
+  border-right: 3px solid currentColor;
+  border-bottom: 3px solid currentColor;
+  transform: rotate(45deg);
+  animation: scrollArrowBounce 1.2s ease-in-out infinite;
+}
+
+.intro-scroll-hint span:first-child {
+  font-family: 'Open Sans', sans-serif;
+  opacity: 0.6;
+}
+
 /* Animations */
 @keyframes slideBlue {
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes scrollHintFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes scrollArrowBounce {
+  0%,
+  100% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(45deg) translate(6px, 6px);
   }
 }
 
@@ -441,6 +497,11 @@ a:hover {
     animation: none !important;
     transition: none !important;
   }
+
+  .intro-scroll-hint {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
 }
 
 
@@ -728,8 +789,4 @@ html, body {
   /* 若想显示但下移，请用下面这行替换上面隐藏
      .hero-note{ top:auto; bottom: 1rem; right: 1rem; } */
 }
-
-
-
-
 
