@@ -68,5 +68,32 @@ function enterMainContent() {
     }, 1000); // 等淡出动画完成
 }
 
+// Copy QQ / WeChat contact details
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".copy-contact").forEach(link => {
+        link.addEventListener("click", async (e) => {
+            e.preventDefault();
+            const value = link.dataset.copy;
+            if (!value) return;
 
+            try {
+                await navigator.clipboard.writeText(value);
+                link.classList.add("copied");
+                setTimeout(() => link.classList.remove("copied"), 1400);
+            } catch (err) {
+                const textarea = document.createElement("textarea");
+                textarea.value = value;
+                textarea.setAttribute("readonly", "");
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand("copy");
+                textarea.remove();
+                link.classList.add("copied");
+                setTimeout(() => link.classList.remove("copied"), 1400);
+            }
+        });
+    });
+});
 

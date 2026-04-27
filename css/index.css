@@ -665,6 +665,12 @@ body:not(.show-main) .floating-menu {
   font-weight: 600;
 }
 
+.contact-table .ct-cell.copied span::after {
+  content: " Copied";
+  font-weight: 400;
+  opacity: 0.75;
+}
+
 .contact-table .ct-cell:hover {
   text-decoration: underline;
 }
@@ -789,4 +795,3 @@ html, body {
   /* 若想显示但下移，请用下面这行替换上面隐藏
      .hero-note{ top:auto; bottom: 1rem; right: 1rem; } */
 }
-
