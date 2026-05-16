@@ -431,7 +431,7 @@ gsap.timeline({
 (() => {
   const stack = document.getElementById('gymStack');
   const lb = document.getElementById('happyLightbox');
-  if (!stack || !lb) return;
+  if (!stack || !lb || stack.classList.contains('fitness-deck')) return;
 
   const imgEl    = lb.querySelector('.hl-img');
   const btnPrev  = lb.querySelector('.hl-prev');
@@ -515,5 +515,135 @@ gsap.timeline({
 
   imgEl.addEventListener('touchend', () => {
     if (Math.abs(deltaX) > 50) (deltaX < 0 ? next() : prev());
+  });
+})();
+
+
+// ===== Fitness card deck: click to reveal all cards horizontally without changing layout =====
+(() => {
+  const deck = document.getElementById('gymStack');
+  if (!deck) return;
+
+  function toggleDeck() {
+    const expanded = deck.classList.toggle('is-expanded');
+    deck.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    deck.setAttribute('aria-label', expanded ? 'Collapse fitness cards' : 'Expand fitness cards');
+  }
+
+  deck.addEventListener('click', toggleDeck);
+  deck.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    toggleDeck();
+  });
+})();
+
+
+// ===== Vocal card deck: click to reveal the card behind without changing layout =====
+(() => {
+  const deck = document.getElementById('vocalStack');
+  if (!deck) return;
+
+  function toggleDeck() {
+    const expanded = deck.classList.toggle('is-expanded');
+    deck.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    deck.setAttribute('aria-label', expanded ? 'Collapse vocal cards' : 'Expand vocal cards');
+  }
+
+  deck.addEventListener('click', toggleDeck);
+  deck.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    toggleDeck();
+  });
+})();
+
+
+// ===== Volunteer card deck: click to reveal three cards horizontally =====
+(() => {
+  const deck = document.getElementById('volunteerStack');
+  if (!deck) return;
+
+  function toggleDeck() {
+    const expanded = deck.classList.toggle('is-expanded');
+    deck.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    deck.setAttribute('aria-label', expanded ? 'Collapse volunteer cards' : 'Expand volunteer cards');
+  }
+
+  deck.addEventListener('click', toggleDeck);
+  deck.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    toggleDeck();
+  });
+})();
+
+
+// ===== Fitness certificate reveal =====
+(() => {
+  const btn = document.getElementById('fitnessCertBtn');
+  const overlay = document.getElementById('fitnessCertOverlay');
+  if (!btn || !overlay) return;
+
+  const closeBtn = overlay.querySelector('.certificate-close');
+
+  function openCertificate(e) {
+    e?.stopPropagation();
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('no-scroll');
+  }
+
+  function closeCertificate() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('no-scroll');
+  }
+
+  btn.addEventListener('click', openCertificate);
+  closeBtn?.addEventListener('click', closeCertificate);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeCertificate();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeCertificate();
+  });
+})();
+
+
+// ===== Badminton video reveal =====
+(() => {
+  const btn = document.getElementById('badmintonVideoBtn');
+  const overlay = document.getElementById('badmintonVideoOverlay');
+  if (!btn || !overlay) return;
+
+  const closeBtn = overlay.querySelector('.badminton-video-close');
+  const video = overlay.querySelector('.badminton-video-player');
+
+  function openVideo(e) {
+    e?.stopPropagation();
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('no-scroll');
+    video?.play?.().catch(() => {});
+  }
+
+  function closeVideo() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('no-scroll');
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }
+
+  btn.addEventListener('click', openVideo);
+  closeBtn?.addEventListener('click', closeVideo);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeVideo();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeVideo();
   });
 })();

@@ -293,14 +293,13 @@
             <!-- 原第一屏：Fitness -->
             <div class="panel blue">
               <div class="hobby-row">
-                <!-- 左：简单卡片堆叠（无 tilt），点击打开全屏 -->
-                <div class="card-stack" id="gymStack"
-                     data-gallery='["images/健身1.jpg","images/健身2.jpg","images/健身3.jpg","images/健身4.jpg","images/健身5.jpg"]'>
-                  <img class="shot" src="images/健身3.jpg" alt="Gym 1">
+                <!-- 左：折叠卡片，点击横向展开 -->
+                <div class="card-stack fitness-deck" id="gymStack" role="button" tabindex="0" aria-label="Expand fitness cards" aria-expanded="false"
+                     data-gallery='["images/健身2.jpg","images/健身3.jpg"]'>
+                  <img class="shot fitness-card fitness-card--front" src="images/健身2.jpg" alt="Fitness 2">
+                  <img class="shot fitness-card fitness-card--back" src="images/健身3.jpg" alt="Fitness 3">
                   <!-- <img class="shot" src="images/健身2.jpg" alt="Gym 2">
-                  <img class="shot" src="images/健身3.jpg" alt="Gym 3">
-                  <img class="shot" src="images/健身4.jpg" alt="Gym 4">
-                  <img class="shot" src="images/健身5.jpg" alt="Gym 5"> -->
+                  <img class="shot" src="images/健身3.jpg" alt="Gym 3"> -->
                   <!-- <button class="stack-open" type="button" aria-label="Open">View</button> -->
                 </div>
 
@@ -313,6 +312,10 @@
                     I also earned my CPR certification and ACE-CPT (one of the world’s top four fitness coach certifications) to grow more professional.
                     And honestly, I really love the healthy and strong version of me. 💪
                   </p>
+                  <button class="certificate-btn" id="fitnessCertBtn" type="button" aria-haspopup="dialog" aria-controls="fitnessCertOverlay">
+                    <span class="certificate-btn__medal">ACE</span>
+                    <span>View certificate</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -321,9 +324,10 @@
             <div class="panel green">
               <div class="hobby-row">
                 <!-- 左：卡片堆叠 -->
-                <div class="card-stack" id="vocalStack"
+                <div class="card-stack vocal-deck" id="vocalStack" role="button" tabindex="0" aria-label="Expand vocal cards" aria-expanded="false"
                     data-gallery='["images/vocal1.jpg","images/vocal2.jpg","images/vocal3.jpg","images/vocal4.jpg","images/vocal5.jpg"]'>
-                  <img class="shot" src="images/vocal1.jpg" alt="Vocal 1">
+                  <img class="shot vocal-card vocal-card--front" src="images/vocal3.jpg" alt="Vocal 3">
+                  <img class="shot vocal-card vocal-card--back" src="images/vocal1.jpg" alt="Vocal 1">
                   <!-- <img class="shot" src="images/vocal2.jpg" alt="Vocal 2">
                   <img class="shot" src="images/vocal3.jpg" alt="Vocal 3">
                   <img class="shot" src="images/vocal4.jpg" alt="Vocal 4">
@@ -346,14 +350,12 @@
             <div class="panel purple">
               <div class="hobby-row">
                 <!-- 左：卡片堆叠 -->
-                <div class="card-stack" id="volunteerStack"
-                    data-gallery='["images/volunteer1.jpg","images/volunteer2.jpg","images/volunteer3.jpg","images/volunteer4.jpg","images/volunteer5.jpg"]'>
-                  <img class="shot" src="images/volunteer1.jpg" alt="Volunteer 1">
-                  <!-- <img class="shot" src="images/volunteer2.jpg" alt="Volunteer 2">
-                  <img class="shot" src="images/volunteer3.jpg" alt="Volunteer 3">
-                  <img class="shot" src="images/volunteer4.jpg" alt="Volunteer 4">
-                  <img class="shot" src="images/volunteer5.jpg" alt="Volunteer 5">
-                  <button class="stack-open" type="button" aria-label="Open">View</button> -->
+                <div class="card-stack volunteer-deck" id="volunteerStack" role="button" tabindex="0" aria-label="Expand volunteer cards" aria-expanded="false"
+                    data-gallery='["images/volunteer1.jpg","images/volunteer2.jpg","images/volunteer4.jpg"]'>
+                  <img class="shot volunteer-card volunteer-card--front" src="images/volunteer2.jpg" alt="Volunteer 2">
+                  <img class="shot volunteer-card volunteer-card--middle" src="images/volunteer1.jpg" alt="Volunteer 1">
+                  <img class="shot volunteer-card volunteer-card--back" src="images/volunteer4.jpg" alt="Volunteer 4">
+                  <!-- <button class="stack-open" type="button" aria-label="Open">View</button> -->
                 </div>
 
                 <!-- 右侧：标题 + 文案 -->
@@ -388,6 +390,10 @@
                     Badminton is such an enjoyable sport—it challenges both the body and the mind.  
                     Through its playful battles of skill and strategy, I’ve found joy and made many great friends.  
                   </p>
+                  <button class="badminton-video-btn" id="badmintonVideoBtn" type="button" aria-haspopup="dialog" aria-controls="badmintonVideoOverlay">
+                    <span class="badminton-video-btn__icon" aria-hidden="true">▶</span>
+                    <span>Watch rally</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -427,6 +433,20 @@
   </div>
 </section>
 
+  <div class="certificate-overlay" id="fitnessCertOverlay" role="dialog" aria-modal="true" aria-label="Fitness certificate" aria-hidden="true">
+    <button class="certificate-close" type="button" aria-label="Close certificate">×</button>
+    <div class="certificate-stage">
+      <div class="certificate-glow" aria-hidden="true"></div>
+      <img class="certificate-image" src="images/健身4.jpg" alt="ACE certified personal trainer certificate">
+    </div>
+  </div>
+
+  <div class="badminton-video-overlay" id="badmintonVideoOverlay" role="dialog" aria-modal="true" aria-label="Badminton video" aria-hidden="true">
+    <button class="badminton-video-close" type="button" aria-label="Close badminton video">×</button>
+    <div class="badminton-video-stage">
+      <video class="badminton-video-player" src="images/badminton.mp4" poster="images/badminton1.jpg" controls playsinline></video>
+    </div>
+  </div>
 
 
   <!-- Section 6 — Contact -->

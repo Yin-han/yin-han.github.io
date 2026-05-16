@@ -900,6 +900,195 @@ h1{
 #happy-list .card-stack .shot:nth-child(4){ transform: translate(24px,24px); }
 #happy-list .card-stack .shot:nth-child(5){ transform: translate(32px,32px); }
 
+/* Fitness: same folded card behavior as Vocal. */
+#happy-list .fitness-deck{
+  --expanded-center-shift: calc((min(1200px, 92vw) - 100%) / 2);
+  perspective: 1200px;
+}
+
+#happy-list .fitness-deck.is-expanded{
+  z-index: 20;
+}
+
+#happy-list .fitness-deck .fitness-card{
+  transform-origin: center bottom;
+  transition: transform .65s cubic-bezier(.2,.75,.2,1), box-shadow .65s ease, filter .65s ease;
+  will-change: transform;
+}
+
+#happy-list .fitness-deck .fitness-card--front{
+  z-index: 6;
+  transform: translate(0, 0) rotate(0deg);
+}
+
+#happy-list .fitness-deck .fitness-card--back{
+  z-index: 5;
+  object-position: center;
+  transform: translate(10px, 10px) rotate(3deg) scale(.98);
+  filter: brightness(.95);
+}
+
+#happy-list .fitness-deck:focus-visible{
+  outline: 3px solid rgba(255,255,255,.85);
+  outline-offset: 10px;
+}
+
+#happy-list .fitness-deck.is-expanded .fitness-card--front{
+  transform: translate(calc(var(--expanded-center-shift) - 55%), 0) rotate(0deg);
+  box-shadow: 0 24px 52px rgba(0,0,0,.34);
+}
+
+#happy-list .fitness-deck.is-expanded .fitness-card--back{
+  transform: translate(calc(var(--expanded-center-shift) + 55%), 0) rotate(0deg);
+  filter: brightness(1);
+  box-shadow: 0 24px 52px rgba(0,0,0,.34);
+}
+
+#happy-list .fitness-deck:hover .fitness-card--back{
+  transform: translate(16px, 10px) rotate(5deg) scale(.98);
+}
+
+#happy-list .fitness-deck.is-expanded:hover .fitness-card--front{
+  transform: translate(calc(var(--expanded-center-shift) - 55%), 0) rotate(0deg);
+}
+
+#happy-list .fitness-deck.is-expanded:hover .fitness-card--back{
+  transform: translate(calc(var(--expanded-center-shift) + 55%), 0) rotate(0deg);
+}
+
+/* Vocal: keep the original layout size; expanded cards spread horizontally. */
+#happy-list .vocal-deck{
+  --expanded-center-shift: calc((min(1200px, 92vw) - 100%) / 2);
+  perspective: 1200px;
+}
+
+#happy-list .vocal-deck.is-expanded{
+  z-index: 20;
+}
+
+#happy-list .vocal-deck .vocal-card{
+  transform-origin: center bottom;
+  transition: transform .65s cubic-bezier(.2,.75,.2,1), box-shadow .65s ease, filter .65s ease;
+  will-change: transform;
+}
+
+#happy-list .vocal-deck .vocal-card--front{
+  z-index: 6;
+  transform: translate(0, 0) rotate(0deg);
+}
+
+#happy-list .vocal-deck .vocal-card--back{
+  z-index: 5;
+  object-position: center;
+  transform: translate(10px, 10px) rotate(3deg) scale(.98);
+  filter: brightness(.95);
+}
+
+#happy-list .vocal-deck.is-expanded .vocal-card--front{
+  transform: translate(calc(var(--expanded-center-shift) - 55%), 0) rotate(0deg);
+  box-shadow: 0 24px 52px rgba(0,0,0,.34);
+}
+
+#happy-list .vocal-deck.is-expanded .vocal-card--back{
+  transform: translate(calc(var(--expanded-center-shift) + 55%), 0) rotate(0deg);
+  filter: brightness(1);
+  box-shadow: 0 24px 52px rgba(0,0,0,.34);
+}
+
+#happy-list .vocal-deck:focus-visible{
+  outline: 3px solid rgba(255,255,255,.85);
+  outline-offset: 10px;
+}
+
+#happy-list .vocal-deck:hover .vocal-card--back{
+  transform: translate(16px, 10px) rotate(5deg) scale(.98);
+}
+
+#happy-list .vocal-deck.is-expanded:hover .vocal-card--front{
+  transform: translate(calc(var(--expanded-center-shift) - 55%), 0) rotate(0deg);
+}
+
+#happy-list .vocal-deck.is-expanded:hover .vocal-card--back{
+  transform: translate(calc(var(--expanded-center-shift) + 55%), 0) rotate(0deg);
+}
+
+/* Volunteer: three-card folded gallery. */
+#happy-list .volunteer-deck{
+  --expanded-center-shift: calc((min(1200px, 92vw) - 100%) / 2);
+  perspective: 1200px;
+}
+
+#happy-list .volunteer-deck.is-expanded{
+  z-index: 20;
+}
+
+#happy-list .volunteer-deck .volunteer-card{
+  transform-origin: center bottom;
+  transition: transform .65s cubic-bezier(.2,.75,.2,1), box-shadow .65s ease, filter .65s ease;
+  will-change: transform;
+}
+
+#happy-list .volunteer-deck .volunteer-card--front{
+  z-index: 7;
+  transform: translate(0, 0) rotate(0deg);
+}
+
+#happy-list .volunteer-deck .volunteer-card--middle{
+  z-index: 6;
+  object-position: center;
+  transform: translate(10px, 10px) rotate(3deg) scale(.98);
+  filter: brightness(.96);
+}
+
+#happy-list .volunteer-deck .volunteer-card--back{
+  z-index: 5;
+  object-position: center;
+  transform: translate(20px, 18px) rotate(-3deg) scale(.96);
+  filter: brightness(.92);
+}
+
+#happy-list .volunteer-deck.is-expanded .volunteer-card{
+  filter: brightness(1);
+  box-shadow: 0 24px 52px rgba(0,0,0,.34);
+}
+
+#happy-list .volunteer-deck.is-expanded .volunteer-card--front{
+  transform: translate(calc(var(--expanded-center-shift) - 120%), 0) rotate(0deg);
+}
+
+#happy-list .volunteer-deck.is-expanded .volunteer-card--middle{
+  transform: translate(var(--expanded-center-shift), 0) rotate(0deg);
+}
+
+#happy-list .volunteer-deck.is-expanded .volunteer-card--back{
+  transform: translate(calc(var(--expanded-center-shift) + 120%), 0) rotate(0deg);
+}
+
+#happy-list .volunteer-deck:focus-visible{
+  outline: 3px solid rgba(255,255,255,.85);
+  outline-offset: 10px;
+}
+
+#happy-list .volunteer-deck:hover .volunteer-card--middle{
+  transform: translate(16px, 10px) rotate(5deg) scale(.98);
+}
+
+#happy-list .volunteer-deck:hover .volunteer-card--back{
+  transform: translate(28px, 18px) rotate(-5deg) scale(.96);
+}
+
+#happy-list .volunteer-deck.is-expanded:hover .volunteer-card--front{
+  transform: translate(calc(var(--expanded-center-shift) - 120%), 0) rotate(0deg);
+}
+
+#happy-list .volunteer-deck.is-expanded:hover .volunteer-card--middle{
+  transform: translate(var(--expanded-center-shift), 0) rotate(0deg);
+}
+
+#happy-list .volunteer-deck.is-expanded:hover .volunteer-card--back{
+  transform: translate(calc(var(--expanded-center-shift) + 120%), 0) rotate(0deg);
+}
+
 /* 打开全屏的按钮（可选） */
 #happy-list .stack-open{
   position: absolute; right: 12px; bottom: 12px;
@@ -932,6 +1121,311 @@ h1{
   line-height: 1.7;
   opacity: .96;
   white-space: pre-line;                /* 按文案换行显示 */
+}
+
+#happy-list .certificate-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.15rem;
+  padding: 10px 16px 10px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: .98rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+  transition: transform .22s ease, background .22s ease, box-shadow .22s ease;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+#happy-list .certificate-btn::before,
+#happy-list .certificate-btn::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 42px;
+  border-radius: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.18) 35%, rgba(255,255,255,.72) 50%, rgba(255,255,255,.18) 65%, transparent 100%);
+  filter: blur(.5px);
+  opacity: 0;
+  transform: skewX(-18deg);
+  animation: certificate-glass-sheen 2.6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#happy-list .certificate-btn::after{
+  display: none;
+}
+
+#happy-list .certificate-btn > *{
+  position: relative;
+  z-index: 1;
+}
+
+#happy-list .certificate-btn__medal{
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #fff2b0 0 18%, #ffbf2f 19% 55%, #c46a00 56% 100%);
+  color: #7b2f00;
+  font-size: .76rem;
+  font-weight: 900;
+  box-shadow: inset 0 2px 5px rgba(255,255,255,.55), 0 6px 16px rgba(0,0,0,.24);
+}
+
+#happy-list .certificate-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.24);
+  box-shadow: 0 16px 36px rgba(0,0,0,.22);
+}
+
+#happy-list .certificate-btn:hover .certificate-btn__medal{
+  animation: medal-pop .7s ease both;
+}
+
+@keyframes medal-pop{
+  0%, 100%{ transform: rotate(0deg) scale(1); }
+  35%{ transform: rotate(-10deg) scale(1.12); }
+  70%{ transform: rotate(8deg) scale(1.04); }
+}
+
+@keyframes certificate-glass-sheen{
+  0%, 42%{ left: -55px; opacity: 0; }
+  52%{ opacity: .85; }
+  72%{ left: calc(100% + 20px); opacity: 0; }
+  100%{ left: calc(100% + 20px); opacity: 0; }
+}
+
+.certificate-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 4vw, 56px);
+  background: rgba(49,20,0,.68);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+  perspective: 1400px;
+}
+
+.certificate-overlay.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.certificate-stage{
+  position: relative;
+  width: min(82vw, 1000px);
+  transform: translateY(28px) rotateX(18deg) scale(.88);
+  opacity: 0;
+  transition: transform .48s cubic-bezier(.2,.8,.2,1), opacity .36s ease;
+}
+
+.certificate-overlay.is-open .certificate-stage{
+  transform: translateY(0) rotateX(0deg) scale(1);
+  opacity: 1;
+}
+
+.certificate-glow{
+  position: absolute;
+  inset: -8%;
+  border-radius: 26px;
+  background: radial-gradient(circle at 50% 45%, rgba(255,191,47,.42), rgba(255,124,29,0) 66%);
+  filter: blur(18px);
+  animation: cert-glow 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.certificate-image{
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 32px 90px rgba(0,0,0,.48);
+}
+
+.certificate-close{
+  position: fixed;
+  top: clamp(18px, 3vw, 34px);
+  right: clamp(18px, 3vw, 34px);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  color: #f25c05;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,.28);
+}
+
+@keyframes cert-glow{
+  0%, 100%{ opacity: .65; transform: scale(.98); }
+  50%{ opacity: 1; transform: scale(1.03); }
+}
+
+#happy-list .badminton-video-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.15rem;
+  padding: 10px 17px 10px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: .98rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+  transition: transform .22s ease, background .22s ease, box-shadow .22s ease;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+#happy-list .badminton-video-btn::before,
+#happy-list .badminton-video-btn::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 42px;
+  border-radius: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.18) 35%, rgba(255,255,255,.72) 50%, rgba(255,255,255,.18) 65%, transparent 100%);
+  filter: blur(.5px);
+  opacity: 0;
+  transform: skewX(-18deg);
+  animation: badminton-glass-sheen 2.6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#happy-list .badminton-video-btn::after{
+  display: none;
+}
+
+#happy-list .badminton-video-btn > *{
+  position: relative;
+  z-index: 1;
+}
+
+#happy-list .badminton-video-btn__icon{
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff 0 16%, #8ee5c0 17% 56%, #078a65 57% 100%);
+  color: #fff;
+  font-size: .9rem;
+  box-shadow: inset 0 2px 5px rgba(255,255,255,.55), 0 6px 16px rgba(0,0,0,.24);
+}
+
+#happy-list .badminton-video-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.24);
+  box-shadow: 0 16px 36px rgba(0,0,0,.22);
+}
+
+#happy-list .badminton-video-btn:hover .badminton-video-btn__icon{
+  animation: shuttle-pulse .75s ease both;
+}
+
+.badminton-video-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 10025;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 56px);
+  background: rgba(27,18,0,.72);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+  perspective: 1400px;
+}
+
+.badminton-video-overlay.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.badminton-video-stage{
+  position: relative;
+  width: min(86vw, 980px);
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+  box-shadow: 0 34px 90px rgba(0,0,0,.5);
+  transform: translateY(34px) rotateX(18deg) scale(.9);
+  opacity: 0;
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .34s ease;
+}
+
+.badminton-video-overlay.is-open .badminton-video-stage{
+  transform: translateY(0) rotateX(0deg) scale(1);
+  opacity: 1;
+}
+
+.badminton-video-player{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.badminton-video-close{
+  position: fixed;
+  top: clamp(18px, 3vw, 34px);
+  right: clamp(18px, 3vw, 34px);
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  color: #f25c05;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,.28);
+}
+
+@keyframes shuttle-pulse{
+  0%, 100%{ transform: scale(1); }
+  40%{ transform: translateX(3px) scale(1.12); }
+  72%{ transform: translateX(-2px) scale(1.04); }
+}
+
+@keyframes badminton-glass-sheen{
+  0%, 42%{ left: -55px; opacity: 0; }
+  52%{ opacity: .85; }
+  72%{ left: calc(100% + 20px); opacity: 0; }
+  100%{ left: calc(100% + 20px); opacity: 0; }
 }
 
 /* 小屏：上下堆叠（保持原位，不右移） */
@@ -1145,8 +1639,3 @@ h1{
 .fun-btn:active{
   transform: scale(0.96);
 }
-
-
-
-
-
