@@ -647,3 +647,45 @@ gsap.timeline({
     if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeVideo();
   });
 })();
+
+
+// ===== Piano video reveal =====
+(() => {
+  const buttons = document.querySelectorAll('.piano-video-btn');
+  const overlay = document.getElementById('pianoVideoOverlay');
+  if (!buttons.length || !overlay) return;
+
+  const closeBtn = overlay.querySelector('.piano-video-close');
+  const video = overlay.querySelector('.piano-video-player');
+
+  function openVideo(e) {
+    const src = e.currentTarget.getAttribute('data-video');
+    if (!src || !video) return;
+    video.src = src;
+    video.load();
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('no-scroll');
+    video.play?.().catch(() => {});
+  }
+
+  function closeVideo() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('no-scroll');
+    if (video) {
+      video.pause();
+      video.removeAttribute('src');
+      video.load();
+    }
+  }
+
+  buttons.forEach(btn => btn.addEventListener('click', openVideo));
+  closeBtn?.addEventListener('click', closeVideo);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeVideo();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeVideo();
+  });
+})();
