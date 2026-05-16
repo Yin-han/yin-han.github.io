@@ -789,9 +789,99 @@ html, body {
   pointer-events: none; /* 避免挡到右侧交互 */
 }
 
+.gallery-cta{
+  position: absolute;
+  left: calc(50% + 430px);
+  top: clamp(200px, 26vw, 320px);
+  z-index: 3;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.gallery-cta:hover{
+  color: #fff;
+  transform: translateY(-2px);
+  opacity: .86;
+}
+
+.gallery-cta__icon{
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #fff;
+  font-size: 1.7rem;
+  position: relative;
+}
+
+.gallery-cta__icon::before,
+.gallery-cta__icon::after{
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 2px solid rgba(255,255,255,.62);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(.72);
+  animation: galleryIconRipple 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+.gallery-cta__icon::after{
+  animation-delay: 1.1s;
+}
+
+.gallery-cta__text{
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.gallery-cta__text strong{
+  font-family: 'Yatra One', cursive;
+  font-size: clamp(.95rem, 1.1vw, 1.15rem);
+  letter-spacing: 0;
+}
+
+.gallery-cta__text small{
+  font-family: 'Open Sans', system-ui, sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .2s ease, transform .2s ease;
+  white-space: nowrap;
+}
+
+.gallery-cta:hover .gallery-cta__text small{
+  opacity: .9;
+  transform: translateY(0);
+}
+
+@keyframes galleryIconRipple{
+  0%{ opacity: 0; transform: scale(.72); }
+  18%{ opacity: .78; }
+  100%{ opacity: 0; transform: scale(1.35); }
+}
+
 /* 小屏时可隐藏或下移（二选一：推荐隐藏） */
 @media (max-width: 720px){
   .hero-note{ display: none; }
+  .gallery-cta{
+    position: static;
+    grid-column: 1 / -1;
+    margin-top: -8px;
+  }
   /* 若想显示但下移，请用下面这行替换上面隐藏
      .hero-note{ top:auto; bottom: 1rem; right: 1rem; } */
 }

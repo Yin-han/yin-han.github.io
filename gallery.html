@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Yinhan Liu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <img src="images/loading.gif" alt="Loading..." />
+  </div>
+
+  <main class="gallery-page">
+    <header class="gallery-hero">
+      <h1>Gallery</h1>
+      <p class="gallery-subtitle">Beautiful moments in color, light, and memory.</p>
+    </header>
+
+    <section class="scene" aria-label="Beautiful rotating image gallery">
+      <div class="a3d" style="--n: 18">
+        <img class="card" src="images/scene1.jpg" style="--i: 0" alt="Beautiful gallery scene 1">
+        <img class="card" src="images/scene2.jpg" style="--i: 1" alt="Beautiful gallery scene 2">
+        <img class="card" src="images/scene3.jpg" style="--i: 2" alt="Beautiful gallery scene 3">
+        <img class="card" src="images/scene4.jpg" style="--i: 3" alt="Beautiful gallery scene 4">
+        <img class="card" src="images/scene5.jpg" style="--i: 4" alt="Beautiful gallery scene 5">
+        <img class="card" src="images/scene6.jpg" style="--i: 5" alt="Beautiful gallery scene 6">
+        <img class="card" src="images/scene7.jpg" style="--i: 6" alt="Beautiful gallery scene 7">
+        <img class="card" src="images/scene8.jpg" style="--i: 7" alt="Beautiful gallery scene 8">
+        <img class="card" src="images/scene9.jpg" style="--i: 8" alt="Beautiful gallery scene 9">
+        <img class="card" src="images/scene10.jpg" style="--i: 9" alt="Beautiful gallery scene 10">
+        <img class="card" src="images/scene11.jpg" style="--i: 10" alt="Beautiful gallery scene 11">
+        <img class="card" src="images/scene12.jpg" style="--i: 11" alt="Beautiful gallery scene 12">
+        <img class="card" src="images/scene13.jpg" style="--i: 12" alt="Beautiful gallery scene 13">
+        <img class="card" src="images/scene14.jpg" style="--i: 13" alt="Beautiful gallery scene 14">
+        <img class="card" src="images/scene15.jpg" style="--i: 14" alt="Beautiful gallery scene 15">
+        <img class="card" src="images/scene16.jpg" style="--i: 15" alt="Beautiful gallery scene 16">
+        <img class="card" src="images/scene17.jpg" style="--i: 16" alt="Beautiful gallery scene 17">
+        <img class="card" src="images/scene18.jpg" style="--i: 17" alt="Beautiful gallery scene 18">
+      </div>
+    </section>
+  </main>
+
+  <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+    <button class="gallery-lightbox__close" type="button" aria-label="Close image preview">×</button>
+    <img class="gallery-lightbox__image" src="" alt="">
+  </div>
+
+  <div class="floating-menu" style="display:none;">
+    <div id="myMenu"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/loading.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/cursor.js" defer></script>
+</body>
+</html>
