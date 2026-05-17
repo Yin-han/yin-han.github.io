@@ -12,17 +12,46 @@ html{
 }
 
 body{
+  position: relative;
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 78% 18%, rgba(0,94,162,.32), transparent 30%),
-    linear-gradient(135deg, #0b0d13 0%, var(--gallery-surface) 48%, #090a0d 100%),
-    var(--gallery-bg);
+  background: #060212;
   color: var(--gallery-text);
   overflow-x: hidden;
 }
 
+#backgroundCanvas,
+#starsCanvas,
+#milkyWayCanvas{
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#backgroundCanvas{
+  z-index: 0;
+  background: radial-gradient(circle at 52% 46%, #100826 0%, #060212 66%, #030108 100%);
+}
+
+#milkyWayCanvas{
+  z-index: 1;
+  background-color: transparent;
+  filter: blur(0px);
+}
+
+#starsCanvas{
+  z-index: 2;
+  background-color: transparent;
+}
+
 .gallery-page{
+  position: relative;
+  z-index: 3;
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -38,7 +67,7 @@ body{
   grid-template-columns: 1fr;
   justify-items: center;
   text-align: center;
-  margin-top: clamp(28px, 5vh, 56px);
+  margin-top: clamp(76px, 10vh, 120px);
 }
 
 .gallery-hero h1{
@@ -64,6 +93,7 @@ body{
 .scene{
   overflow: hidden;
   min-height: min(860px, 82vh);
+  margin-top: -70px;
   perspective: 35em;
   mask: linear-gradient(90deg, #0000, #000 20% 80%, #0000);
   -webkit-mask: linear-gradient(90deg, #0000, #000 20% 80%, #0000);
