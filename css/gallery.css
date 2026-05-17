@@ -114,6 +114,7 @@ body{
 .card{
   --w: clamp(16rem, 31vw, 26rem);
   --ba: 1turn / var(--n);
+  --card-scale: 1;
   grid-area: 1 / 1;
   display: block;
   width: var(--w);
@@ -126,9 +127,17 @@ body{
   backface-visibility: hidden;
   box-shadow: 0 26px 62px rgba(0,0,0,.48);
   cursor: zoom-in;
+  pointer-events: auto;
+  transition: transform .22s ease, filter .22s ease;
   transform:
     rotateY(calc(var(--i) * var(--ba)))
-    translateZ(calc(-1 * (.5 * var(--w) + .5em) / tan(.5 * var(--ba))));
+    translateZ(calc(-1 * (.5 * var(--w) + .5em) / tan(.5 * var(--ba))))
+    scale(var(--card-scale));
+}
+
+.card:hover{
+  --card-scale: 1.055;
+  filter: brightness(1.08);
 }
 
 .gallery-lightbox{

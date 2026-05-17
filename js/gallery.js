@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!lightbox || !lightboxImage || !closeButton || cards.length === 0) return;
 
+  const scene = document.querySelector('.scene');
+  let pointerStart = null;
+
   const openLightbox = (image) => {
     lightboxImage.src = image.currentSrc || image.src;
     lightboxImage.alt = image.alt || 'Gallery image preview';
@@ -27,9 +30,32 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxImage.alt = '';
   };
 
-  cards.forEach((card) => {
-    card.addEventListener('click', () => openLightbox(card));
-  });
+  if (scene) {
+    scene.addEventListener('pointerdown', (event) => {
+      const card = event.target.closest('.card');
+      pointerStart = card
+        ? { card, x: event.clientX, y: event.clientY }
+        : null;
+    });
+
+    scene.addEventListener('pointerup', (event) => {
+      if (!pointerStart) return;
+
+      const moved = Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y);
+      const releasedCard = event.target.closest('.card');
+      const targetCard = releasedCard || pointerStart.card;
+
+      if (moved < 14 && targetCard) {
+        openLightbox(targetCard);
+      }
+
+      pointerStart = null;
+    });
+
+    scene.addEventListener('pointerleave', () => {
+      pointerStart = null;
+    });
+  }
 
   closeButton.addEventListener('click', closeLightbox);
 
