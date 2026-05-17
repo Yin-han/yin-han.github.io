@@ -111,6 +111,32 @@ h5 {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+.floating-menu .item[data-label]::after {
+    content: attr(data-label);
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    transform: translate(-50%, 6px);
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.44);
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1.2;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.floating-menu .item[data-label]:hover::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
 .floating-menu i {
     font-size: 20px;
     color: #222;
@@ -203,6 +229,5 @@ html, body{ cursor: none; }
 
 /* 表单编辑时仍显示文本插入光标（不影响你自定义的圆圈跟随） */
 :where(input, textarea, select){ cursor: text !important; }
-
 
 

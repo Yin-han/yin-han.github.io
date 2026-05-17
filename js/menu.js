@@ -2,10 +2,13 @@
 var timeOut;
 
 class Item {
-    constructor(iconPath, backgroundColor, link = null) {
+    constructor(iconPath, backgroundColor, link = null, label = "") {
         this.$element = $(document.createElement("div"));
         this.$element.addClass("item");
         this.$element.css("background-color", backgroundColor);
+        if (label) {
+            this.$element.attr("data-label", label);
+        }
 
         // 用 <img> 来显示 SVG 图标
         const img = document.createElement("img");
@@ -166,9 +169,9 @@ $(function(){
     var item0 = new Item("images/menu.svg", "#ffaa00ff");
 
     // 其他菜单项，对应页面（已移除草绿色“正在做的”）
-    var item1 = new Item("images/main.svg", "#ff7700", "index.html");       // 首页
-    var item2 = new Item("images/me.svg", "#d01500ff", "me.html");            // 关于我
-    var item3 = new Item("images/projects.svg", "#00487bff", "projects.html"); // 项目
+    var item1 = new Item("images/main.svg", "#ff7700", "index.html", "Home");       // 首页
+    var item2 = new Item("images/me.svg", "#d01500ff", "me.html", "About me");            // 关于我
+    var item3 = new Item("images/projects.svg", "#00487bff", "projects.html", "Projects"); // 项目
 
     // 添加菜单项
     menu.add(item0, true);
@@ -195,4 +198,3 @@ $(function(){
     `);
   });
 });
-
